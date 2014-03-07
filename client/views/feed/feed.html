@@ -1,6 +1,6 @@
 <template name="feed">
   {{#each posts}}
-    <a class="post-link" href="{{uri}}">{{title}}</a>
+    <a class="post-link" href="{{uri}}">{{title}} <span class="faded">({{domain}})</span></a>
     <hr>
   {{/each}}
 </template>
