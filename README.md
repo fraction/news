@@ -12,10 +12,10 @@ Content aggregators are a huge part of the web, delivering the latest news and a
 * **It's your data.** You can make the decision to download and delete all of your data whenever you'd like. If you ever feel that you can't trust Fraction with your personal data, you should be able to remove it immediately and permanently.
 
 ## When?
-Fraction launches June 2nd, 2014 – although the [demo](https://demo.fraction.io) will always have the latest code for you to test. You can also [sign up for the launch email](http://eepurl.com/PS9SD) if you want to be emailed when it's released.
+Fraction launches June 2nd, 2014 – although the [demo](http://demo.fraction.io) will always have the latest code for you to test. You can also [sign up for the launch email](http://eepurl.com/PS9SD) if you want to be emailed when it's released.
 
 ## Where?
-There will be a [blog post every day](https://blog.fraction.io/), but you can also check out the [Fraction demo](https://demo.fraction.io/) if you want to see for yourself. The demo is bleeding-edge and highly experimental, but you can [open an issue](https://github.com/fraction/fraction/issues/new) if you run into anything unusual.
+There will be a [blog post every day](http://blog.fraction.io/), but you can also check out the [Fraction demo](http://demo.fraction.io/) if you want to see for yourself. The demo is bleeding-edge and highly experimental, but you can [open an issue](https://github.com/fraction/fraction/issues/new) if you run into anything unusual.
 
 ## Why?
 1. People shouldn't have to do [shit work](http://zachholman.com/posts/shit-work/).
