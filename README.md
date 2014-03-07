@@ -12,7 +12,7 @@ Content aggregators are a huge part of the web, delivering the latest news and a
 * **It's your data.** You can make the decision to download and delete all of your data whenever you'd like. If you ever feel that you can't trust Fraction with your personal data, you should be able to remove it immediately and permanently.
 
 ## When?
-Fraction launches June 4th, 2014 – although the [demo](https://demo.fraction.io) will always have the latest code for you to test-drive.
+Fraction launches June 4th, 2014 – although the [demo](https://demo.fraction.io) will always have the latest code for you to test.
 
 ## Where?
 There will be a [blog post every day](https://blog.fraction.io/), but you can also check out the [Fraction demo](https://demo.fraction.io/) if you want to see for yourself. The demo is bleeding-edge and highly experimental, but you can [open an issue](https://github.com/fraction/fraction/issues/new) if you run into anything unusual.
