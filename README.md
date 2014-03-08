@@ -8,7 +8,7 @@ A machine learning content aggregator built with Meteor.
 Content aggregators are a huge part of the web, delivering the latest news and acting as a social hub for communities like [reddit](http://reddit.com/), [Hacker News](http://news.ycombinator.com),  [Designer News](http://news.layervault.com), and [Digg](http://digg.com/). While each of these has a different style and flavor of delivering the news, Fraction is being built with a few major differences:
 
 * **You're in control.** Instead of showing you content that appeals to the lowest common denominator, your feed is personally tailored to show you content that's recommended by people who like the same things that you do.
-* **Censorship is ██ing evil.** You can decide which content you want to see. The only content that will ever be moderated is content that contains malicious code – although every effort is being put in place to make sure this can't happen.
+* **Censorship is ██ing evil.** You should be able to decide what you see, not somebody else. [Computer crime](https://en.wikipedia.org/wiki/Computer_crime) is the only content that will be removed, and its removal will be completely open and transparent.
 * **It's your data.** You can make the decision to download and delete all of your data whenever you'd like. If you ever feel that you can't trust Fraction with your personal data, you should be able to remove it immediately and permanently.
 
 ## When?
