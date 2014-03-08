@@ -1,7 +1,7 @@
 <template name="feed">
   {{#each posts}}
     <div class="post-block" data-post="{{id}}">
-      <a class="post-link" href="{{uri}}">{{title}} <span class="faded">({{domain}})</span></a>
+      <a class="post-link" href="{{uri}}">{{title}}</a>
       <div class="post-info">
         <a class="upvote"   data-post="{{id}}" href="/like/{{id}}">Like</a>
         •
