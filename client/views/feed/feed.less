@@ -1,15 +1,28 @@
-.post-link {
-  display: block;
+.post-block {
   border-bottom: 2px solid #F9FAFB;
   font-size: 2rem;
   padding: 2rem;
-  &:hover {
-    color: #0089FF;
-    text-decoration: none;
-    background-color: white;
-    // incredibly subtle faded highlight
-    -webkit-box-shadow: inset 0 0 3rem 0 #fefefe;
-    -moz-box-shadow:    inset 0 0 3rem 0 #fefefe;
-    box-shadow:         inset 0 0 3rem 0 #fefefe;
+  background-color: white;
+  // incredibly subtle faded highlight
+  -webkit-box-shadow: inset 0 0 3rem 0 #fefefe;
+  -moz-box-shadow:    inset 0 0 3rem 0 #fefefe;
+  box-shadow:         inset 0 0 3rem 0 #fefefe;
+}
+
+.post-link {
+  display: block;
+}
+
+.post-info {
+  color: #aaa;
+  font-size: 1.5rem;
+  a {
+    color: #A1C5E5;
+  }
+  .upvoted {
+    color: #007FFF;
+  }
+  .downvoted {
+    color: #FF5100;
   }
 }
