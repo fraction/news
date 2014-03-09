@@ -3,6 +3,8 @@ Fraction
 
 A machine learning content aggregator built with Meteor.
 
+[![Build Status](https://travis-ci.org/christianbundy/fraction.png)](https://travis-ci.org/christianbundy/fraction) [![Code Climate](https://codeclimate.com/github/christianbundy/fraction.png)](https://codeclimate.com/github/christianbundy/fraction) 
+
 ## What?
 
 Content aggregators are a huge part of the web, delivering the latest news and acting as a social hub for communities like [reddit](http://reddit.com/), [Hacker News](http://news.ycombinator.com),  [Designer News](http://news.layervault.com), and [Digg](http://digg.com/). While each of these has a different style and flavor of delivering the news, Fraction is being built with a few major differences:
