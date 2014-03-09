@@ -1,22 +1,22 @@
 // gets just the domain of a title
 var getDomain = function (uri) {
   return uri.replace('http://','').replace('https://','').split(/[/?#]/)[0];
-}
+};
 
 // 7 comments, 1 comment.
 var pluralizeComment = function (num) {
-  if (num == 1) {
-    return num + ' comment'
+  if (num === 1) {
+    return num + ' comment';
   } else {
-    return num + ' comments'
+    return num + ' comments';
   }
-}
+};
 
 // It'll take a sentence like this and make it
 // itll-take-a-sentence-like-this-and-make-it
 var cleanText = function (str) {
   return str.replace(/[^\w\s]/gi, '').replace(/\W/g, "-").toLowerCase();
-}
+};
 
 // fake titles to be removed later
 var postTitles = [
@@ -44,35 +44,31 @@ var fakeData = function (id, link, author) {
     author: author,
     authorLink: '/user/' + author.toLowerCase()
   };
-}
+};
 
 // Called when a user clicks on an upvote or downvote
 var vote = function (event) {
   event.preventDefault();
   var id = event.target.dataset.post;
   var target = $(event.target);
+  var direction, inverse;
   if (target.hasClass('upvote')) {
-    if (target.hasClass('upvoted')) {
-      target.removeClass('upvoted');
-    } else {
-      target.addClass('upvoted');
-      var downvote = $('.downvote[data-post=' + id + ']');
-      if (downvote.hasClass('downvoted')) {
-        downvote.removeClass('downvoted');
-      }
-    }
+    direction = 'up';
+    inverse   = 'down';
   } else if (target.hasClass('downvote')) {
-    if (target.hasClass('downvoted')) {
-      target.removeClass('downvoted');
-    } else {
-      target.addClass('downvoted');
-      var downvote = $('.upvote[data-post=' + id + ']');
-      if (downvote.hasClass('upvoted')) {
-        downvote.removeClass('upvoted');
-      }
+    direction = 'down';
+    inverse   = 'up';
+  }
+  if (target.hasClass(direction + 'voted')) {
+    target.removeClass(direction + 'voted');
+  } else {
+    target.addClass(direction + 'voted');
+    var opposite = $('.' + inverse + 'vote[data-post=' + id + ']');
+    if (opposite.hasClass(inverse + 'voted')) {
+      opposite.removeClass(inverse + 'voted');
     }
   }
-}
+};
 
 
 // throw a bunch of posts together – in the future this will pull from the database
@@ -84,11 +80,11 @@ Template.feed.posts = function () {
         i,
         'https://github.com/fraction/fraction',
         'Anonymous'
-      )
-    );
+        )
+      );
   }
   return posts;
-}
+};
 
 Template.feed.events({
   'click .upvote, click .downvote': vote
