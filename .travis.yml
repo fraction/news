@@ -1,0 +1,5 @@
+language: node_js
+node_js:
+  - "0.10"
+before_install:
+  - "curl -L https://gist.githubusercontent.com/christianbundy/bee07219d0315688e1f9/raw/a568e376ac34e56c0dd97e37f7d6bee355be6945/meteor-travis-before-install.sh | /bin/sh"

@@ -1,0 +1,29 @@
+{
+  "name": "fraction",
+  "version": "0.1.0",
+  "author": "Christian Bundy",
+  "description": "A machine learning content aggregator in Meteor.",
+  "contributors": [
+    {
+      "name": "Christian Bundy",
+      "email": "me@christianbundy.com.com"
+    }
+  ],
+  "scripts": {
+    "start": "meteor",
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fraction/fraction.git"
+  },
+  "keywords": [
+    "machine learning",
+    "content aggregator",
+    "server"
+  ],
+  "analyze": false,
+  "engines": {
+    "node": ">=0.10"
+  }
+}
