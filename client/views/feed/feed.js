@@ -71,7 +71,7 @@ var vote = function (event) {
 };
 
 
-// throw a bunch of posts together – in the future this will pull from the database
+// throw together some sample data
 Template.feed.posts = function () {
   var posts = [];
   for (var i = 0; i < postTitles.length; i++) {
