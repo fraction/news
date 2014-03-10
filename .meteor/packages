@@ -11,4 +11,6 @@ bootstrap-3
 jquery
 iron-router
 less
+accounts-password
+coffeescript
 accounts-entry
