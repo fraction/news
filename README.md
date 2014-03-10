@@ -1,9 +1,6 @@
-Fraction
-========
+# Fraction [![Build Status](http://img.shields.io/travis/fraction/fraction.svg)](https://travis-ci.org/fraction/fraction) [![Code Climate](http://img.shields.io/codeclimate/github/fraction/fraction.svg)](https://codeclimate.com/github/fraction/fraction)
 
 A machine learning content aggregator built with Meteor.
-
-[![Build Status](https://travis-ci.org/fraction/fraction.png?branch=master)](https://travis-ci.org/fraction/fraction) [![Code Climate](https://codeclimate.com/github/fraction/fraction.png)](https://codeclimate.com/github/fraction/fraction)
 
 ## What?
 
