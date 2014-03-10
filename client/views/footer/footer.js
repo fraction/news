@@ -1,4 +1,4 @@
 Template.footer.version = function () {
-  "use strict"
+  "use strict";
   return Meteor.Fraction.version;
 };
