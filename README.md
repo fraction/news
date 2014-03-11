@@ -1,28 +1,15 @@
-Fraction
-========
+[![Fraction](http://i.imgur.com/sCu2Klt.png)](http://fraction.io)
 
-A machine learning content aggregator built with Meteor.
+**Try the [demo](http://demo.fraction.io), read our [blog](http://blog.fraction.io), follow our [tweets](http://twitter.com/GetFraction), and sign up for the [launch email](http://eepurl.com/PS9SD). Thank you!**
 
-[![Build Status](https://travis-ci.org/fraction/fraction.png?branch=master)](https://travis-ci.org/fraction/fraction) [![Code Climate](https://codeclimate.com/github/fraction/fraction.png)](https://codeclimate.com/github/fraction/fraction)
+[![Build Status](http://img.shields.io/travis/fraction/fraction.svg)](https://travis-ci.org/fraction/fraction) [![Code Climate](http://img.shields.io/codeclimate/github/fraction/fraction.svg)](https://codeclimate.com/github/fraction/fraction)
 
-## What?
+Content aggregators deliver the latest news and act as a social hub for communities like [Reddit](http://reddit.com/) and [Hacker News](http://news.ycombinator.com) – but there are still three fundamental problems that need to be solved:
 
-Content aggregators are a huge part of the web, delivering the latest news and acting as a social hub for communities like [reddit](http://reddit.com/), [Hacker News](http://news.ycombinator.com),  [Designer News](http://news.layervault.com), and [Digg](http://digg.com/). While each of these has a different style and flavor of delivering the news, Fraction is being built with a few major differences:
+1. **We can do better.** Why aren't content aggregators using the same technology behind services like Google and Netflix? Using a [collaborative filtering algorithm](https://en.wikipedia.org/wiki/Collaborative_filtering#Memory-based), Fraction can learn and predict what you'll find interesting – constantly helping you discover new things that you'll like.
 
-* **You're in control.** Instead of showing you content that appeals to the lowest common denominator, your feed is personally tailored to show you content that's recommended by people who like the same things that you do.
-* **Censorship is ██ing evil.** You should be able to decide what you see, not somebody else. [Computer crime](https://en.wikipedia.org/wiki/Computer_crime) is the only content that will be removed, and its removal will be completely open and transparent.
-* **It's your data.** You can make the decision to download and delete all of your data whenever you'd like. If you ever feel that you can't trust Fraction with your personal data, you should be able to remove it immediately and permanently.
+2. **Censorship is ██ing evil.** You should be able to decide what content you want to see; [people with money, authority, and bad intentions](https://firstlook.org/theintercept/2014/02/24/jtrig-manipulation/) shouldn't be able to make that decision for you.
 
-## When?
-Fraction launches June 2nd, 2014 – although the [demo](http://demo.fraction.io) will always have the latest code for you to test. You can also [sign up for the launch email](http://eepurl.com/PS9SD) if you want to be emailed when it's released.
+3. **Free software is good software.** Customize it like your [text editor](https://atom.io/)! You should be able to install, fork, and create plugins without being forced to use a [bloated one-size-fits-all solution](http://redditenhancementsuite.com/).
 
-## Where?
-There will be a [blog post every day](http://blog.fraction.io/), but you can also check out the [Fraction demo](http://demo.fraction.io/) if you want to see for yourself. The demo is bleeding-edge and highly experimental, but you can [open an issue](https://github.com/fraction/fraction/issues/new) if you run into anything unusual.
-
-## Why?
-1. People shouldn't have to do [shit work](http://zachholman.com/posts/shit-work/).
-2. Content aggregators are prone to manipulation by people with money, authority, and bad intentions.
-3. I want to use it.
-
-## Who?
-I'm [Christian Bundy](http://christianbundy.com), nice to meet you.
+Questions? Comments? Code? [Create a new issue](https://github.com/fraction/fraction/issues/new) or check out the [contribution guidelines](https://github.com/fraction/fraction/blob/master/CONTRIBUTING.md).

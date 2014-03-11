@@ -3,6 +3,7 @@ Router.configure({
 });
 
 Router.map(function () {
+  "use strict";
   this.route('index', {
     path: '*',
     template: 'feed'
