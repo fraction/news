@@ -11,15 +11,18 @@
 
 .post-link {
   display: block;
-  color: #43515B;
+  color: hsl(205, 15%, 30%);
   &:visited {
     color: #DAE0E5;
+  }
+  &:hover {
+    color: hsl(205, 15%, 30%);
   }
 }
 
 .post-info {
   color: #aaa;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   margin-top: .5rem;
   a {
     color: #A1C5E5;
@@ -32,14 +35,17 @@
   }
 }
 
+.post-stars {
+  font-size: 1.2rem;
+  margin-right: 0.25rem;
+
+}
+
 @media only screen and (max-width: 767px) {
-  .post-block {
-    font-size: 1.125rem;
-  }
   .post-info {
     margin-top: 1rem;
   }
   .stars {
-    font-size: 2rem;
+    font-size: 1.2rem;
   }
 }

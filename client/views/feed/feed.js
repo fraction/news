@@ -23,11 +23,11 @@ var cleanText = function (str) {
 
 // fake titles to be removed later
 var postTitles = [
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-  'Duis sit amet felis turpis. Integer nec accumsan arcu.',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit ligula sit amet.',
+  'Duis sit amet felis turpis. Integer nec accumsan arcu volutpat purus ague.',
   'Phasellus volutpat purus ac augue sagittis posuere.',
   'Ut tempus vehicula ligula sit amet fermentum.',
-  'Fusce eget posuere turpis.',
+  'Fusce eget posuere turpis enim purus turpis sit amet arcu a libero.',
   'Vivamus placerat id enim ac consectetur.',
   'Integer quis libero a arcu tempus fermentum nec sit amet risus.',
   'Integer tempus, erat ultricies facilisis consectetur, leo lacus eleifend.'
@@ -38,19 +38,18 @@ var fakeData = function (id, link, author) {
   "use strict";
   var title = postTitles[id];
   var commentNum = Math.ceil((Math.random()*100)+1);
-  var starNum = 3;
-  console.log(starNum);
+  var starNum = 0;
   var starArr = [];
   for (var i = 1; i <= 5; i++) {
     if (i <= starNum) {
       starArr.push({
-        type: 'fa-star',
-        label: 'star-' + i
+        num:   i,
+        type:  'fa-star'
       });
     } else {
       starArr.push({
-        type: 'fa-star-o',
-        label: 'star-' + i
+        num:  i,
+        type: 'fa-star-o'
       });
     }
   }
@@ -66,7 +65,8 @@ var fakeData = function (id, link, author) {
     commentLink: '/comments/' + id + '/' + cleanText(title),
     author: author,
     authorLink: '/user/' + author.toLowerCase(),
-    stars: starArr
+    stars: starArr,
+    rating: 0
   };
 };
 
