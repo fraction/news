@@ -50,32 +50,6 @@ var fakeData = function (id, link, author) {
   };
 };
 
-// Called when a user clicks on an upvote or downvote
-var vote = function (event) {
-  "use strict";
-  event.preventDefault();
-  var id = event.target.dataset.post;
-  var target = $(event.target);
-  var direction, inverse;
-  if (target.hasClass('upvote')) {
-    direction = 'up';
-    inverse   = 'down';
-  } else if (target.hasClass('downvote')) {
-    direction = 'down';
-    inverse   = 'up';
-  }
-  if (target.hasClass(direction + 'voted')) {
-    target.removeClass(direction + 'voted');
-  } else {
-    target.addClass(direction + 'voted');
-    var opposite = $('.' + inverse + 'vote[data-post=' + id + ']');
-    if (opposite.hasClass(inverse + 'voted')) {
-      opposite.removeClass(inverse + 'voted');
-    }
-  }
-};
-
-
 // throw together some sample data
 Template.feed.posts = function () {
   "use strict";
@@ -91,7 +65,3 @@ Template.feed.posts = function () {
   }
   return posts;
 };
-
-Template.feed.events({
-  'click .upvote, click .downvote': vote
-});
