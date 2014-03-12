@@ -4,12 +4,16 @@
 
 .title {
   margin-top: 0;
+  display: inline-block;
   a {
   margin: 0;
   font-weight: bold;
   color: hsl(206, 15%, 31%);
-  padding: 3rem;
+  font-size: 2rem;
+  padding: 2rem;
   float: left;
+  display: inline-block;
+  padding-right: 0;
     &:hover {
       color: hsl(206, 15%, 31%);
     }
@@ -21,10 +25,16 @@
   }
 }
 
-
 .menu {
-  padding: 3rem;
-  li>a:hover {
-    background-color: white;
+  padding: 2rem;
+  padding-left: 0;
+  float: right;
+  li>a {
+    font-size: 1.33rem;
+    padding-top: .33rem;
+    padding-bottom: .33rem;
+    &:hover {
+      background-color: white;
+    }
   }
 }
