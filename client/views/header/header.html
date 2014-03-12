@@ -5,7 +5,11 @@
         <h1 class="title"><a href="/">Fraction</a></h1>
       </div>
       <div class="col-sm-6">
-        <!-- currently looks shitty on mobile <button type="button" class="btn post-btn btn-lg btn-primary">Post</button> -->
+        <ul class="menu nav nav-pills pull-right">
+          {{#each links}}
+            <li><a href="/{{url}}">{{text}}</a></li>
+          {{/each}}
+        </ul>
       </div>
     </div>
   </div>
