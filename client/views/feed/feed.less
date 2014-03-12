@@ -1,6 +1,6 @@
 .post-block {
   border-bottom: 2px solid #F9FAFB;
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 2rem;
   background-color: white;
   // incredibly subtle faded highlight
@@ -12,11 +12,15 @@
 .post-link {
   display: block;
   color: #43515B;
+  &:visited {
+    color: #DAE0E5;
+  }
 }
 
 .post-info {
   color: #aaa;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
+  margin-top: .5rem;
   a {
     color: #A1C5E5;
   }
@@ -25,5 +29,17 @@
   }
   .downvoted {
     color: #FF5100;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .post-block {
+    font-size: 1.125rem;
+  }
+  .post-info {
+    margin-top: 1rem;
+  }
+  .stars {
+    font-size: 2rem;
   }
 }

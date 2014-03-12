@@ -37,8 +37,8 @@ var postTitles = [
 var fakeData = function (id, link, author) {
   "use strict";
   var title = postTitles[id];
-  var commentNum = Math.ceil((Math.random()*10)+1);
-  var starNum = Math.ceil((Math.random()*5));
+  var commentNum = Math.ceil((Math.random()*100)+1);
+  var starNum = 3;
   console.log(starNum);
   var starArr = [];
   for (var i = 1; i <= 5; i++) {
@@ -55,10 +55,12 @@ var fakeData = function (id, link, author) {
     }
   }
 
+  var url = link + '?' + commentNum + '=' + cleanText(title);
+
   return {
     id: id,
     title: title,
-    uri: link,
+    uri: url,
     domain: getDomain(link),
     comments: pluralizeComment(commentNum),
     commentLink: '/comments/' + id + '/' + cleanText(title),
@@ -103,7 +105,7 @@ Template.feed.posts = function () {
       fakeData(
         i,
         'https://github.com/fraction/fraction',
-        'Anonymous'
+        'SomeBody'
         )
       );
   }

@@ -1,21 +1,17 @@
 <template name="feed">
   {{#each posts}}
     <div class="post-block" data-post="{{id}}">
-      <a class="post-link" href="{{uri}}">{{title}}</a>
+      <a class="post-link" href="{{uri}}" target="_blank">{{title}}</a>
       <div class="post-info">
-        <!--
-        <a class="upvote"   data-post="{{id}}" href="/like/{{id}}">Like</a>
-
-        <a class="downvote" data-post="{{id}}" href="/dislike/{{id}}">Dislike</a>
-        -->
-        {{#each stars}}
-          <i class="fa {{type}} {{label}}"></i>
-        {{/each}}
-        •
-        Submitted by
-        <a class="author" href="/user/{{author}}">{{author}}</a>
+        <span class="stars">
+          {{#each stars}}
+            {{> stars}}
+          {{/each}}
+        </span>
         with
         <a class="comments" href="{{commentLink}}">{{comments}}</a>
+        by
+        <a class="author" href="/user/{{author}}">{{author}}</a>
       </div>
     </div>
   {{/each}}
