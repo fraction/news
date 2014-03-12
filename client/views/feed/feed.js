@@ -36,8 +36,25 @@ var postTitles = [
 // generates fake post data
 var fakeData = function (id, link, author) {
   "use strict";
-  var commentNum = Math.floor((Math.random()*10)+1);
   var title = postTitles[id];
+  var commentNum = Math.ceil((Math.random()*10)+1);
+  var starNum = Math.ceil((Math.random()*5));
+  console.log(starNum);
+  var starArr = [];
+  for (var i = 1; i <= 5; i++) {
+    if (i <= starNum) {
+      starArr.push({
+        type: 'fa-star',
+        label: 'star-' + i
+      });
+    } else {
+      starArr.push({
+        type: 'fa-star-o',
+        label: 'star-' + i
+      });
+    }
+  }
+
   return {
     id: id,
     title: title,
@@ -46,7 +63,8 @@ var fakeData = function (id, link, author) {
     comments: pluralizeComment(commentNum),
     commentLink: '/comments/' + id + '/' + cleanText(title),
     author: author,
-    authorLink: '/user/' + author.toLowerCase()
+    authorLink: '/user/' + author.toLowerCase(),
+    stars: starArr
   };
 };
 
