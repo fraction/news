@@ -1,16 +1,10 @@
 <template name="header">
   <div class="header">
-    <div class="row">
-      <div class="col-sm-6">
         <h1 class="title"><a href="/">Fraction</a></h1>
-      </div>
-      <div class="col-sm-6">
-        <ul class="menu nav nav-pills pull-right">
+        <ul class="menu nav nav-pills">
           {{#each links}}
             <li><a href="/{{url}}">{{text}}</a></li>
           {{/each}}
         </ul>
-      </div>
-    </div>
   </div>
 </template>
