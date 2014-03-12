@@ -111,5 +111,6 @@
       "_": false,               // Underscore.js
       "$": false,               // jQuery
       "Router": false           // iron-router
+      "AccountEntry": false     // AccountsEntry
     }
 }
