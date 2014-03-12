@@ -36,17 +36,37 @@ var postTitles = [
 // generates fake post data
 var fakeData = function (id, link, author) {
   "use strict";
-  var commentNum = Math.floor((Math.random()*10)+1);
   var title = postTitles[id];
+  var commentNum = Math.ceil((Math.random()*100)+1);
+  var starNum = 3;
+  console.log(starNum);
+  var starArr = [];
+  for (var i = 1; i <= 5; i++) {
+    if (i <= starNum) {
+      starArr.push({
+        type: 'fa-star',
+        label: 'star-' + i
+      });
+    } else {
+      starArr.push({
+        type: 'fa-star-o',
+        label: 'star-' + i
+      });
+    }
+  }
+
+  var url = link + '?' + commentNum + '=' + cleanText(title);
+
   return {
     id: id,
     title: title,
-    uri: link,
+    uri: url,
     domain: getDomain(link),
     comments: pluralizeComment(commentNum),
     commentLink: '/comments/' + id + '/' + cleanText(title),
     author: author,
-    authorLink: '/user/' + author.toLowerCase()
+    authorLink: '/user/' + author.toLowerCase(),
+    stars: starArr
   };
 };
 
@@ -59,7 +79,7 @@ Template.feed.posts = function () {
       fakeData(
         i,
         'https://github.com/fraction/fraction',
-        'Anonymous'
+        'SomeBody'
         )
       );
   }
