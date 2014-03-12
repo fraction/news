@@ -3,13 +3,15 @@
     <div class="post-block" data-post="{{id}}">
       <a class="post-link" href="{{uri}}">{{title}}</a>
       <div class="post-info">
-        <a class="upvote"   data-post="{{id}}" href="/like/{{id}}">Like</a>
-        •
-        <a class="downvote" data-post="{{id}}" href="/dislike/{{id}}">Dislike</a>
-        •
+        <span class="stars">
+          {{#each stars}}
+            {{> stars}}
+          {{/each}}
+        </span>
+        by
+        <a class="author" href="/user/{{author}}">{{author}}</a>
+        with
         <a class="comments" href="{{commentLink}}">{{comments}}</a>
-        •
-        <a class="author"   href="/user/{{author}}">{{author}}</a>
       </div>
     </div>
   {{/each}}
