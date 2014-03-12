@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "start": "meteor",
-    "test": "exit 0"
+    "test": "jshint ."
   },
   "repository": {
     "type": "git",
