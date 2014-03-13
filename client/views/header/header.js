@@ -13,6 +13,9 @@ Template.header.links = function () {
   } else {
     console.log(Meteor.userId());
     links.push({
+      url: 'post',
+      text: 'Post'
+    },{
       url: 'sign-out',
       text: 'Sign Out'
     });
