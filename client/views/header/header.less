@@ -27,15 +27,25 @@
 
 .menu {
   padding: 2rem;
-
   padding-left: 0;
   float: right;
-  li>a {
-    font-size: 1.33rem;
-    padding-top: .33rem;
-    padding-bottom: .33rem;
+  li > a {
+    font-size: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     &:hover {
       background-color: white;
     }
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  .title a {
+    font-size: 1.5rem;
+  }
+  .menu li > a {
+      padding-top: 0.15rem;
+      padding-bottom: 0.35rem;
   }
 }
