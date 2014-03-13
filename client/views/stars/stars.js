@@ -5,15 +5,22 @@ var rate = function (event) {
   var star = event.target;
   var post = star.parentElement.parentElement.parentElement.dataset.post;
   var starNum = event.target.dataset.num;
-  console.log(post);
-  var oldRating = $('div[data-post=' + post + ']').data('rating');
-  $('div[data-post=' + post + '] .star').each(function () {
+  var oldRating = $('div[data-post=' + post + ']').attr('data-rating');
+  $('div[data-post=' + post + ']').attr('data-rating', starNum);
+  var setStarHighlight = function () {
+    console.log(oldRating);
     if ($(this).data("num") <= starNum) {
-      $(this).removeClass('fa-star-o').addClass('fa-star rate-' + starNum);
+      $(this)
+      .removeClass('fa-star-o rate-' + oldRating)
+      .addClass('fa-star rate-' + starNum);
     } else {
-      $(this).removeClass('fa-star rate-' + oldRating).addClass('fa-star-o');
+      console.log(oldRating);
+      $(this)
+      .removeClass('fa-star rate-' + oldRating)
+      .addClass('fa-star-o');
     }
-  });
+  };
+  $('div[data-post=' + post + '] .star').each(setStarHighlight);
 };
 
 Template.feed.events({
