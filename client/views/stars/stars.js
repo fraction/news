@@ -10,12 +10,16 @@ var rate = function (event) {
   var setStarHighlight = function () {
     console.log(oldRating);
     if ($(this).data("num") <= starNum) {
-      $(this).removeClass('fa-star-o rate-' + oldRating).addClass('fa-star rate-' + starNum);
+      $(this)
+      .removeClass('fa-star-o rate-' + oldRating)
+      .addClass('fa-star rate-' + starNum);
     } else {
       console.log(oldRating);
-      $(this).removeClass('fa-star rate-' + oldRating).addClass('fa-star-o');
+      $(this)
+      .removeClass('fa-star rate-' + oldRating)
+      .addClass('fa-star-o');
     }
-  }
+  };
   $('div[data-post=' + post + '] .star').each(setStarHighlight);
 };
 
