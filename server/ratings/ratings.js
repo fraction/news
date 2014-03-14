@@ -4,7 +4,7 @@ Meteor.publish('ratings', function () {
   var ratingsQuery = {};
   ratingsQuery[id] = {
     $exists: true
-  }
+  };
   var result = Ratings.find(ratingsQuery);
   return result;
 });

@@ -5,8 +5,6 @@ var star = function (event) {
   "use strict";
   var star = event.target;
   var post = star.parentElement.parentElement.parentElement.dataset.post;
-
-  var post = star.parentElement.parentElement.parentElement.dataset.post;
   var starNum = event.target.dataset.num;
   var oldRating = $('div[data-post=' + post + ']').attr('data-rating');
   $('div[data-post=' + post + ']').attr('data-rating', starNum);
@@ -36,7 +34,7 @@ Template.stars.events({
 Template.stars.stars = function () {
   "use strict";
   var result = [];
-  var post = this['_id'];
+  var post = this._id;
   var id   = Meteor.userId();
 
   var ratingsQuery = {};
@@ -44,19 +42,16 @@ Template.stars.stars = function () {
     $exists: true
   };
   var ratingsResult = Ratings.findOne(ratingsQuery);
-  console.log(ratingsResult);
 
+  var stars = 0;
   if (typeof ratingsResult !== 'undefined') {
-    var stars = ratingsResult[id][post]['rate'];
-  } else {
-    stars = 0;
+    stars = ratingsResult[id][post].rate;
   }
 
-  console.log(stars);
   var count = 0;
   var starsLeft = stars;
 
-  _.times(5, function(n) {
+  _.times(5, function() {
     if (starsLeft > 0) {
       result.push({
         type: 'fa-star rate-' + stars,
