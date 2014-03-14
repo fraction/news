@@ -7,12 +7,12 @@ Template.newPost.events({
     Meteor.call('newPost', {
       title: title,
       url: url
-    }, function (err, result) {
+    }, function (err) {
       if (err) {
         throw err;
       } else {
         document.location.href = '/';
       }
-    })
+    });
   }
 });

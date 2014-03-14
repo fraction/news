@@ -28,12 +28,13 @@ Template.stars.events({
 });
 
 Template.stars.stars = function () {
-  result = [];
+  "use strict";
+  var result = [];
   _.times(5, function(n) {
     result.push({
       type: 'fa-star-o',
       num:  n + 1
-    })
+    });
   });
   return result;
 };

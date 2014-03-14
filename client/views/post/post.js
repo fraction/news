@@ -16,17 +16,19 @@ var cleanText = function (str) {
 
 Template.post.helpers({
   commentCopy: function() {
-      "use strict";
-      if (this.comments === 1) {
-        return this.comments + ' comment';
-      } else {
-        return this.comments + ' comments';
-      }
+    "use strict";
+    if (this.comments === 1) {
+      return this.comments + ' comment';
+    } else {
+      return this.comments + ' comments';
+    }
   },
   rating: function () {
+    "use strict";
     return 0;
   },
   commentLink: function () {
+    "use strict";
     return '/comments/' + this._id + '/' + cleanText(this.title);
   }
 });
