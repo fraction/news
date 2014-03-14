@@ -1,7 +1,7 @@
 Meteor.methods({
   // obj.id = content _id
   // obj.rate = score from 1-5
-
+  // TODO: protect against inserting rating for non-existent content
   rate : function (obj) {
     "use strict";
     if (typeof obj === 'undefined') {
