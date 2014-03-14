@@ -1,16 +1,14 @@
 <template name="post">
-  <div class="entry col-md-4 col-md-offset-4">
-      <div class="email-option">
-        <h3>Post</h3>
-      </div>
-      <form class="entry-form">
-        <div class="form-group">
-          <input autofocus="" name="title" type="text" class="form-control" value="" placeholder="Title">
-        </div>
-        <div class="form-group">
-          <input name="url" type="url" class="form-control" value="" placeholder="URL">
-        </div>
-        <button type="submit" class="submit btn btn-block btn-default">Post</button>
-      </form>
+  <div class="post-block" data-post="{{id}}" data-rating="{{rating}}">
+    <a class="post-link" href="{{uri}}" target="_blank">{{title}}</a>
+    <div class="post-info">
+      <span class="post-stars">
+        {{#each stars}}{{> stars}}{{/each}}
+      </span>
+      <span class="hidden-xs">Posted by</span>
+      <a class="author" href="/user/{{author}}">{{author}}</a>
+      with
+      <a class="comments" href="{{commentLink}}">{{comments}}</a>
+    </div>
   </div>
 </template>

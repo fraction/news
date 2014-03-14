@@ -1,16 +1,5 @@
 <template name="feed">
   {{#each posts}}
-    <div class="post-block" data-post="{{id}}" data-rating="{{rating}}">
-      <a class="post-link" href="{{uri}}" target="_blank">{{title}}</a>
-      <div class="post-info">
-        <span class="post-stars">
-          {{#each stars}}{{> stars}}{{/each}}
-        </span>
-        <span class="hidden-xs">Posted by</span>
-        <a class="author" href="/user/{{author}}">{{author}}</a>
-        with
-        <a class="comments" href="{{commentLink}}">{{comments}}</a>
-      </div>
-    </div>
+    {{> post}}
   {{/each}}
 </template>

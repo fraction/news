@@ -4,12 +4,12 @@ Router.configure({
 
 Router.map(function () {
   "use strict";
-  this.route('post', {
-    path: '/post',
-    template: 'post'
+  this.route('newPost', {
+    path: '/new-post',
+    template: 'newPost'
   });
   this.route('index', {
-    path: '*',
+    path: '/',
     template: 'feed'
   });
 });
