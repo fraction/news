@@ -20,6 +20,7 @@ Meteor.methods({
       throw 'Rating must be between 1 and 5';
     }
 
+/*
     var findUserQuery = {};
     findUserQuery[Meteor.userId()] = {
       $exists: true
@@ -31,16 +32,25 @@ Meteor.methods({
       insertion[Meteor.userId()] = {}
       Ratings.insert(insertion);
     }
+*/
+    ///////////////////////////////////////////////
 
-    var updateRatingsQuery = {};
-    updateRatingsQuery[obj.id] = {
+    var findRatingQuery = {};
+    findRatingQuery[Meteor.userId() + '.' + obj.id] = {
+      $exists: true
+    };
+
+    console.log(findRatingQuery)
+
+    var upsertRatingQuery = {};
+    upsertRatingQuery[Meteor.userId()] = {};
+    upsertRatingQuery[Meteor.userId()][obj.id] = {
       time: new Date(),
       rate: obj.rate
     };
 
-    Ratings.update(findUserQuery, updateRatingsQuery, {
-      upsert: true,
-      multi: false
-    });
+    console.log(upsertRatingQuery);
+
+    Ratings.upsert(findRatingQuery, upsertRatingQuery);
   }
 });

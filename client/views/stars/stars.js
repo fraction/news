@@ -1,7 +1,6 @@
 // Casts a rating
 var rate = function (event) {
   "use strict";
-  event.preventDefault();
   var star = event.target;
   var post = star.parentElement.parentElement.parentElement.dataset.post;
   var starNum = event.target.dataset.num;
@@ -20,7 +19,10 @@ var rate = function (event) {
     }
   };
   $('div[data-post=' + post + '] .star').each(setStarHighlight);
-
+  Meteor.call('rate', {
+    id:   $('div[data-post=' + post + ']').attr('data-post'),
+    rate: $('div[data-post=' + post + ']').attr('data-rating')
+  })
 };
 
 Template.stars.events({
