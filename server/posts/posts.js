@@ -1,7 +1,10 @@
-Meteor.publish('posts', function() {
+Meteor.publish('posts', function () {
   "use strict";
-  return Posts.find({}, {
+  var result = Posts.find({}, {
     fields: {
       time: false
     }
-  });});
+  });
+
+  return result;
+})

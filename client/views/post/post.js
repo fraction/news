@@ -5,16 +5,6 @@ var getDomain = function (uri) {
   return uri.replace('http://','').replace('https://','').split(/[/?#]/)[0];
 };
 
-// 7 comments, 1 comment.
-var pluralizeComment = function (num) {
-  "use strict";
-  if (num === 1) {
-    return num + ' comment';
-  } else {
-    return num + ' comments';
-  }
-};
-
 // It'll take a sentence like this and make it
 // itll-take-a-sentence-like-this-and-make-it
 var cleanText = function (str) {
@@ -22,3 +12,14 @@ var cleanText = function (str) {
   return str.replace(/[^\w\s]/gi, '').replace(/\W/g, "-").toLowerCase();
 };
 */
+
+Template.post.helpers({
+  commentCopy: function() {
+      "use strict";
+      if (this.comments === 1) {
+        return this.comments + ' comment';
+      } else {
+        return this.comments + ' comments';
+      }
+  }
+});
