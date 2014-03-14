@@ -5,11 +5,19 @@ Router.configure({
 Router.map(function () {
   "use strict";
   this.route('newPost', {
-    path: '/new-post',
+    path:     '/new-post',
     template: 'newPost'
   });
   this.route('index', {
-    path: '/',
+    path:     '/',
     template: 'feed'
+  });
+  this.route('user', {
+    path:     'user/:id',
+    template: 'user'
+  });
+  this.route('comments', {
+    path:     'comments/:id/*',
+    template: 'comments'
   });
 });

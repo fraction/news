@@ -27,6 +27,6 @@ Template.post.helpers({
     return 0;
   },
   commentLink: function () {
-    return '/' + this._id + '/' + cleanText(this.title);
+    return '/comments/' + this._id + '/' + cleanText(this.title);
   }
 });
