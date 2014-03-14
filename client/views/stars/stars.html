@@ -1,1 +1,5 @@
-<template name="stars"><i class="star fa {{type}} star-{{number}}" data-num="{{number}}"></i></template>
+<template name="stars">
+  {{#each stars}}
+  <i class="star fa {{type}} star-{{num}}" data-num="{{num}}"></i>
+  {{/each}}
+</template>
