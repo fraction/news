@@ -22,6 +22,6 @@ var rate = function (event) {
   $('div[data-post=' + post + '] .star').each(setStarHighlight);
 };
 
-Template.feed.events({
+Template.stars.events({
   'click .star': rate
 });
