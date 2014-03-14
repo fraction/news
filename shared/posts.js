@@ -1,9 +1,11 @@
 /* global Posts:true */
 
 Posts = new Meteor.Collection('posts');
-{
-    title:    "I'm a title!"
-    url:      "http://fraction.io/"
-    comments: "0"
-    author:   "christianbundy"
-}
+
+var postsDemo = {
+    "time":     new Date(),
+    "title":    "I'm a title!",
+    "url":      "http://fraction.io/",
+    "author":   "christianbundy",
+    "comments": "0"
+};

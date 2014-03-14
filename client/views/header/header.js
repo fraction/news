@@ -2,7 +2,6 @@ Template.header.links = function () {
   "use strict";
   var links = [];
   if (Meteor.userId() === null) {
-    console.log(Meteor.userId());
     links.push({
       url: 'sign-in',
       text: 'Sign In'
@@ -11,7 +10,6 @@ Template.header.links = function () {
       text: 'Sign Up'
     });
   } else {
-    console.log(Meteor.userId());
     links.push({
       url: 'new-post',
       text: 'Post'

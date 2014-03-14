@@ -12,6 +12,12 @@ Meteor.methods({
     if (isWebAddress(obj.url) === false) {
       throw 'URL must start with either "http://" or "https://"'
     }
-    Posts.insert({title: obj.title, url: obj.url, comments: 0, author: Meteor.userId()});
+    Posts.insert({
+      time: new Date(),
+      title: obj.title,
+      url: obj.url,
+      author: Meteor.userId(),
+      comments: 0
+    });
   }
 });
