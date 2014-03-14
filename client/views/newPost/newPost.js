@@ -4,7 +4,15 @@ Template.newPost.events({
     event.preventDefault();
     var title = $('form .title').val();
     var url =   $('form .url').val();
-    Posts.insert({title: title, url: url});
-    document.location.href = '/';
+    Meteor.call('newPost', {
+      title: title,
+      url: url
+    }, function (err, result) {
+      if (err) {
+        throw err;
+      } else {
+        document.location.href = '/';
+      }
+    })
   }
 });
