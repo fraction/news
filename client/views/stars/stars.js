@@ -8,21 +8,33 @@ var rate = function (event) {
   var oldRating = $('div[data-post=' + post + ']').attr('data-rating');
   $('div[data-post=' + post + ']').attr('data-rating', starNum);
   var setStarHighlight = function () {
-    console.log(oldRating);
-    if ($(this).data("num") <= starNum) {
-      $(this)
+    var jThis = $(this);
+    if (jThis.data("num") <= starNum) {
+      jThis
       .removeClass('fa-star-o rate-' + oldRating)
       .addClass('fa-star rate-' + starNum);
     } else {
-      console.log(oldRating);
-      $(this)
+      jThis
       .removeClass('fa-star rate-' + oldRating)
       .addClass('fa-star-o');
     }
   };
   $('div[data-post=' + post + '] .star').each(setStarHighlight);
+
 };
 
-Template.feed.events({
+Template.stars.events({
   'click .star': rate
 });
+
+Template.stars.stars = function () {
+  "use strict";
+  var result = [];
+  _.times(5, function(n) {
+    result.push({
+      type: 'fa-star-o',
+      num:  n + 1
+    });
+  });
+  return result;
+};
