@@ -20,37 +20,21 @@ Meteor.methods({
       throw 'Rating must be between 1 and 5';
     }
 
-/*
-    var findUserQuery = {};
-    findUserQuery[Meteor.userId()] = {
-      $exists: true
-    };
-
-    var findUser = Ratings.findOne(findUserQuery);
-    if (typeof findUser === 'undefined') {
-      var insertion = {};
-      insertion[Meteor.userId()] = {}
-      Ratings.insert(insertion);
-    }
-*/
-    ///////////////////////////////////////////////
+    var id = Meteor.userId();
 
     var findRatingQuery = {};
-    findRatingQuery[Meteor.userId() + '.' + obj.id] = {
+    findRatingQuery[id + '.' + obj.id] = {
       $exists: true
     };
 
-    console.log(findRatingQuery)
-
     var upsertRatingQuery = {};
-    upsertRatingQuery[Meteor.userId()] = {};
-    upsertRatingQuery[Meteor.userId()][obj.id] = {
+    upsertRatingQuery[id] = {};
+    upsertRatingQuery[id][obj.id] = {
       time: new Date(),
       rate: obj.rate
     };
 
-    console.log(upsertRatingQuery);
-
+    console.log('User ' + id + ' rated content ' + obj.id + ' as ' + obj.rate);
     Ratings.upsert(findRatingQuery, upsertRatingQuery);
   }
 });

@@ -22,7 +22,7 @@ var rate = function (event) {
   Meteor.call('rate', {
     id:   $('div[data-post=' + post + ']').attr('data-post'),
     rate: $('div[data-post=' + post + ']').attr('data-rating')
-  })
+  });
 };
 
 Template.stars.events({

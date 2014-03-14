@@ -86,6 +86,7 @@
       "$":              false,
       "Router":         false,
       "AccountsEntry":  false,
-      "Posts":          false
+      "Posts":          false,
+      "Ratings":        false
     }
 }
