@@ -23,7 +23,6 @@
 .post-info {
   color: #aaa;
   font-size: 1.1rem;
-  margin-top: .5rem;
   a {
     color: #A1C5E5;
   }
@@ -35,6 +34,12 @@
   }
 }
 
+.author, .comments {
+  display: inline-block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
 .post-stars {
   font-size: 1.2rem;
   margin-right: 0.25rem;
@@ -42,10 +47,8 @@
 }
 
 @media only screen and (max-width: 767px) {
-  .post-info {
-    margin-top: 1rem;
-  }
-  .stars {
-    font-size: 1.2rem;
+  .post-stars {
+    font-size: 1.5rem;
+    display: block;
   }
 }
