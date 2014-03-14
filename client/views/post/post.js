@@ -1,3 +1,4 @@
+/*
 // gets just the domain of a title
 var getDomain = function (uri) {
   "use strict";
@@ -20,3 +21,4 @@ var cleanText = function (str) {
   "use strict";
   return str.replace(/[^\w\s]/gi, '').replace(/\W/g, "-").toLowerCase();
 };
+*/
