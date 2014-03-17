@@ -41,7 +41,7 @@ Template.stars.stars = function () {
   };
   ratingsQuery['ratings.' + post] = {
     '$exists' : true
-  }
+  };
 
   var ratingsResult = Ratings.findOne(ratingsQuery);
 

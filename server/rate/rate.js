@@ -20,10 +20,12 @@ Meteor.methods({
       throw 'Rating must be between 1 and 5';
     }
 
-    console.log('User ' + Meteor.userId() + ' rated content ' + obj.id + ' as ' + obj.rate);
+    var id = Meteor.userId();
+
+    console.log('User ' + id + ' rated content ' + obj.id + ' as ' + obj.rate);
 
     var findRatingQuery = {
-      'user'   : Meteor.userId()
+      'user'   : id
     };
 
     var findRatingResult = Ratings.find(findRatingQuery);
@@ -31,11 +33,11 @@ Meteor.methods({
 
     var upsertRatingQuery = {
       '$set' : {}
-    }
+    };
 
-    upsertRatingQuery['$set']['ratings.' + obj.id] = {
-        time: new Date(),
-        rate: obj.rate
+    upsertRatingQuery.$set['ratings.' + obj.id] = {
+      time: new Date(),
+      rate: obj.rate
     };
 
     return Ratings.upsert(findRatingQuery, upsertRatingQuery);
