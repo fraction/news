@@ -5,7 +5,6 @@ var isWebAddress = function (value) {
 };
 
 Meteor.methods({
-  log: console.log,
   newPost : function (obj) {
     "use strict";
     if (obj.title.length < 3) {
@@ -14,11 +13,14 @@ Meteor.methods({
     if (isWebAddress(obj.url) === false) {
       throw 'URL must start with either "http://" or "https://"';
     }
+
+
     Posts.insert({
       time: new Date(),
       title: obj.title,
       url: obj.url,
       author: Meteor.userId(),
+      username: Meteor.user().username,
       comments: 0
     });
   }
