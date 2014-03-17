@@ -5,6 +5,7 @@ Meteor.startup(function () {
     termsUrl:       '/terms-of-use',
     homeRoute:      '/',
     dashboardRoute: '/',
-    profileRoute:   'settings'
+    profileRoute:   'settings',
+    passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
   });
 });

@@ -20,21 +20,24 @@ Meteor.methods({
       throw 'Rating must be between 1 and 5';
     }
 
-    var id = Meteor.userId();
+    console.log('User ' + Meteor.userId() + ' rated content ' + obj.id + ' as ' + obj.rate);
 
-    var findRatingQuery = {};
-    findRatingQuery[id + '.' + obj.id] = {
-      $exists: true
+    var findRatingQuery = {
+      'user'   : Meteor.userId()
     };
 
-    var upsertRatingQuery = {};
-    upsertRatingQuery[id] = {};
-    upsertRatingQuery[id][obj.id] = {
-      time: new Date(),
-      rate: obj.rate
+    var findRatingResult = Ratings.find(findRatingQuery);
+    findRatingResult.fetch();
+
+    var upsertRatingQuery = {
+      '$set' : {}
+    }
+
+    upsertRatingQuery['$set']['ratings.' + obj.id] = {
+        time: new Date(),
+        rate: obj.rate
     };
 
-    console.log('User ' + id + ' rated content ' + obj.id + ' as ' + obj.rate);
-    Ratings.upsert(findRatingQuery, upsertRatingQuery);
+    return Ratings.upsert(findRatingQuery, upsertRatingQuery);
   }
 });

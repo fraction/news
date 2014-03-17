@@ -35,17 +35,19 @@ Template.stars.stars = function () {
   "use strict";
   var result = [];
   var post = this._id;
-  var id   = Meteor.userId();
 
-  var ratingsQuery = {};
-  ratingsQuery[id + '.' + post] = {
-    $exists: true
+  var ratingsQuery = {
+    'user'   : Meteor.userId()
   };
+  ratingsQuery['ratings.' + post] = {
+    '$exists' : true
+  }
+
   var ratingsResult = Ratings.findOne(ratingsQuery);
 
   var stars = 0;
   if (typeof ratingsResult !== 'undefined') {
-    stars = ratingsResult[id][post].rate;
+    stars = ratingsResult.ratings[post].rate;
   }
 
   var count = 0;

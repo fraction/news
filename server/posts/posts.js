@@ -9,6 +9,5 @@ Meteor.publish('posts', function () {
       time: false
     }
   });
-
   return result;
 });
