@@ -20,12 +20,12 @@ Meteor.methods({
       throw 'Rating must be between 1 and 5';
     }
 
-    var id = Meteor.userId();
-
-    console.log('User ' + id + ' rated content ' + obj.id + ' as ' + obj.rate);
+    console.log(
+      Meteor.user().username + ' rated ' + obj.id + ' as ' + obj.rate
+    );
 
     var findRatingQuery = {
-      'user'   : id
+      'user'   : Meteor.userId()
     };
 
     var findRatingResult = Ratings.find(findRatingQuery);
