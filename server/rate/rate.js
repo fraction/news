@@ -4,24 +4,24 @@ Meteor.methods({
   // TODO: protect against inserting rating for non-existent content
   rate : function (obj) {
     "use strict";
-    if (typeof obj === 'undefined') {
-      throw 'Must include object with content ID and rating';
+    if (typeof obj !== 'undefined') {
+      new Meteor.Error(500, 'Must include object with content ID and points');
     }
 
     if (typeof obj.id === 'undefined') {
-      throw 'ID must be included';
+      new Meteor.Error(500, 'ID must be included');
     }
 
     if (typeof obj.rate === 'undefined') {
-      throw 'Rating must be included';
+      new Meteor.Error(500, 'Points must be included');
     }
 
-    if (obj.rate < 1 || obj.rate > 5) {
-      throw 'Rating must be between 1 and 5';
+    if (obj.rate <= 0 || obj.rate >= 1) {
+      new Meteor.Error(500, 'Point value must be between 1 and 5');
     }
 
     console.log(
-      Meteor.user().username + ' rated ' + obj.id + ' as ' + obj.rate
+      Meteor.user().username + ' gave ' + obj.rate + ' points to ' + obj.id
     );
 
     var findRatingQuery = {
