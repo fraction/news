@@ -7,10 +7,12 @@
           {{> stars}}
         {{/if}}
       </span>
-      <span class="hidden-xs">Posted by</span>
+    <span class="hidden-xs">Posted by</span>
       <a class="author" href="/user/{{username}}">{{username}}</a>
-      <span class="hidden-xs">with</span>
-      <a class="comments" href="{{commentLink}}">{{commentCopy}}</a>
+      <div class="hidden">
+        <span class="hidden-xs">with</span>
+        <a class="comments" href="{{commentLink}}">{{commentCopy}}</a>
+      </div>
     </div>
   </div>
 </template>

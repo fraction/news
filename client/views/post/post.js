@@ -13,7 +13,6 @@ var cleanText = function (str) {
   return str.replace(/[^\w\s]/gi, '').replace(/\W/g, "-").toLowerCase();
 };
 
-
 Template.post.helpers({
   commentCopy: function() {
     "use strict";
