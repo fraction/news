@@ -13,8 +13,15 @@ Router.map(function () {
     template: 'feed'
   });
   this.route('user', {
-    path:     'user/:id',
-    template: 'user'
+    path:     'user/:username',
+    template: 'user',
+    data: function () {
+      var templateData = {
+        username: this.params.username,
+        posts: Posts.find({username : this.params.username})
+      };
+      return templateData;
+    }
   });
   this.route('comments', {
     path:     'comments/:id/*',
