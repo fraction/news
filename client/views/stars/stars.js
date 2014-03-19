@@ -23,7 +23,7 @@ var star = function (event) {
   $('div[data-post=' + post + '] .star').each(setStarHighlight);
   Meteor.call('rate', {
     id:   $('div[data-post=' + post + ']').attr('data-post'),
-    rate: $('div[data-post=' + post + ']').attr('data-rating')
+    rate: (($('div[data-post=' + post + ']').attr('data-rating') - 1) / 4)
   });
 };
 
@@ -47,7 +47,7 @@ Template.stars.stars = function () {
 
   var stars = 0;
   if (typeof ratingsResult !== 'undefined') {
-    stars = ratingsResult.ratings[post].rate;
+    stars = ratingsResult.ratings[post].rate * 4 + 1;
   }
 
   var count = 0;
