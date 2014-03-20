@@ -1,60 +1,39 @@
 .header {
-  border-bottom: 2px solid #F9FAFB;
-}
 
-.title {
-  margin-top: 0;
-  margin-bottom: 0;
-  display: inline-block;
-  a {
-  margin: 0;
-  font-weight: bold;
-  color: hsl(206, 15%, 31%);
-  font-size: 2rem;
-  margin: 2rem;
-  float: left;
-  display: inline-block;
-  padding-right: 0;
-    &:hover {
-      color: hsl(206, 15%, 31%);
+  nav {
+    border-radius: 0;
+    background-color: #303540;
+    margin-bottom: 0;
+  }
+
+  .navbar-brand {
+    color: #F9FAFB;
+    font-weight: bold;
+  }
+
+  .navbar ul > li > a {
+    color: #F9FAFB;
+  }
+
+  .navbar-toggle {
+    background-color: #303540;
+    border: 0;
+    &:hover, &:active, &:focus {
+      background-color: #303540;
     }
   }
-  .post-btn {
-    margin-top: 28px;
-    margin-right: 30px;
-    float: right;
-  }
-}
 
-.menu {
-  margin: 2rem;
-  padding-left: 0;
-  float: right;
-  li > a {
-    font-size: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    &:hover {
-      background-color: white;
-    }
-  }
-}
-
-
-@media only screen and (max-width: 767px) {
-  .title > a {
-    margin: 1rem;
-  }
-
-  .menu {
-    margin: 1rem;
-  }
-
-  .title a {
-    font-size: 1.5rem;
-  }
-  .menu li > a {
-      padding-top: 0.15rem;
-      padding-bottom: 0.35rem;
+  // todo: remove magic numbers
+  .current-view {
+    position: absolute;
+    height: 50px;
+    width: 200px;
+    margin-left: -100px;
+    top: 1rem;
+    font-size: 1.2rem;
+    left: 50%;
+    color: #DDE0E6;
+    text-align: center;
+    overflow: hidden;
   }
 }
