@@ -1,10 +1,25 @@
 <template name="header">
   <div class="header">
-        <h1 class="title"><a href="/">Fraction</a></h1>
-        <ul class="menu nav nav-pills">
-          {{#each links}}
-            <li><a href="/{{url}}">{{text}}</a></li>
-          {{/each}}
-        </ul>
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">F<span class="hidden-xs">raction</span></a>
+          <div class="current-view">{{currentView}}</div>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav navbar-right">
+            {{#each links}}
+              <li><a href="/{{url}}">{{text}}</a></li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
 </template>
