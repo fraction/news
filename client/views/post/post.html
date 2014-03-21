@@ -1,17 +1,12 @@
 <template name="post">
-  <div class="post-block" data-post="{{_id}}" data-rating="{{rating}}">
-    <a class="post-link" href="{{url}}" target="_blank">{{title}}</a>
-    <div class="post-info">
-      <span class="post-stars">
-        {{#if currentUser}}
-          {{> stars}}
-        {{/if}}
-      </span>
-    <span class="hidden-xs">Posted by</span>
-      <a class="author" href="/user/{{username}}">{{username}}</a>
-      <div class="hidden">
-        <span class="hidden-xs">with</span>
-        <a class="comments" href="{{commentLink}}">{{commentCopy}}</a>
+  <div class="{{vote}} post" data-id="{{_id}}">
+    <div class="media">
+      <div href="#" class="pull-left">
+        {{>vote}}
+      </div>
+      <div class="media-body">
+        <a href="{{url}}" class="title" target="_blank">{{title}}</a>
+        <p class="caption">Posted by <a href="/user/{{username}}">{{username}}</a></p>
       </div>
     </div>
   </div>

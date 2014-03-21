@@ -21,7 +21,7 @@ Router.map(function () {
     template: 'feed',
     data: function () {
       var templateData = {
-        currentView: 'Popular',
+        currentView: 'Home',
       };
       return templateData;
     }
@@ -32,7 +32,7 @@ Router.map(function () {
     template: 'user',
     data: function () {
       var templateData = {
-        currentView: this.params.username,
+        currentView: 'Profile',
         username: this.params.username,
         posts: Posts.find({username : this.params.username})
       };
