@@ -1,9 +1,11 @@
 <template name="post">
   <div class="{{vote}} post" data-id="{{_id}}">
     <div class="media">
+      {{#if currentUser}}
       <div href="#" class="pull-left">
         {{>vote}}
       </div>
+      {{/if}}
       <div class="media-body">
         <a href="{{url}}" class="title" target="_blank">{{title}}</a>
         <p class="caption">Posted by <a href="/user/{{username}}">{{username}}</a></p>
