@@ -22,12 +22,33 @@ Template.post.helpers({
       return this.comments + ' comments';
     }
   },
-  rating: function () {
-    "use strict";
-    return 0;
-  },
   commentLink: function () {
     "use strict";
     return '/comments/' + this._id + '/' + cleanText(this.title);
+  },
+  vote: function () {
+    "use strict";
+    
+    var post = this._id;
+    var voteQuery = {
+      'user'   : Meteor.userId()
+    };
+    voteQuery['votes.' + post] = {
+      '$exists' : true
+    };
+
+    var voteResult = Votes.findOne(voteQuery);
+    if (typeof voteResult !== 'undefined') {
+      var vote = voteResult.votes[post].vote;
+      if (vote > 0) {
+        return 'upvoted';
+      } else if (vote < 0) {
+        return 'downvoted';
+      } else {
+        return 'nonvoted';
+      }
+    } else {
+      return 'nonvoted';
+    }
   }
 });

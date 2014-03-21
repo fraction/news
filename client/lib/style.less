@@ -11,6 +11,15 @@ body {
   background-color: hsl(210, 20%, 98%);
 }
 
-a:hover {
-  text-decoration: none;
+
+a {
+  color: #399EE3;
+  &:visited {
+    color: #399EE3;
+  }
+
+  &:hover, &:active {
+    color: #4E86FE;
+    text-decoration: none;
+  }
 }
