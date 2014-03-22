@@ -1,3 +1,17 @@
+var shuffle = function (array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+  return array;
+}
+
 Router.configure({
   layoutTemplate: 'index'
 });
@@ -22,6 +36,23 @@ Router.map(function () {
     data: function () {
       var templateData = {
         currentView: 'Home',
+        isFeed: true,
+        sortType: 'recent',
+        posts: Posts.find().fetch()
+      };
+      return templateData;
+    }
+  });
+
+  this.route('random', {
+    path:     '/random',
+    template: 'feed',
+    data: function () {
+      var templateData = {
+        currentView: 'Home',
+        isFeed: true,
+        sortType: 'random',
+        posts: shuffle(Posts.find().fetch())
       };
       return templateData;
     }
