@@ -1,4 +1,6 @@
+// todo: make a lib and move this
 var shuffle = function (array) {
+  "use strict";
   var currentIndex = array.length, temporaryValue, randomIndex;
 
   while (0 !== currentIndex) {
@@ -67,7 +69,6 @@ Router.map(function () {
       var posts = Posts.find().fetch();
       var popularPosts = [];
       var pointTable = [];
-      var stillSearching = true;
 
       Meteor.call('countVotes', posts, function (err, data) {
         pointTable = data;
@@ -82,7 +83,7 @@ Router.map(function () {
 
         Session.set('posts', popularPosts);
       });
-      
+
       var templateData = {
         currentView: 'Home',
         isFeed: true,
@@ -91,8 +92,8 @@ Router.map(function () {
         posts: Session.get('posts')
       };
       return templateData;
-      }
-    });
+    }
+  });
 
   this.route('user', {
     path:     'user/:username',
