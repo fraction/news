@@ -10,7 +10,7 @@ var shuffle = function (array) {
     array[randomIndex] = temporaryValue;
   }
   return array;
-}
+};
 
 Router.configure({
   layoutTemplate: 'index'
@@ -37,7 +37,8 @@ Router.map(function () {
       var templateData = {
         currentView: 'Home',
         isFeed: true,
-        sortType: 'recent',
+        sortType: 'Recent',
+        sortRecent : true,
         posts: Posts.find().fetch()
       };
       return templateData;
@@ -51,12 +52,47 @@ Router.map(function () {
       var templateData = {
         currentView: 'Home',
         isFeed: true,
-        sortType: 'random',
+        sortType: 'Random',
+        sortRandom: true,
         posts: shuffle(Posts.find().fetch())
       };
       return templateData;
     }
   });
+
+  this.route('popular', {
+    path:     '/popular',
+    template: 'feed',
+    data: function () {
+      var posts = Posts.find().fetch();
+      var popularPosts = [];
+      var pointTable = [];
+      var stillSearching = true;
+
+      Meteor.call('countVotes', posts, function (err, data) {
+        pointTable = data;
+
+        pointTable.sort(function(a, b) {
+          return b.votes - a.votes;
+        });
+
+        _(pointTable).forEach(function (obj) {
+          popularPosts.push(Posts.findOne({ '_id' : obj.id}));
+        });
+
+        Session.set('posts', popularPosts);
+      });
+      
+      var templateData = {
+        currentView: 'Home',
+        isFeed: true,
+        sortType: 'Popular',
+        sortPopular: true,
+        posts: Session.get('posts')
+      };
+      return templateData;
+      }
+    });
 
   this.route('user', {
     path:     'user/:username',
