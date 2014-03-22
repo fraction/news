@@ -33,7 +33,7 @@ Router.map(function () {
   });
 
   this.route('index', {
-    path:     '/',
+    path:     '/recent',
     template: 'feed',
     data: function () {
       var templateData = {
@@ -63,7 +63,7 @@ Router.map(function () {
   });
 
   this.route('popular', {
-    path:     '/popular',
+    path:     '/',
     template: 'feed',
     data: function () {
       var posts = Posts.find().fetch();
