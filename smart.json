@@ -3,6 +3,7 @@
     "bootstrap-3": {},
     "iron-router": {},
     "accounts-entry": {},
-    "fast-render": {}
+    "fast-render": {},
+    "iron-router-progress": {}
   }
 }
