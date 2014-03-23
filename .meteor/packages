@@ -14,3 +14,4 @@ coffeescript
 accounts-entry
 insecure
 fast-render
+appcache
