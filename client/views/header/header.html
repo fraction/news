@@ -14,27 +14,41 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav navbar-right">
-              {{#if isFeed}}
-                {{#if currentUser}}
-                <li class="dropdown">
-                  <a href="/" class="dropdown-toggle" data-toggle="dropdown">Sort {{sortType}}<b class="caret"></b></a>
-                  <ul class="dropdown-menu" role="menu">
-                    {{#unless sortPopular}}
-                      <li><a href="/">Popular</a></li>
-                    {{/unless}}
-                    {{#unless sortRecent}}
-                      <li><a href="/recent">Recent</a></li>
-                    {{/unless}}
-                    {{#unless sortRandom}}
-                      <li><a href="/random">Random</a></li>
-                    {{/unless}}
-                  </ul>
-                </li>
+              {{#if currentUser}}
+                <li><a href="/new-post">Post</a></li>
+                {{#if isFeed}}
+                  <li class="dropdown">
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">Sort<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                      {{#if sortPopular}}
+                        <li class="active"><a href="/">Popular</a></li>
+                      {{else}}
+                        <li><a href="/">Popular</a></li>
+                      {{/if}}
+                      {{#if sortRecent}}
+                        <li class="active"><a href="/recent">Recent</a></li>
+                      {{else}}
+                        <li><a href="/recent">Recent</a></li>
+                      {{/if}}
+                      {{#if sortRandom}}
+                        <li class="active"><a href="/random">Random</a></li>
+                      {{else}}
+                        <li><a href="/random">Random</a></li>
+                      {{/if}}
+                    </ul>
+                  </li>
                 {{/if}}
+                  <li class="dropdown">
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.username}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="/user/{{currentUser.username}}">Profile</a></li>
+                      <li><a href="/sign-out">Sign Out</a></li>
+                    </ul>
+                  </li>
+                  {{else}}
+                  <li><a href="/sign-in">Sign In</a></li>
+                  <li><a href="/sign-in">Sign Up</a></li>
               {{/if}}
-            {{#each links}}
-              <li><a href="/{{url}}">{{text}}</a></li>
-            {{/each}}
           </ul>
         </div>
       </div>
