@@ -26,9 +26,9 @@ Template.post.helpers({
     "use strict";
     return '/comments/' + this._id + '/' + cleanText(this.title);
   },
-  vote: function () {
+  previousVote: function () {
     "use strict";
-    
+
     var post = this._id;
     var voteQuery = {
       'user'   : Meteor.userId()
