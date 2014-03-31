@@ -1,5 +1,5 @@
 <template name="post">
-  <div class="{{vote}} post" data-id="{{_id}}">
+  <div class="{{previousVote}} post" data-id="{{_id}}">
     <div class="media">
       {{#if currentUser}}
       <div href="#" class="pull-left">
@@ -12,4 +12,8 @@
       </div>
     </div>
   </div>
+</template>
+
+<template name="upvoted">
+  nonvoted
 </template>

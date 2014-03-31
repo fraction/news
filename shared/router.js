@@ -15,7 +15,7 @@ var shuffle = function (array) {
 };
 
 Router.configure({
-  layoutTemplate: 'index'
+  layoutTemplate: 'wrapper'
 });
 
 Router.map(function () {
@@ -92,6 +92,7 @@ Router.map(function () {
         posts: Session.get('posts')
       };
       return templateData;
+
     }
   });
 
