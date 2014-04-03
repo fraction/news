@@ -1,32 +1,36 @@
+@import "/client/lib/variables.import.less";
+
 .post {
-  padding: 22.5px;
+  padding: 15px;
   background-color: white;
   margin-bottom: 1px;
   border-left: 3px solid #F9FAFB;
 
   &.upvoted {
-    border-color: #4E86FE;
+    border-color: @upvote-color;
     .upvote {
-      color: #4E86FE;
+      color: @upvote-color;
     }
   }
 
   &.downvoted {
-    border-color: #FC6748;
+    border-color: @downvote-color;
     .downvote {
-      color: #FC6748;
+      color: @downvote-color;
     }
   }
 
   .title {
     display: inline-block;
-    margin-top: 3px;
-    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    font-size: 1.25rem;
+    line-height: 1.3rem;
     color: #303540;
   }
 
   .caption {
-    margin-top: 3px;
-    color: #DDE0E6;
+    font-size: 1rem;
+    color: @gray-color;
+    margin-bottom: 0;
   }
 }

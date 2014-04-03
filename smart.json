@@ -1,9 +1,9 @@
 {
   "packages": {
-    "bootstrap-3": {},
     "iron-router": {},
     "accounts-entry": {},
     "fast-render": {},
-    "iron-router-progress": {}
+    "iron-router-progress": {},
+    "bootstrap3-less": {}
   }
 }

@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-bootstrap-3
 jquery
 iron-router
 less
@@ -14,3 +13,4 @@ accounts-entry
 insecure
 fast-render
 iron-router-progress
+bootstrap3-less

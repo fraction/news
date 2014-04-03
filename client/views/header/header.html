@@ -9,32 +9,29 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">F<span class="hidden-xs">raction</span></a>
-          <div class="current-view">{{currentView}}</div>
+          <a class="logo" href="/"><img src="/img/logo.svg" alt="Fraction Logo"></a>
+          <ol class="breadcrumb">
+            <li><a href="/">Fraction</a></li>
+            <li class="current-view">{{currentView}}</li>
+          </ol>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav navbar-right">
               {{#if currentUser}}
-                <li><a href="/new-post">Post</a></li>
                 {{#if isFeed}}
+                  <li class="highlight"><a href="/new-post">New Post</a></li>
                   <li class="dropdown">
-                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">Sort<b class="caret"></b></a>
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{sortType}}<b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
-                      {{#if sortPopular}}
-                        <li class="active"><a href="/">Popular</a></li>
-                      {{else}}
+                      {{#unless sortPopular}}
                         <li><a href="/">Popular</a></li>
-                      {{/if}}
-                      {{#if sortRecent}}
-                        <li class="active"><a href="/recent">Recent</a></li>
-                      {{else}}
+                      {{/unless}}
+                      {{#unless sortRecent}}
                         <li><a href="/recent">Recent</a></li>
-                      {{/if}}
-                      {{#if sortRandom}}
-                        <li class="active"><a href="/random">Random</a></li>
-                      {{else}}
+                      {{/unless}}
+                      {{#unless sortRandom}}
                         <li><a href="/random">Random</a></li>
-                      {{/if}}
+                      {{/unless}}
                     </ul>
                   </li>
                 {{/if}}
@@ -47,7 +44,7 @@
                   </li>
                   {{else}}
                   <li><a href="/sign-in">Sign In</a></li>
-                  <li><a href="/sign-in">Sign Up</a></li>
+                  <li class="highlight"><a href="/sign-in">Sign Up</a></li>
               {{/if}}
           </ul>
         </div>
