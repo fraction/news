@@ -1,44 +1,67 @@
-.header {
+@import "/client/lib/variables.import.less";
 
+.header {
   nav {
     border-radius: 0;
-    background-color: #303540;
     margin-bottom: 0;
   }
 
-  .navbar-brand {
-    color: #F9FAFB;
-    font-weight: bold;
+  .logo img {
+    margin-top: 11px;
+    margin-bottom: 11px;
+    @media @xs {
+      margin-left: 15px;
+    }
+    height: 26px;
   }
 
   .navbar > ul > li > a {
     color: #F9FAFB;
   }
 
-  .navbar-toggle {
-    background-color: #303540;
-    border: 0;
-    &:hover, &:active, &:focus {
-      background-color: #303540;
+  .navbar-inverse .navbar-nav > li > a {
+    color: hsla(0, 0%, 100%, 0.9);
+    &:hover {
+      color: white;
+    }
+  }
+
+  ul > li.highlight > a {
+    padding-top: 5px;
+    margin-top: 10px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #93CB2A;
+    &:hover, &:active {
+      background-color: #8DCC16;
+    }
+  }
+
+  .breadcrumb {
+    margin-top: 0.25rem;
+    display: inline-block;
+    background: none;
+    padding-left: .25rem;
+    margin-bottom: 0;
+    a {
+      color: white;
     }
   }
 
   // todo: remove magic numbers
   .current-view {
-    position: absolute;
-    height: 50px;
-    width: 200px;
-    margin-left: -100px;
-    top: 1rem;
-    font-size: 1.2rem;
-    left: 50%;
-    color: #DDE0E6;
-    text-align: center;
-    overflow: hidden;
+    color: white;
   }
 
   .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
     color: hsl(0, 100%, 100%);
-    background-color: hsl(220, 15%, 16%);
+    background-color: #373737;
   }
+
+
 }

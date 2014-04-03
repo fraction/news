@@ -101,7 +101,7 @@ Router.map(function () {
     template: 'user',
     data: function () {
       var templateData = {
-        currentView: 'Profile',
+        currentView: 'User',
         username: this.params.username,
         posts: Posts.find({username : this.params.username})
       };
