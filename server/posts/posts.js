@@ -4,7 +4,7 @@ Meteor.publish('posts', function () {
     sort: {
       time: -1
     },
-    limit: 8
+    limit: 30
   });
   return result;
 });
