@@ -91,9 +91,4 @@ Router.map(function () {
       return templateData;
     }
   });
-
-  this.route('comments', {
-    path:     'comments/:id/*',
-    template: 'comments'
-  });
 });
