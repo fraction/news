@@ -27,6 +27,31 @@ Router.map(function () {
     }
   });
 
+  this.route('newPost', {
+    path:     '/new-post',
+    template: 'newPost',
+    data: function () {
+      var templateData = {
+        currentView: 'New Post',
+        posts: Posts.find({username : this.params.username})
+      };
+      return templateData;
+    }
+  });
+
+  this.route('user', {
+    path:     'user/:username',
+    template: 'user',
+    data: function () {
+      var templateData = {
+        currentView: 'User',
+        username: this.params.username,
+        posts: Posts.find({username : this.params.username})
+      };
+      return templateData;
+    }
+  });
+
   this.route('feed', {
     path:     '/:order',
     template: 'feed',
@@ -63,31 +88,6 @@ Router.map(function () {
         templateData.sortRandom = true;
         templateData.posts = shuffle(Posts.find().fetch());
       }
-      return templateData;
-    }
-  });
-
-  this.route('newPost', {
-    path:     '/new-post',
-    template: 'newPost',
-    data: function () {
-      var templateData = {
-        currentView: 'New Post',
-        posts: Posts.find({username : this.params.username})
-      };
-      return templateData;
-    }
-  });
-
-  this.route('user', {
-    path:     'user/:username',
-    template: 'user',
-    data: function () {
-      var templateData = {
-        currentView: 'User',
-        username: this.params.username,
-        posts: Posts.find({username : this.params.username})
-      };
       return templateData;
     }
   });
