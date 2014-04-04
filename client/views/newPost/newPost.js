@@ -1,5 +1,5 @@
 Template.newPost.events({
-  'submit': function () {
+  'submit': function (event) {
     "use strict";
     event.preventDefault();
     var title = $('form .title').val();
