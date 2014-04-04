@@ -4,10 +4,7 @@ Meteor.publish('posts', function () {
     sort: {
       time: -1
     },
-    limit: 8,
-    fields: {
-      time: false
-    }
+    limit: 8
   });
   return result;
 });
