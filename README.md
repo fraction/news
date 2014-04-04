@@ -1,6 +1,6 @@
 [![Fraction](http://i.imgur.com/sCu2Klt.png)](http://fraction.io)
 
-**Try the [demo](http://demo.fraction.io), read our [blog](http://blog.fraction.io), follow our [tweets](http://twitter.com/GetFraction), and sign up for the [launch email](http://eepurl.com/PS9SD). Thank you!**
+**Try the [beta](http://beta.fraction.io), read our [blog](http://blog.fraction.io), follow our [tweets](http://twitter.com/GetFraction), and sign up for the [launch email](http://eepurl.com/PS9SD). Thank you!**
 
 [![Build Status](http://img.shields.io/travis/fraction/fraction.svg)](https://travis-ci.org/fraction/fraction) [![Code Climate](http://img.shields.io/codeclimate/github/fraction/fraction.svg)](https://codeclimate.com/github/fraction/fraction)
 
