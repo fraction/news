@@ -1,7 +1,7 @@
 // Make sure there's no "javascript:alert()" douchebaggery
 var isWebAddress = function (value) {
   "use strict";
-  return /^https?:\/\//i.test(value);
+  return (/^https?:\/\//i).test(value);
 };
 
 Meteor.methods({
