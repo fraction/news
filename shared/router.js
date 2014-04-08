@@ -59,34 +59,42 @@ Router.map(function () {
       var order = this.params.order.toLowerCase();
       var start = new Date();
       var time = this.params.time.toLowerCase();
+      var templateData = {
+        currentView: 'Home',
+        isFeed: true
+      };
 
       switch (time) {
       case 'daily':
         start = new Date(start.setDate(start.getDate() - 1));
+        templateData.timeDaily = true;
+        templateData.timeType = 'Daily';
         break;
       case 'weekly':
         start = new Date(start.setDate(start.getDate() - 7));
+        templateData.timeWeekly = true;
+        templateData.timeType = 'Weekly';
         break;
       case 'monthly':
         start = new Date(start.setFullYear(start.getFullYear(), start.getMonth() - 1));
+        templateData.timeMonthly = true;
+        templateData.timeType = 'Monthly';
         break;
       case 'yearly':
         start = new Date(start.setFullYear(start.getFullYear() - 1));
+        templateData.timeYearly = true;
+        templateData.timeType = 'Yearly';
         break;
       case 'ever':
         start = new Date(0);
+        templateData.timeEver = true;
+        templateData.timeType = 'Ever';
         break;
       default:
         Router.go('/popular/weekly');
         break;
       }
 
-      console.log(start);
-
-      var templateData = {
-        currentView: 'Home',
-        isFeed: true
-      };
       if (order === 'popular') {
         var posts = Posts.find({time: {$gte: start}}).fetch();
         var popularPosts = [];
