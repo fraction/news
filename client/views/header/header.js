@@ -24,3 +24,7 @@ Template.header.links = function () {
 Template.wrapper.loggingIn = function () {
   return Meteor.loggingIn();
 }
+
+Handlebars.registerHelper('toLowerCase', function(str) {
+  return str.toLowerCase();
+});
