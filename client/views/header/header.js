@@ -20,3 +20,7 @@ Template.header.links = function () {
   }
   return links;
 };
+
+Handlebars.registerHelper('toLowerCase', function(str) {
+  return str.toLowerCase();
+});

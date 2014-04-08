@@ -24,13 +24,13 @@
                     <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{sortType}}<b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
                       {{#unless sortPopular}}
-                        <li><a href="/">Popular</a></li>
+                        <li><a href="/popular/{{toLowerCase timeType}}">Popular</a></li>
                       {{/unless}}
                       {{#unless sortRecent}}
-                        <li><a href="/recent">Recent</a></li>
+                        <li><a href="/recent/{{toLowerCase timeType}}">Recent</a></li>
                       {{/unless}}
                       {{#unless sortRandom}}
-                        <li><a href="/random">Random</a></li>
+                        <li><a href="/random/{{toLowerCase timeType}}">Random</a></li>
                       {{/unless}}
                     </ul>
                   </li>
@@ -38,19 +38,19 @@
                     <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{timeType}}<b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
                       {{#unless timeDaily}}
-                        <li><a href="/{{sortType}}/daily">Today</a></li>
+                        <li><a href="/{{toLowerCase sortType}}/daily">Today</a></li>
                       {{/unless}}
                       {{#unless timeWeekly}}
-                        <li><a href="/{{sortType}}/weekly">This Week</a></li>
+                        <li><a href="/{{toLowerCase sortType}}/weekly">This Week</a></li>
                       {{/unless}}
                       {{#unless timeMonthly}}
-                        <li><a href="/{{sortType}}/monthly">Monthly</a></li>
+                        <li><a href="/{{toLowerCase sortType}}/monthly">Monthly</a></li>
                       {{/unless}}
                       {{#unless timeYearly}}
-                        <li><a href="/{{sortType}}/yearly">Yearly</a></li>
+                        <li><a href="/{{toLowerCase sortType}}/yearly">Yearly</a></li>
                       {{/unless}}
                       {{#unless timeEver}}
-                        <li><a href="/{{sortType}}/ever">Ever</a></li>
+                        <li><a href="/{{toLowerCase sortType}}/ever">Ever</a></li>
                       {{/unless}}
                     </ul>
                   </li>
