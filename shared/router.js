@@ -23,7 +23,7 @@ Router.map(function () {
   this.route('home', {
     path: '/',
     action: function () {
-      Router.go('/popular');
+      Router.go('/popular/weekly');
     }
   });
 
@@ -53,16 +53,52 @@ Router.map(function () {
   });
 
   this.route('feed', {
-    path:     '/:order',
+    path:     '/:order/:time',
     template: 'feed',
     data: function () {
       var order = this.params.order.toLowerCase();
+      var start = new Date();
+      var time = this.params.time.toLowerCase();
       var templateData = {
         currentView: 'Home',
         isFeed: true
       };
+
+      switch (time) {
+      case 'daily':
+        start = start.setDate(start.getDate() - 1);
+        templateData.timeDaily = true;
+        templateData.timeType = 'Daily';
+        break;
+      case 'weekly':
+        start = start.setDate(start.getDate() - 7);
+        templateData.timeWeekly = true;
+        templateData.timeType = 'Weekly';
+        break;
+      case 'monthly':
+        start = start.setFullYear(start.getFullYear(), start.getMonth() - 1);
+        templateData.timeMonthly = true;
+        templateData.timeType = 'Monthly';
+        break;
+      case 'yearly':
+        start = start.setFullYear(start.getFullYear() - 1);
+        templateData.timeYearly = true;
+        templateData.timeType = 'Yearly';
+        break;
+      case 'ever':
+        start = 0;
+        templateData.timeEver = true;
+        templateData.timeType = 'Ever';
+        break;
+      default:
+        Router.go('/popular/weekly');
+        break;
+      }
+
+      start = new Date(start);
+
       if (order === 'popular') {
-        var posts = Posts.find().fetch();
+        var posts = Posts.find({time: {$gte: start}}).fetch();
         var popularPosts = [];
         var pointTable = [];
         Meteor.call('countVotes', posts, function (err, data) {
@@ -82,11 +118,11 @@ Router.map(function () {
       } else if (order === 'recent') {
         templateData.sortType = 'Recent';
         templateData.sortRecent = true;
-        templateData.posts = Posts.find().fetch();
+        templateData.posts = Posts.find({time: {$gte: start}}).fetch();
       } else if (order === 'random') {
         templateData.sortType = 'Random';
         templateData.sortRandom = true;
-        templateData.posts = shuffle(Posts.find().fetch());
+        templateData.posts = shuffle(Posts.find({time: {$gte: start}}).fetch());
       }
       return templateData;
     }
