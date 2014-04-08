@@ -1,0 +1,3 @@
+IronRouterProgress.configure({
+  spinner: false
+});
