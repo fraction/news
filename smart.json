@@ -6,6 +6,7 @@
     "iron-router-progress": {},
     "bootstrap3-less": {},
     "power-queue": {},
-    "feedparser": {}
+    "feedparser": {},
+    "npm": {}
   }
 }

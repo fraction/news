@@ -1,6 +1,9 @@
 var queue = new PowerQueue();
 queue.run();
 
+var fp = Meteor.require('feedparser');
+
+console.log(fp);
 
 Meteor.methods({
   addRSS: function (url) {
@@ -9,11 +12,10 @@ Meteor.methods({
       console.log(url);
       HTTP.call("GET", url, {}, function (error, result) {
         if (error) {
-          throw error;
+          console.log(error);
           done();
         } else {
-          console.log('done!')
-          console.log(result);
+          console.log(fp(result));
           done();
         }
       });
