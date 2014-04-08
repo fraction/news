@@ -22,9 +22,11 @@ Template.header.links = function () {
 };
 
 Template.wrapper.loggingIn = function () {
+  "use strict";
   return Meteor.loggingIn();
-}
+};
 
 Handlebars.registerHelper('toLowerCase', function(str) {
+  "use strict";
   return str.toLowerCase();
 });
