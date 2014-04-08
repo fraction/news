@@ -1,0 +1,2 @@
+IronRouterProgress.configure
+    spinner : false
