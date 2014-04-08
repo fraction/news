@@ -17,6 +17,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav navbar-right">
+            {{#unless loggingIn}}
               {{#if currentUser}}
                 {{#if isFeed}}
                   <li class="highlight"><a href="/new-post">New Post</a></li>
@@ -66,6 +67,7 @@
                   <li><a href="/sign-in">Sign In</a></li>
                   <li class="highlight"><a href="/sign-up">Sign Up</a></li>
               {{/if}}
+              {{/unless}}
           </ul>
         </div>
       </div>

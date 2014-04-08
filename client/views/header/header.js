@@ -20,3 +20,7 @@ Template.header.links = function () {
   }
   return links;
 };
+
+Template.wrapper.loggingIn = function () {
+  return Meteor.loggingIn();
+}

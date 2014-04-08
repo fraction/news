@@ -42,6 +42,9 @@ Router.map(function () {
   this.route('user', {
     path:     'user/:username',
     template: 'user',
+    waitOn: function () {
+      return Meteor.subscribe('posts');
+    },
     data: function () {
       var templateData = {
         currentView: 'User',
@@ -55,6 +58,9 @@ Router.map(function () {
   this.route('feed', {
     path:     '/:order/:time',
     template: 'feed',
+    waitOn: function () {
+      return Meteor.subscribe('posts');
+    },
     data: function () {
       var order = this.params.order.toLowerCase();
       var start = new Date();
