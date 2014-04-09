@@ -1,72 +1,102 @@
 var queue = new PowerQueue();
 
-
 Meteor.methods({
   addRSS: function (url) {
     "use strict";
     queue.add(function(done) {
-      console.log(url);
-      HTTP.call("GET", url, {}, function (error, result) {
+      HTTP.call("GET", url, {}, function (error) {
         if (error) {
           console.log(error);
-          done();
-        } else {
-          console.log(fp(result));
-          done();
         }
+
+        done();
       });
     });
   }
 });
 
+var FeedParser = Meteor.require('feedparser');
+var request = Meteor.require('request');
+var Fiber = Meteor.require('fibers');
 
-var FeedParser = Meteor.require('feedparser')
-  , request = Meteor.require('request')
-  , Fiber = Meteor.require('fibers');
+var readFeed = function (url, domain) {
+  "use strict";
 
-// example
-
-
-Meteor.startup(function () {
-  var req = request('http://theglitterguide.com/feed/')
-    , feedparser = new FeedParser();
+  var req = request(url);
+  var feedparser = new FeedParser();
   req.on('error', function (error) {
     console.log(error);
   }).on('response', function (res) {
     var stream = this;
-    var stream = this;
-    if (res.statusCode != 200) return this.emit('error', new Error('Bad status code'));
+    if (res.statusCode !== 200) {
+      return this.emit('error', new Error('Bad status code'));
+    }
     stream.pipe(feedparser);
   });
 
   feedparser.on('error', function(error) {
-    console.log('shit')
+    console.log('shit: ' + error);
   });
+
   feedparser.on('readable', function() {
-    var stream = this, item;
+    var stream = this;
 
-    while (item = stream.read()) {
-      Fiber(function() {
-        var obj = {};
-        if (typeof item.title !== 'undefined') {
-          obj.title = item.title;
-        }
-        if (item.origlink != null) {
-          obj.url = item.origlink
-        } else if (item.link != null){
-          obj.url = item.link;
-        }
+    var item = stream.read();
 
-        console.log(item.link);
+    var parseFeed = function() {
+      var obj = {};
+      if (typeof item.title !== 'undefined') {
+        obj.title = item.title;
+      }
+      if (item.origlink !== null) {
+        obj.url = item.origlink;
+      } else if (item.link !== null){
+        obj.url = item.link;
+      } else {
+        throw 'something bad happened: ' + item;
+      }
 
-        obj.time = new Date();
-        obj.author = 'theglitterguide.com';
-        obj.username = 'theglitterguide.com';
-        obj.comments = 0;
-
+    //  if (item.pubDate != null) {
+    //    obj.time = new Date(item.pubDate)
+    //  } else {
+      obj.time = new Date();
+    //  }
+      obj.username = domain;
+      obj.comments = 0;
+      if (Posts.findOne({url: obj.url}) === null) {
+        console.log('Posted "' + obj.title + '" from ' + obj.username);
         Posts.insert(obj);
-        console.log('');
-      }).run();
+      }
+    };
+
+    while (item) {
+      Fiber(parseFeed).run();
+      item = stream.read();
     }
   });
-});
+};
+
+
+var addFeed = function (url, domain) {
+  "use strict";
+  queue.add(function(done) {
+    console.log('Reading feed from ' + domain);
+    readFeed(url, domain);
+    done();
+  });
+};
+
+// reads each and every feed
+var readAllFeeds = function () {
+  "use strict";
+  addFeed('http://www.reddit.com/.rss', 'reddit.com');
+  addFeed('https://news.ycombinator.com/rss', 'news.ycombinator.com');
+  addFeed('http://zenhabits.net/feed/', 'zenhabits.net');
+  addFeed('http://www.datatau.com/rss', 'datatau.com');
+  addFeed('http://feeds.feedburner.com/alistapart/main', 'alistapart.com');
+  addFeed('http://www.brobible.com/feed/', 'brobible.com');
+  addFeed('https://xkcd.com/atom.xml', 'xkcd.com');
+};
+
+// every ten minutes
+Meteor.setInterval(readAllFeeds, 1000 * 60 * 10);
