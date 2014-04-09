@@ -89,7 +89,7 @@ var addFeed = function (url, domain) {
 // reads each and every feed
 var readAllFeeds = function () {
   "use strict";
-  console.log('Reading all feeds')
+  console.log('Reading all feeds');
   addFeed('http://www.reddit.com/.rss', 'reddit.com');
   addFeed('https://news.ycombinator.com/rss', 'news.ycombinator.com');
   addFeed('http://zenhabits.net/feed/', 'zenhabits.net');
