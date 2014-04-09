@@ -88,6 +88,7 @@
       "AccountsEntry":      false,
       "Posts":              false,
       "Votes":              false,
-      "IronRouterProgress": false
+      "IronRouterProgress": false,
+      "PowerQueue":         false
     }
 }

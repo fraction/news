@@ -4,6 +4,9 @@
     "accounts-entry": {},
     "fast-render": {},
     "iron-router-progress": {},
-    "bootstrap3-less": {}
+    "bootstrap3-less": {},
+    "power-queue": {},
+    "feedparser": {},
+    "npm": {}
   }
 }
