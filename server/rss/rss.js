@@ -21,7 +21,7 @@ var Fiber = Meteor.require('fibers');
 
 var readFeed = function (url, domain) {
   "use strict";
-
+  console.log('Reading feed from ' + domain);
   var req = request(url);
   var feedparser = new FeedParser();
   req.on('error', function (error) {
@@ -63,7 +63,8 @@ var readFeed = function (url, domain) {
     //  }
       obj.username = domain;
       obj.comments = 0;
-      if (Posts.findOne({url: obj.url}) === null) {
+
+      if (typeof Posts.findOne({url: obj.url}) === 'undefined') {
         console.log('Posted "' + obj.title + '" from ' + obj.username);
         Posts.insert(obj);
       }
@@ -80,7 +81,6 @@ var readFeed = function (url, domain) {
 var addFeed = function (url, domain) {
   "use strict";
   queue.add(function(done) {
-    console.log('Reading feed from ' + domain);
     readFeed(url, domain);
     done();
   });
@@ -89,6 +89,7 @@ var addFeed = function (url, domain) {
 // reads each and every feed
 var readAllFeeds = function () {
   "use strict";
+  console.log('Reading all feeds');
   addFeed('http://www.reddit.com/.rss', 'reddit.com');
   addFeed('https://news.ycombinator.com/rss', 'news.ycombinator.com');
   addFeed('http://zenhabits.net/feed/', 'zenhabits.net');
@@ -99,4 +100,6 @@ var readAllFeeds = function () {
 };
 
 // every ten minutes
+console.log('Setting interval...');
+readAllFeeds();
 Meteor.setInterval(readAllFeeds, 1000 * 60 * 10);
