@@ -90,13 +90,7 @@ var addFeed = function (url, domain) {
 var readAllFeeds = function () {
   "use strict";
   console.log('Reading all feeds');
-  addFeed('http://www.reddit.com/.rss', 'reddit.com');
   addFeed('https://news.ycombinator.com/rss', 'news.ycombinator.com');
-  addFeed('http://zenhabits.net/feed/', 'zenhabits.net');
-  addFeed('http://www.datatau.com/rss', 'datatau.com');
-  addFeed('http://feeds.feedburner.com/alistapart/main', 'alistapart.com');
-  addFeed('http://www.brobible.com/feed/', 'brobible.com');
-  addFeed('https://xkcd.com/atom.xml', 'xkcd.com');
 };
 
 // every ten minutes
