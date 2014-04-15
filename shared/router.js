@@ -104,7 +104,7 @@ Router.map(function () {
       start = new Date(start);
 
       if (order === 'popular') {
-        var posts = Posts.find({time: {$gte: start}}).fetch();
+        var posts = Posts.find({createdAt: {$gte: start}}).fetch();
         var popularPosts = [];
         var pointTable = [];
         Meteor.call('countVotes', posts, function (err, data) {
@@ -124,11 +124,13 @@ Router.map(function () {
       } else if (order === 'recent') {
         templateData.sortType = 'Recent';
         templateData.sortRecent = true;
-        templateData.posts = Posts.find({time: {$gte: start}}).fetch();
+        templateData.posts = Posts.find({createdAt: {$gte: start}}).fetch();
       } else if (order === 'random') {
         templateData.sortType = 'Random';
         templateData.sortRandom = true;
-        templateData.posts = shuffle(Posts.find({time: {$gte: start}}).fetch());
+        templateData.posts = shuffle(Posts.find({
+          createdAt: {$gte: start}
+        }).fetch());
       }
       return templateData;
     }

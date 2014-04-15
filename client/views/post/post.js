@@ -82,6 +82,6 @@ Template.post.helpers({
   },
   timeCopy: function () {
     "use strict";
-    return timeSince(this.time);
+    return timeSince(this.createdAt);
   }
 });

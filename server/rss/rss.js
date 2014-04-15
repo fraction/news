@@ -1,20 +1,44 @@
-var queue = new PowerQueue();
+//var queue = new PowerQueue();
+var hn = Meteor.require('hacker-news-api');
 
 Meteor.methods({
-  addRSS: function (url) {
+  "refreshHackerNews": function () {
     "use strict";
-    queue.add(function(done) {
-      HTTP.call("GET", url, {}, function (error) {
+    hn.getStories(Meteor.bindEnvironment(
+      function (error, data) {
         if (error) {
-          console.log(error);
+          throw error;
         }
+        _(data.hits).forEach(function (item) {
+          /*jshint camelcase: false */
+          console.log(item);
+          var obj = {
+            oldId: '2922756',
+            oldPoints: item.points,
+            createdAt: new Date(item.created_at),
+            site: 'hn',
+            author: item.author,
+            title: item.title,
+            url: item.url,
+            comments: item.num_comments,
+          };
 
-        done();
-      });
-    });
+          Posts.insert(obj, function (err, res) {
+            if (err) {
+              throw err;
+            }
+            console.log(res);
+          });
+        });
+      }, function (e) {
+        throw e;
+      })
+    );
   }
 });
 
+
+/*
 var FeedParser = Meteor.require('feedparser');
 var request = Meteor.require('request');
 var Fiber = Meteor.require('fibers');
@@ -97,3 +121,5 @@ var readAllFeeds = function () {
 console.log('Setting interval...');
 readAllFeeds();
 Meteor.setInterval(readAllFeeds, 1000 * 60 * 10);
+
+*/
