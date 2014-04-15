@@ -1,8 +1,3 @@
-Meteor.publish('votes', function () {
-  "use strict";
-  return Votes.find({user: this.userId});
-});
-
 Meteor.methods({
   // obj.id = content _id
   // obj.vote = score from -1 to 1

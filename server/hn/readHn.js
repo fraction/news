@@ -2,7 +2,7 @@
 var hn = Meteor.require('hacker-news-api');
 
 Meteor.methods({
-  "readHackerNews": function () {
+  "readHn": function () {
     "use strict";
     hn.getStories(Meteor.bindEnvironment(
       function (error, data) {
@@ -36,5 +36,3 @@ Meteor.methods({
     );
   }
 });
-
-Meteor.setInterval(readAllFeeds, 1000 * 60 * 10);
