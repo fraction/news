@@ -29,18 +29,20 @@ var readHn = function () {
         };
 
         Posts.upsert({
-            oldId: obj.oldId
-        },{ $set: obj });
+          oldId: obj.oldId
+        },{
+          $set: obj
+        });
 
       });
     }, function (e) {
       throw e;
     })
   );
-}
+};
 
 // read last 24 hours of hn
 readHn();
 
 // reread hn every hour
-Meteor.setInterval(readHn, 3600 * 1000)
+Meteor.setInterval(readHn, 3600 * 1000);
