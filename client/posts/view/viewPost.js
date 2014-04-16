@@ -68,10 +68,13 @@ Template.post.helpers({
     if (typeof voteResult !== 'undefined') {
       var vote = voteResult.vote;
       if (vote > 0) {
+        Session.set('vote.' + post, 1);
         return 'upvoted';
       } else if (vote < 0) {
+        Session.set('vote.' + post, -1);
         return 'downvoted';
       } else {
+        Session.set('vote.' + post, 0);
         return 'nonvoted';
       }
     } else {
@@ -81,5 +84,8 @@ Template.post.helpers({
   timeCopy: function () {
     "use strict";
     return timeSince(this.createdAt);
+  },
+  totalPoints: function () {
+    return this.oldPoints + Session.get('vote.' + this._id);
   }
 });
