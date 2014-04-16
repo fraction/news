@@ -1,42 +1,40 @@
 var countVotes = function () {
   "use strict";
-
-  var count = function () {
-    // find votes for object
-    var deltaVotesQuery = {
-      delta: {
-        $exists: true
-      }
-    };
-
-
-
-    var deltaVotes = Votes.find(deltaVotesQuery).fetch();
-    console.log(deltaVotes);
-
-    var current = 0;
-/*
-    // count how many votes each object has
-    _(countVotesResult).forEach(function (result) {
-      console.log('found delta vote');
-      current += result.votes[obj._id].vote;
-    });
-*/
-    return current;
+  // find votes for object
+  var deltaVotesQuery = {
+    delta: {
+      $exists: true
+    }
   };
 
-  count();
-/*
-  _(Posts.find().fetch()).forEach(function (obj) {
-    voteTable.push({
-      id: obj._id,
-      votes: count(obj)
-    });
+  var deltaVotes = Votes.find(deltaVotesQuery).fetch();
+
+  var voteTable = {};
+
+  // count how many votes each object has
+  _.forEach(deltaVotes, function (vote) {
+      var post = voteTable[vote.obj];
+      if (typeof post === 'undefined') {
+        // first vote for this post
+        voteTable[vote.obj] = vote.delta;
+      } else {
+        // not first vote for the post
+        voteTable[vote.obj] += vote.delta;
+      }
+      Votes.update({
+        _id: vote._id
+      }, {
+        $unset : {
+          delta: ''
+        }
+      });
   });
-*/
-//  _(voteTable).forEach(function(item) {
-//    Posts.update({_id: item.id}, { $set: {votes: item.votes}});
-//  });
+
+  _.forEach(voteTable, function (value, key) {
+    Posts.update({_id: key}, { $inc: {votes: value}});
+  })
+
+  console.log('Counting votes:', voteTable);
 };
 
 
@@ -44,4 +42,4 @@ Meteor.startup(function () {
   countVotes();
 });
 
-Meteor.setInterval(countVotes, 10*1000)
+Meteor.setInterval(countVotes, 2*1000)

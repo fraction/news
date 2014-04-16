@@ -60,15 +60,13 @@ Template.post.helpers({
 
     var post = this._id;
     var voteQuery = {
-      'user'   : Meteor.userId()
-    };
-    voteQuery['votes.' + post] = {
-      '$exists' : true
+      'user' : Meteor.userId(),
+      'obj'  : post
     };
 
     var voteResult = Votes.findOne(voteQuery);
     if (typeof voteResult !== 'undefined') {
-      var vote = voteResult.votes[post].vote;
+      var vote = voteResult.vote;
       if (vote > 0) {
         return 'upvoted';
       } else if (vote < 0) {
