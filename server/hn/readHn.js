@@ -25,7 +25,7 @@ var readHn = function () {
           author: item.author,
           title: item.title,
           url: item.url,
-          comments: parseInt(item.num_comments, 10),
+          oldComments: parseInt(item.num_comments, 10),
         };
 
         Posts.upsert({
@@ -35,8 +35,8 @@ var readHn = function () {
         });
 
       });
-    }, function (e) {
-      throw e;
+    }, function (error) {
+      throw error;
     })
   );
 };

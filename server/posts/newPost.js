@@ -7,6 +7,9 @@ var isWebAddress = function (value) {
 Meteor.methods({
   newPost : function (obj) {
     "use strict";
+    // disabled
+    return false;
+
     if (obj.title.length < 3) {
       throw 'Title must be longer than 3 characters';
     }

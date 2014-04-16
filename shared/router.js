@@ -27,6 +27,7 @@ Router.map(function () {
     }
   });
 
+/* disabled
   this.route('newPost', {
     path:     '/new-post',
     template: 'newPost',
@@ -38,6 +39,7 @@ Router.map(function () {
       return templateData;
     }
   });
+*/
 
   this.route('user', {
     path:     'user/:username',
@@ -81,6 +83,11 @@ Router.map(function () {
         templateData.timeWeekly = true;
         templateData.timeType = 'Weekly';
         break;
+      case 'fortnightly':
+          start = start.setDate(start.getDate() - 14);
+          templateData.timeFortnightly = true;
+          templateData.timeType = 'Fortnightly';
+          break;
       case 'monthly':
         start = start.setFullYear(start.getFullYear(), start.getMonth() - 1);
         templateData.timeMonthly = true;
@@ -104,27 +111,14 @@ Router.map(function () {
       start = new Date(start);
 
       if (order === 'popular') {
-        var posts = Posts.find({createdAt: {$gte: start}}).fetch();
-        var popularPosts = [];
-        var pointTable = [];
-        Meteor.call('countVotes', posts, function (err, data) {
-          pointTable = data;
-          pointTable.sort(function(a, b) {
-            return b.votes - a.votes;
-          });
-          _(pointTable).forEach(function (obj) {
-            popularPosts.push(Posts.findOne({ '_id' : obj.id}));
-          });
-          Session.set('posts', popularPosts);
-        });
-
+        var posts = Posts.find({createdAt: {$gte: start}}, {sort: {oldPoints: -1}}).fetch();
         templateData.sortType = 'Popular';
         templateData.sortPopular = true;
-        templateData.posts = Session.get('posts');
+        templateData.posts = posts;
       } else if (order === 'recent') {
         templateData.sortType = 'Recent';
         templateData.sortRecent = true;
-        templateData.posts = Posts.find({createdAt: {$gte: start}}).fetch();
+        templateData.posts = Posts.find({createdAt: {$gte: start}}, {sort: {createdAt: -1}}).fetch();
       } else if (order === 'random') {
         templateData.sortType = 'Random';
         templateData.sortRandom = true;
