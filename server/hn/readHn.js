@@ -11,24 +11,21 @@ Meteor.methods({
         }
         _(data.hits).forEach(function (item) {
           /*jshint camelcase: false */
-          console.log(item);
           var obj = {
-            oldId: '2922756',
-            oldPoints: item.points,
+            oldId: parseInt(item.objectID, 10),
+            oldPoints: parseInt(item.points, 10),
             createdAt: new Date(item.created_at),
             site: 'hn',
             author: item.author,
             title: item.title,
             url: item.url,
-            comments: item.num_comments,
+            comments: parseInt(item.num_comments, 10),
           };
 
-          Posts.insert(obj, function (err, res) {
-            if (err) {
-              throw err;
-            }
-            console.log(res);
-          });
+          Posts.upsert({
+              oldId: obj.oldId
+          },{ $set: obj });
+
         });
       }, function (e) {
         throw e;
