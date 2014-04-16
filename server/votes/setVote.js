@@ -26,19 +26,32 @@ Meteor.methods({
     );
 
     var findVoteQuery = {
-      'user'   : Meteor.userId()
+      'user'   : Meteor.userId(),
+      'obj'    : obj.id
     };
 
-    var findVoteResult = Votes.find(findVoteQuery);
-    findVoteResult.fetch();
+    var oldVote = 0;
+    var findVoteResult = Votes.findOne(findVoteQuery);
+
+    if (typeof findVoteResult !== 'undefined') {
+      // user has voted on this before
+      oldVote = findVoteResult.vote;
+      if (typeof findVoteResult.delta !== 'undefined') {
+        //user has voted and it hasn't been saved yet
+        oldVote -= findVoteResult.delta;
+      }
+    }
+
+    var currentTime = new Date();
 
     var upsertVoteQuery = {
-      '$set' : {}
-    };
-
-    upsertVoteQuery.$set['votes.' + obj.id] = {
-      time: new Date(),
-      vote: obj.vote
+      '$set' : {
+        time: currentTime,
+        user: Meteor.userId(),
+        obj: obj.id,
+        vote: obj.vote,
+        delta: obj.vote - oldVote
+      }
     };
 
     return Votes.upsert(findVoteQuery, upsertVoteQuery);
