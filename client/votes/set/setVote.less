@@ -1,0 +1,25 @@
+@import "/client/global/style/variables.import.less";
+
+.vote {
+  margin-left: -0.5rem;
+
+  .upvote, .downvote {
+    display: block;
+    padding: 0.25rem;
+    padding-left: .5rem;
+    color: @gray-color;
+    font-size: 1rem;
+  }
+
+  .upvote {
+    &.active, &:active, &:hover {
+      color: @upvote-bright;
+    }
+  }
+
+  .downvote {
+    &.active, &:active, &:hover {
+      color: @downvote-bright;
+    }
+  }
+}

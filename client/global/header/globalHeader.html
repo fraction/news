@@ -1,0 +1,81 @@
+<template name="header">
+  <div class="header">
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="logo" href="/"><img src="/img/logo.svg" alt="Fraction Logo"></a>
+          <ol class="breadcrumb">
+            <li><a href="/">Fraction</a></li>
+            <li class="current-view">{{currentView}}</li>
+          </ol>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav navbar-right">
+            {{#unless loggingIn}}
+              {{#if currentUser}}
+                {{#if isFeed}}
+                  <!--
+                    <li class="highlight"><a href="/new-post">New Post</a></li>
+                  -->
+                  <li class="dropdown">
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{sortType}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                      {{#unless sortPopular}}
+                        <li><a href="/popular/{{toLowerCase timeType}}">Popular</a></li>
+                      {{/unless}}
+                      {{#unless sortRecent}}
+                        <li><a href="/recent/{{toLowerCase timeType}}">Recent</a></li>
+                      {{/unless}}
+                      {{#unless sortRandom}}
+                        <li><a href="/random/{{toLowerCase timeType}}">Random</a></li>
+                      {{/unless}}
+                    </ul>
+                  </li>
+                  <li class="dropdown">
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{timeType}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                      {{#unless timeDaily}}
+                        <li><a href="/{{toLowerCase sortType}}/daily">Daily</a></li>
+                      {{/unless}}
+                      {{#unless timeWeekly}}
+                        <li><a href="/{{toLowerCase sortType}}/weekly">Weekly</a></li>
+                      {{/unless}}
+                      {{#unless timeFortnightly}}
+                        <li><a href="/{{toLowerCase sortType}}/fortnightly">Fortnightly</a></li>
+                      {{/unless}}
+                      {{#unless timeMonthly}}
+                        <li><a href="/{{toLowerCase sortType}}/monthly">Monthly</a></li>
+                      {{/unless}}
+                      {{#unless timeYearly}}
+                        <li><a href="/{{toLowerCase sortType}}/yearly">Yearly</a></li>
+                      {{/unless}}
+                      {{#unless timeEver}}
+                        <li><a href="/{{toLowerCase sortType}}/ever">Ever</a></li>
+                      {{/unless}}
+                    </ul>
+                  </li>
+                {{/if}}
+                  <li class="dropdown">
+                    <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.username}}<b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><a href="/user/{{currentUser.username}}">Profile</a></li>
+                      <li><a href="/sign-out">Sign Out</a></li>
+                    </ul>
+                  </li>
+                  {{else}}
+                  <li><a href="/sign-in">Sign In</a></li>
+                  <li class="highlight"><a href="/sign-up">Sign Up</a></li>
+              {{/if}}
+              {{/unless}}
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</template>

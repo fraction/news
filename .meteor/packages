@@ -20,3 +20,4 @@ reactive-list
 http
 feedparser
 npm
+lodash

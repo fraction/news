@@ -1,19 +1,3 @@
-// todo: make a lib and move this
-var shuffle = function (array) {
-  "use strict";
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  while (0 !== currentIndex) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
-};
-
 Router.configure({
   layoutTemplate: 'wrapper'
 });
@@ -27,6 +11,7 @@ Router.map(function () {
     }
   });
 
+/* disabled
   this.route('newPost', {
     path:     '/new-post',
     template: 'newPost',
@@ -38,13 +23,11 @@ Router.map(function () {
       return templateData;
     }
   });
+*/
 
   this.route('user', {
     path:     'user/:username',
     template: 'user',
-    waitOn: function () {
-      return Meteor.subscribe('posts');
-    },
     data: function () {
       var templateData = {
         currentView: 'User',
@@ -58,9 +41,6 @@ Router.map(function () {
   this.route('feed', {
     path:     '/:order/:time',
     template: 'feed',
-    waitOn: function () {
-      return Meteor.subscribe('posts');
-    },
     data: function () {
       var order = this.params.order.toLowerCase();
       var start = new Date();
@@ -80,6 +60,11 @@ Router.map(function () {
         start = start.setDate(start.getDate() - 7);
         templateData.timeWeekly = true;
         templateData.timeType = 'Weekly';
+        break;
+      case 'fortnightly':
+        start = start.setDate(start.getDate() - 14);
+        templateData.timeFortnightly = true;
+        templateData.timeType = 'Fortnightly';
         break;
       case 'monthly':
         start = start.setFullYear(start.getFullYear(), start.getMonth() - 1);
@@ -104,31 +89,36 @@ Router.map(function () {
       start = new Date(start);
 
       if (order === 'popular') {
-        var posts = Posts.find({time: {$gte: start}}).fetch();
-        var popularPosts = [];
-        var pointTable = [];
-        Meteor.call('countVotes', posts, function (err, data) {
-          pointTable = data;
-          pointTable.sort(function(a, b) {
-            return b.votes - a.votes;
-          });
-          _(pointTable).forEach(function (obj) {
-            popularPosts.push(Posts.findOne({ '_id' : obj.id}));
-          });
-          Session.set('posts', popularPosts);
-        });
-
+        Meteor.subscribe('popularPosts', start);
         templateData.sortType = 'Popular';
         templateData.sortPopular = true;
-        templateData.posts = Session.get('posts');
+        templateData.posts = Posts.find({}, {sort: {oldPoints: -1}});
       } else if (order === 'recent') {
+        Meteor.subscribe('recentPosts', start);
         templateData.sortType = 'Recent';
         templateData.sortRecent = true;
-        templateData.posts = Posts.find({time: {$gte: start}}).fetch();
+        templateData.posts = Posts.find({}, {$sort: {createdAt: -1}});
       } else if (order === 'random') {
+        // todo: make a lib and move this
+        var shuffle = function (array) {
+          var currentIndex = array.length, temporaryValue, randomIndex;
+
+          while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+          }
+          return array;
+        };
+
+
+        Meteor.subscribe('randomPosts', start);
         templateData.sortType = 'Random';
         templateData.sortRandom = true;
-        templateData.posts = shuffle(Posts.find({time: {$gte: start}}).fetch());
+        templateData.posts = shuffle(Posts.find().fetch());
       }
       return templateData;
     }
