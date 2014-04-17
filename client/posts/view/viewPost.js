@@ -87,6 +87,7 @@ Template.post.helpers({
     return timeSince(this.createdAt);
   },
   totalPoints: function () {
+    "use strict";
     return this.oldPoints + Session.get('vote.' + this._id);
   }
 });

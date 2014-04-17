@@ -28,18 +28,17 @@ var countVotes = function () {
           delta: ''
         }
       });
-  });
+    });
 
   _.forEach(voteTable, function (value, key) {
     Posts.update({_id: key}, { $inc: {votes: value}});
-  })
+  });
 
   console.log('Counting votes:', voteTable);
 };
 
 
-Meteor.startup(function () {
-  countVotes();
-});
+Meteor.startup(countVotes);
 
-Meteor.setInterval(countVotes, 2*1000)
+// run every 2 minutes
+Meteor.setInterval(countVotes, 2*1000);

@@ -1,19 +1,3 @@
-// todo: make a lib and move this
-var shuffle = function (array) {
-  "use strict";
-  var currentIndex = array.length, temporaryValue, randomIndex;
-
-  while (0 !== currentIndex) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
-
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
-  return array;
-};
-
 Router.configure({
   layoutTemplate: 'wrapper'
 });
@@ -44,9 +28,6 @@ Router.map(function () {
   this.route('user', {
     path:     'user/:username',
     template: 'user',
-    waitOn: function () {
-      return Meteor.subscribe('posts');
-    },
     data: function () {
       var templateData = {
         currentView: 'User',
@@ -60,9 +41,6 @@ Router.map(function () {
   this.route('feed', {
     path:     '/:order/:time',
     template: 'feed',
-    waitOn: function () {
-      return Meteor.subscribe('posts');
-    },
     data: function () {
       var order = this.params.order.toLowerCase();
       var start = new Date();
@@ -84,10 +62,10 @@ Router.map(function () {
         templateData.timeType = 'Weekly';
         break;
       case 'fortnightly':
-          start = start.setDate(start.getDate() - 14);
-          templateData.timeFortnightly = true;
-          templateData.timeType = 'Fortnightly';
-          break;
+        start = start.setDate(start.getDate() - 14);
+        templateData.timeFortnightly = true;
+        templateData.timeType = 'Fortnightly';
+        break;
       case 'monthly':
         start = start.setFullYear(start.getFullYear(), start.getMonth() - 1);
         templateData.timeMonthly = true;
@@ -111,20 +89,36 @@ Router.map(function () {
       start = new Date(start);
 
       if (order === 'popular') {
-        var posts = Posts.find({createdAt: {$gte: start}}, {sort: {oldPoints: -1}}).fetch();
+        Meteor.subscribe('popularPosts', start);
         templateData.sortType = 'Popular';
         templateData.sortPopular = true;
-        templateData.posts = posts;
+        templateData.posts = Posts.find({}, {sort: {oldPoints: -1}});
       } else if (order === 'recent') {
+        Meteor.subscribe('recentPosts', start);
         templateData.sortType = 'Recent';
         templateData.sortRecent = true;
-        templateData.posts = Posts.find({createdAt: {$gte: start}}, {sort: {createdAt: -1}}).fetch();
+        templateData.posts = Posts.find({}, {$sort: {createdAt: -1}});
       } else if (order === 'random') {
+        // todo: make a lib and move this
+        var shuffle = function (array) {
+          var currentIndex = array.length, temporaryValue, randomIndex;
+
+          while (0 !== currentIndex) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+          }
+          return array;
+        };
+
+
+        Meteor.subscribe('randomPosts', start);
         templateData.sortType = 'Random';
         templateData.sortRandom = true;
-        templateData.posts = shuffle(Posts.find({
-          createdAt: {$gte: start}
-        }).fetch());
+        templateData.posts = shuffle(Posts.find().fetch());
       }
       return templateData;
     }
