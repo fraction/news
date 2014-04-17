@@ -1,14 +1,15 @@
-// Make sure there's no "javascript:alert()" douchebaggery
-var isWebAddress = function (value) {
-  "use strict";
-  return (/^https?:\/\//i).test(value);
-};
-
 Meteor.methods({
   newPost : function (obj) {
     "use strict";
     // disabled
-    return false;
+    return obj;
+  }
+});
+/*
+    var isWebAddress = function (value) {
+      "use strict";
+      return (/^https?:\/\//i).test(value);
+    };
 
     if (obj.title.length < 3) {
       throw 'Title must be longer than 3 characters';
@@ -27,4 +28,4 @@ Meteor.methods({
       comments: 0
     });
   }
-});
+*/
