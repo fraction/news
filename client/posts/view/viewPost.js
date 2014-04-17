@@ -78,6 +78,7 @@ Template.post.helpers({
         return 'nonvoted';
       }
     } else {
+      Session.set('vote.' + post, 0);
       return 'nonvoted';
     }
   },
