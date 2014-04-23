@@ -79,4 +79,4 @@ var readHn = function () {
 readHn();
 
 // reread hn every half hour
-Meteor.setInterval(readHn, 1800 * 1000);
+Meteor.setInterval(readHn, 1000 * 60 * 30);
