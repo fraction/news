@@ -7,7 +7,7 @@ Router.map(function () {
   this.route('home', {
     path: '/',
     action: function () {
-      Router.go('/popular/weekly');
+      Router.go('/best/weekly');
     }
   });
 
@@ -82,16 +82,16 @@ Router.map(function () {
         templateData.timeType = 'Ever';
         break;
       default:
-        Router.go('/popular/weekly');
+        Router.go('/best/weekly');
         break;
       }
 
       start = new Date(start);
 
-      if (order === 'popular') {
-        Meteor.subscribe('popularPosts', start);
-        templateData.sortType = 'Popular';
-        templateData.sortPopular = true;
+      if (order === 'best') {
+        Meteor.subscribe('bestPosts', start);
+        templateData.sortType = 'Best';
+        templateData.sortBest = true;
         templateData.posts = Posts.find({}, {sort: {oldPoints: -1}});
       } else if (order === 'recent') {
         Meteor.subscribe('recentPosts', start);

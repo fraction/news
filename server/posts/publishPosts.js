@@ -20,7 +20,7 @@ Meteor.publish('recentPosts', function (start) {
   });
 });
 
-Meteor.publish('popularPosts', function (start) {
+Meteor.publish('bestPosts', function (start) {
   "use strict";
   return Posts.find({
     createdAt: {
