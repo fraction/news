@@ -26,8 +26,8 @@
                   <li class="dropdown">
                     <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{sortType}}<b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
-                      {{#unless sortPopular}}
-                        <li><a href="/popular/{{toLowerCase timeType}}">Popular</a></li>
+                      {{#unless sortBest}}
+                        <li><a href="/best/{{toLowerCase timeType}}">Best</a></li>
                       {{/unless}}
                       {{#unless sortRecent}}
                         <li><a href="/recent/{{toLowerCase timeType}}">Recent</a></li>
