@@ -6,13 +6,6 @@ var getDomain = function (uri) {
 };
 */
 
-// It'll take a sentence like this and make it
-// itll-take-a-sentence-like-this-and-make-it
-var cleanText = function (str) {
-  "use strict";
-  return str.replace(/[^\w\s]/gi, '').replace(/\W/g, "-").toLowerCase();
-};
-
 // http://stackoverflow.com/a/3177838
 var timeSince = function (date) {
   "use strict";
@@ -43,18 +36,6 @@ var timeSince = function (date) {
 };
 
 Template.post.helpers({
-  commentCopy: function() {
-    "use strict";
-    if (this.comments === 1) {
-      return this.comments + ' comment';
-    } else {
-      return this.comments + ' comments';
-    }
-  },
-  commentLink: function () {
-    "use strict";
-    return '/comments/' + this._id + '/' + cleanText(this.title);
-  },
   previousVote: function () {
     "use strict";
 
@@ -89,5 +70,13 @@ Template.post.helpers({
   totalPoints: function () {
     "use strict";
     return this.oldPoints + Session.get('vote.' + this._id);
+  },
+  authorLink: function() {
+    "use strict";
+    return 'https://news.ycombinator.com/user?id=' + this.author;
+  },
+  commentLink: function () {
+    "use strict";
+    return 'https://news.ycombinator.com/item?id=' + this.oldId;
   }
 });
