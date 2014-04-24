@@ -126,7 +126,14 @@ Router.map(function () {
 
       templateData.sortType = 'Top';
       templateData.sortTop = true;
-      templateData.posts = Posts.find({}, {sort: {oldPoints: -1}});
+      if (this.ready()) {
+        templateData.posts = Posts.find({}, {
+          reactive: false,
+          sort: {
+            oldPoints: -1
+          }
+        });
+      }
       return templateData;
     }
   });
@@ -146,7 +153,14 @@ Router.map(function () {
 
       templateData.sortType = 'Hot';
       templateData.sortHot = true;
-      templateData.posts = Posts.find({}, {sort: {heat: -1}});
+      if (this.ready()) {
+        templateData.posts = Posts.find({}, {
+          reactive: false,
+          sort: {
+            heat: -1
+          }
+        });
+      }
       return templateData;
     }
   });
@@ -165,7 +179,15 @@ Router.map(function () {
 
       templateData.sortType = 'Recent';
       templateData.sortRecent = true;
-      templateData.posts = Posts.find({}, {sort: {createdAt: -1}});
+      if (this.ready()) {
+        templateData.posts = Posts.find({}, {
+          reactive: false,
+          sort: {
+            createdAt: -1
+          }
+        });
+      }
+
       return templateData;
     }
   });
@@ -197,10 +219,14 @@ Router.map(function () {
         return array;
       };
 
-
       templateData.sortType = 'Random';
       templateData.sortRandom = true;
-      templateData.posts = shuffle(Posts.find().fetch());
+      if (this.ready()) {
+        templateData.posts = shuffle(Posts.find({}, {
+          reactive: false
+        }).fetch());
+      }
+
       return templateData;
     }
   });
