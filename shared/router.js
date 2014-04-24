@@ -77,10 +77,10 @@ Router.map(function () {
         templateData.timeType = 'Month';
         break;
       case 'quarter':
-          start = start.setFullYear(start.getFullYear(), start.getMonth() - 3);
-          templateData.timeQuarter = true;
-          templateData.timeType = 'Quarter';
-          break;
+        start = start.setFullYear(start.getFullYear(), start.getMonth() - 3);
+        templateData.timeQuarter = true;
+        templateData.timeType = 'Quarter';
+        break;
       case 'year':
         start = start.setFullYear(start.getFullYear() - 1);
         templateData.timeYear = true;
