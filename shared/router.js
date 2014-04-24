@@ -7,7 +7,7 @@ Router.map(function () {
   this.route('home', {
     path: '/',
     action: function () {
-      Router.go('/best/weekly');
+      Router.go('/hot/weekly');
     }
   });
 
@@ -82,7 +82,7 @@ Router.map(function () {
         templateData.timeType = 'Ever';
         break;
       default:
-        Router.go('/best/weekly');
+        Router.go('/hot/weekly');
         break;
       }
 
@@ -93,11 +93,16 @@ Router.map(function () {
         templateData.sortType = 'Best';
         templateData.sortBest = true;
         templateData.posts = Posts.find({}, {sort: {oldPoints: -1}});
+      } else if (order === 'hot') {
+        Meteor.subscribe('hotPosts', start);
+        templateData.sortType = 'Hot';
+        templateData.sortHot = true;
+        templateData.posts = Hot.find();
       } else if (order === 'recent') {
         Meteor.subscribe('recentPosts', start);
         templateData.sortType = 'Recent';
         templateData.sortRecent = true;
-        templateData.posts = Posts.find({}, {$sort: {createdAt: -1}});
+        templateData.posts = Posts.find({}, {sort: {createdAt: -1}});
       } else if (order === 'random') {
         // todo: make a lib and move this
         var shuffle = function (array) {
