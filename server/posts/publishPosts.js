@@ -16,7 +16,7 @@ Meteor.publish('recentPosts', function () {
   });
 });
 
-Meteor.publish('bestPosts', function (start) {
+Meteor.publish('topPosts', function (start) {
   "use strict";
   return Posts.find({
     oldPoints: {
