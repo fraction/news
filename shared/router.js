@@ -38,13 +38,50 @@ Router.map(function () {
     }
   });
 
-  this.route('feed', {
-    path:     '/:order/:time',
+  this.route('top', {
+    path:     '/top/:time',
     template: 'feed',
-    data: function () {
-      var order = this.params.order.toLowerCase();
+    waitOn: function () {
       var start = new Date();
       var time = this.params.time.toLowerCase();
+
+      switch (time) {
+      case 'hour':
+        start = start - 60 * 60 * 1000;
+        break;
+      case 'day':
+        start = start.setDate(start.getDate() - 1);
+        break;
+      case 'week':
+        start = start.setDate(start.getDate() - 7);
+        break;
+      case 'fortnight':
+        start = start.setDate(start.getDate() - 14);
+        break;
+      case 'month':
+        start = start.setFullYear(start.getFullYear(), start.getMonth() - 1);
+        break;
+      case 'quarter':
+        start = start.setFullYear(start.getFullYear(), start.getMonth() - 3);
+        break;
+      case 'year':
+        start = start.setFullYear(start.getFullYear() - 1);
+        break;
+      case 'ever':
+        start = 0;
+        break;
+      default:
+        Router.go('/hot/week');
+        break;
+      }
+
+      start = new Date(start);
+      return Meteor.subscribe('topPosts', new Date(start));
+    },
+    data: function () {
+      var start = new Date();
+      var time = this.params.time.toLowerCase();
+
       var templateData = {
         currentView: 'Home',
         isFeed: true
@@ -52,42 +89,34 @@ Router.map(function () {
 
       switch (time) {
       case 'hour':
-        start = start - 60 * 60 * 1000;
         templateData.timeHour = true;
         templateData.timeType = 'Hour';
         break;
       case 'day':
-        start = start.setDate(start.getDate() - 1);
         templateData.timeDay = true;
         templateData.timeType = 'Day';
         break;
       case 'week':
-        start = start.setDate(start.getDate() - 7);
         templateData.timeWeek = true;
         templateData.timeType = 'Week';
         break;
       case 'fortnight':
-        start = start.setDate(start.getDate() - 14);
         templateData.timeFortnight = true;
         templateData.timeType = 'Fortnight';
         break;
       case 'month':
-        start = start.setFullYear(start.getFullYear(), start.getMonth() - 1);
         templateData.timeMonth = true;
         templateData.timeType = 'Month';
         break;
       case 'quarter':
-        start = start.setFullYear(start.getFullYear(), start.getMonth() - 3);
         templateData.timeQuarter = true;
         templateData.timeType = 'Quarter';
         break;
       case 'year':
-        start = start.setFullYear(start.getFullYear() - 1);
         templateData.timeYear = true;
         templateData.timeType = 'Year';
         break;
       case 'ever':
-        start = 0;
         templateData.timeEver = true;
         templateData.timeType = 'Ever';
         break;
@@ -96,45 +125,97 @@ Router.map(function () {
         break;
       }
 
-      start = new Date(start);
-
-      if (order === 'top') {
-        Meteor.subscribe('topPosts', start);
-        templateData.sortType = 'Top';
-        templateData.sortTop = true;
-        templateData.posts = Posts.find({}, {sort: {oldPoints: -1}});
-      } else if (order === 'hot') {
-        Meteor.subscribe('hotPosts', start);
-        templateData.sortType = 'Hot';
-        templateData.sortHot = true;
-        templateData.posts = Posts.find({}, {sort: {heat: -1}});
-      } else if (order === 'recent') {
-        Meteor.subscribe('recentPosts', start);
-        templateData.sortType = 'Recent';
-        templateData.sortRecent = true;
-        templateData.posts = Posts.find({}, {sort: {createdAt: -1}});
-      } else if (order === 'random') {
-        // todo: make a lib and move this
-        var shuffle = function (array) {
-          var currentIndex = array.length, temporaryValue, randomIndex;
-
-          while (0 !== currentIndex) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-          }
-          return array;
-        };
-
-        Meteor.subscribe('recentPosts', start);
-        templateData.sortType = 'Random';
-        templateData.sortRandom = true;
-        templateData.posts = shuffle(Posts.find().fetch());
-      }
+      templateData.sortType = 'Top';
+      templateData.sortTop = true;
+      templateData.posts = Posts.find({}, {sort: {oldPoints: -1}});
       return templateData;
+    }
+  });
+
+  this.route('hot', {
+    path:     '/hot',
+    template: 'feed',
+    waitOn: function () {
+      return Meteor.subscribe('hotPosts');
+    },
+    data: function () {
+      var start = new Date();
+
+      var templateData = {
+        currentView: 'Home',
+        isFeed: true
+      };
+
+
+      templateData.sortType = 'Hot';
+      templateData.sortHot = true;
+      templateData.posts = Posts.find({}, {sort: {heat: -1}});
+      return templateData;
+    }
+  });
+
+  this.route('recent', {
+    path:     '/recent',
+    template: 'feed',
+    waitOn: function () {
+      return Meteor.subscribe('recentPosts');
+    },
+    data: function () {
+      var start = new Date();
+
+      var templateData = {
+        currentView: 'Home',
+        isFeed: true
+      };
+
+      templateData.sortType = 'Recent';
+      templateData.sortRecent = true;
+      templateData.posts = Posts.find({}, {sort: {createdAt: -1}});
+      return templateData;
+    }
+  });
+
+  this.route('random', {
+    path:     '/random',
+    template: 'feed',
+    waitOn: function () {
+      return Meteor.subscribe('recentPosts');
+    },
+    data: function () {
+      var start = new Date();
+      var templateData = {
+        currentView: 'Home',
+        isFeed: true
+      };
+
+      // todo: make a lib and move this
+      var shuffle = function (array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+        return array;
+      };
+
+
+      templateData.sortType = 'Random';
+      templateData.sortRandom = true;
+      templateData.posts = shuffle(Posts.find().fetch());
+      return templateData;
+    }
+  });
+
+
+  this.route('home', {
+    path: '*',
+    action: function () {
+      Router.go('/hot');
     }
   });
 });

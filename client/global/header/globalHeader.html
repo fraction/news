@@ -27,16 +27,16 @@
                     <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{sortType}}<b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
                       {{#unless sortHot}}
-                        <li><a href="/hot/week">Hot</a></li>
+                        <li><a href="/hot">Hot</a></li>
                       {{/unless}}
                       {{#unless sortTop}}
-                        <li><a href="/top/{{toLowerCase timeType}}">Top</a></li>
+                        <li><a href="/top/week">Top</a></li>
                       {{/unless}}
                       {{#unless sortRecent}}
-                        <li><a href="/recent/day">Recent</a></li>
+                        <li><a href="/recent">Recent</a></li>
                       {{/unless}}
                       {{#unless sortRandom}}
-                        <li><a href="/random/day">Random</a></li>
+                        <li><a href="/random">Random</a></li>
                       {{/unless}}
                     </ul>
                   </li>
