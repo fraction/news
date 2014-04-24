@@ -23,6 +23,9 @@ Meteor.publish('recentPosts', function (start) {
 Meteor.publish('bestPosts', function (start) {
   "use strict";
   return Posts.find({
+    oldPoints: {
+      $gt: 1
+    },
     createdAt: {
       $gte: start
     }
