@@ -29,8 +29,8 @@
                       {{#unless sortHot}}
                         <li><a href="/hot/weekly">Hot</a></li>
                       {{/unless}}
-                      {{#unless sortBest}}
-                        <li><a href="/best/{{toLowerCase timeType}}">Best</a></li>
+                      {{#unless sortTop}}
+                        <li><a href="/top/{{toLowerCase timeType}}">Top</a></li>
                       {{/unless}}
                       {{#unless sortRecent}}
                         <li><a href="/recent/daily">Recent</a></li>
@@ -40,7 +40,7 @@
                       {{/unless}}
                     </ul>
                   </li>
-                  {{#if sortBest}}
+                  {{#if sortTop}}
                   <li class="dropdown">
                     <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{timeType}}<b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">

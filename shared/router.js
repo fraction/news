@@ -88,10 +88,10 @@ Router.map(function () {
 
       start = new Date(start);
 
-      if (order === 'best') {
-        Meteor.subscribe('bestPosts', start);
-        templateData.sortType = 'Best';
-        templateData.sortBest = true;
+      if (order === 'top') {
+        Meteor.subscribe('topPosts', start);
+        templateData.sortType = 'Top';
+        templateData.sortTop = true;
         templateData.posts = Posts.find({}, {sort: {oldPoints: -1}});
       } else if (order === 'hot') {
         Meteor.subscribe('hotPosts', start);
