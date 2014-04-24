@@ -10,7 +10,7 @@ var setHeat = function () {
 
   _(allArr).forEach(function (post) {
     var secondsAgo = Math.abs((new Date()) - (new Date(post.createdAt))) / 1000;
-    var hoursAgo = secondsAgo / 60;
+    var hoursAgo = secondsAgo / 60 / 60;
     var points = (post.oldPoints - 1);
     var decay = Math.pow(hoursAgo + 2, 1.5);
     Posts.update({
