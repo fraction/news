@@ -79,7 +79,6 @@ Router.map(function () {
       return Meteor.subscribe('topPosts', new Date(start));
     },
     data: function () {
-      var start = new Date();
       var time = this.params.time.toLowerCase();
 
       var templateData = {
@@ -139,8 +138,6 @@ Router.map(function () {
       return Meteor.subscribe('hotPosts');
     },
     data: function () {
-      var start = new Date();
-
       var templateData = {
         currentView: 'Home',
         isFeed: true
@@ -161,8 +158,6 @@ Router.map(function () {
       return Meteor.subscribe('recentPosts');
     },
     data: function () {
-      var start = new Date();
-
       var templateData = {
         currentView: 'Home',
         isFeed: true
@@ -182,7 +177,6 @@ Router.map(function () {
       return Meteor.subscribe('recentPosts');
     },
     data: function () {
-      var start = new Date();
       var templateData = {
         currentView: 'Home',
         isFeed: true
