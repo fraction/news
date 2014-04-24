@@ -18,7 +18,6 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
           <ul class="nav navbar-nav navbar-right">
             {{#unless loggingIn}}
-              {{#if currentUser}}
                 {{#if isFeed}}
                   <!--
                     <li class="highlight"><a href="/new-post">New Post</a></li>
@@ -72,6 +71,7 @@
                   </li>
                   {{/if}}
                 {{/if}}
+                {{#if currentUser}}
                   <li class="dropdown">
                     <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.username}}<b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
@@ -82,7 +82,7 @@
                   {{else}}
                   <li><a href="/sign-in">Sign In</a></li>
                   <li class="highlight"><a href="/sign-up">Sign Up</a></li>
-              {{/if}}
+                {{/if}}
               {{/unless}}
           </ul>
         </div>
