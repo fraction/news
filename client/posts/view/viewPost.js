@@ -1,38 +1,45 @@
 /*
-// gets just the domain of a title
 var getDomain = function (uri) {
   "use strict";
   return uri.replace('http://','').replace('https://','').split(/[/?#]/)[0];
 };
 */
 
-// http://stackoverflow.com/a/3177838
+// adapted from http://stackoverflow.com/a/3177838
 var timeSince = function (date) {
   "use strict";
-  var seconds = Math.floor((new Date() - date) / 1000);
 
+  var timeString = function (int, str) {
+    var suffix = '';
+    if (Math.floor(int) !== 1) {
+      suffix = 's';
+    }
+    return int + ' ' + str + suffix;
+  };
+
+  var seconds = Math.floor((new Date() - date) / 1000);
   var interval = Math.floor(seconds / 31536000);
 
-  if (interval > 1) {
-    return interval + " years";
+  if (interval > 0) {
+    return timeString(interval, 'year');
   }
   interval = Math.floor(seconds / 2592000);
-  if (interval > 1) {
-    return interval + " months";
+  if (interval > 0) {
+    return timeString(interval, 'month');
   }
   interval = Math.floor(seconds / 86400);
-  if (interval > 1) {
-    return interval + " days";
+  if (interval > 0) {
+    return timeString(interval, 'day');
   }
   interval = Math.floor(seconds / 3600);
-  if (interval > 1) {
-    return interval + " hours";
+  if (interval > 0) {
+    return timeString(interval, 'hour');
   }
   interval = Math.floor(seconds / 60);
-  if (interval > 1) {
-    return interval + " minutes";
+  if (interval > 0) {
+    return timeString(interval, 'minute');
   }
-  return Math.floor(seconds) + " seconds";
+  return timeString(interval, 'second');
 };
 
 Template.post.helpers({
