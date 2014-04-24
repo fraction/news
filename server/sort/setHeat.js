@@ -25,5 +25,5 @@ var setHeat = function () {
 
 Meteor.startup(setHeat);
 
-// run every 10 seconds
-Meteor.setInterval(setHeat, 10 * 1000);
+// run every 6 seconds
+Meteor.setInterval(setHeat, 6 * 1000);
