@@ -24,7 +24,7 @@ Router.map(function () {
     }
   });
 */
-
+/*
   this.route('user', {
     path:     'user/:username',
     template: 'user',
@@ -37,7 +37,7 @@ Router.map(function () {
       return templateData;
     }
   });
-
+*/
   this.route('top', {
     path:     '/top/:time',
     template: 'feed',
