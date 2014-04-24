@@ -94,7 +94,12 @@ Meteor.publish('hotPosts', function (start) {
     }
   });
 
-  return Hot.find();
+  return Hot.find(
+    {},
+    {
+      limit: 50
+    }
+  );
 });
 
 
