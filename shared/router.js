@@ -119,8 +119,7 @@ Router.map(function () {
           return array;
         };
 
-
-        Meteor.subscribe('randomPosts', start);
+        Meteor.subscribe('recentPosts', start);
         templateData.sortType = 'Random';
         templateData.sortRandom = true;
         templateData.posts = shuffle(Posts.find().fetch());
