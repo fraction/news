@@ -7,7 +7,7 @@ Router.map(function () {
   this.route('home', {
     path: '/',
     action: function () {
-      Router.go('/hot/weekly');
+      Router.go('/hot/week');
     }
   });
 
@@ -58,23 +58,23 @@ Router.map(function () {
         break;
       case 'day':
         start = start.setDate(start.getDate() - 1);
-        templateData.timeDaily = true;
-        templateData.timeType = 'Daily';
+        templateData.timeDay = true;
+        templateData.timeType = 'Day';
         break;
-      case 'weekly':
+      case 'week':
         start = start.setDate(start.getDate() - 7);
-        templateData.timeWeekly = true;
-        templateData.timeType = 'Weekly';
+        templateData.timeWeek = true;
+        templateData.timeType = 'Week';
         break;
-      case 'fortnightly':
+      case 'fortnight':
         start = start.setDate(start.getDate() - 14);
-        templateData.timeFortnightly = true;
-        templateData.timeType = 'Fortnightly';
+        templateData.timeFortnight = true;
+        templateData.timeType = 'Fortnight';
         break;
-      case 'monthly':
+      case 'month':
         start = start.setFullYear(start.getFullYear(), start.getMonth() - 1);
-        templateData.timeMonthly = true;
-        templateData.timeType = 'Monthly';
+        templateData.timeMonth = true;
+        templateData.timeType = 'Month';
         break;
       case 'quarter':
           start = start.setFullYear(start.getFullYear(), start.getMonth() - 3);
@@ -83,8 +83,8 @@ Router.map(function () {
           break;
       case 'year':
         start = start.setFullYear(start.getFullYear() - 1);
-        templateData.timeYearly = true;
-        templateData.timeType = 'Yearly';
+        templateData.timeYear = true;
+        templateData.timeType = 'Year';
         break;
       case 'ever':
         start = 0;
@@ -92,7 +92,7 @@ Router.map(function () {
         templateData.timeType = 'Ever';
         break;
       default:
-        Router.go('/hot/weekly');
+        Router.go('/hot/week');
         break;
       }
 
