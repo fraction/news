@@ -60,6 +60,9 @@
                       {{/unless}}
                       {{#unless timeYearly}}
                         <li><a href="/{{toLowerCase sortType}}/yearly">Yearly</a></li>
+                      {{#unless timeQuarter}}
+                        <li><a href="/{{toLowerCase sortType}}/quarter">Quarter</a></li>
+                      {{/unless}}
                       {{/unless}}
                       {{#unless timeEver}}
                         <li><a href="/{{toLowerCase sortType}}/ever">Ever</a></li>
