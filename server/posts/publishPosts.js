@@ -61,30 +61,30 @@ Meteor.publish('hotPosts', function (start) {
     var secondsAgo = Math.abs((new Date()) - (new Date(post.createdAt))) / 1000;
     var hoursAgo = secondsAgo / 60;
     var points = (post.oldPoints - 1);
-    var decay = (hoursAgo + 2) ^ 1.5;
+    var decay = Math.pow(hoursAgo + 2, 1.5);
     hotTable[post._id] = points / decay;
   });
 
   var sortObject = function (obj) {
     var arr = [];
     for (var prop in obj) {
-        if (obj.hasOwnProperty(prop)) {
-            arr.push({
-                'key': prop,
-                'value': obj[prop]
-            });
-        }
+      if (obj.hasOwnProperty(prop)) {
+        arr.push({
+          'key': prop,
+          'value': obj[prop]
+        });
+      }
     }
     arr.sort(function(a, b) { return b.value - a.value; });
     return arr; // returns array
-  }
+  };
 
   var sorted = sortObject(hotTable);
 
   // delete all of the old data and insert the new stuff
   Hot.remove({}, function (err) {
     if (err) {
-      throw error;
+      throw err;
     } else {
       _.forEach(sorted, function (el) {
         Meteor.bindEnvironment(function() {
@@ -95,7 +95,7 @@ Meteor.publish('hotPosts', function (start) {
   });
 
   return Hot.find();
-})
+});
 
 
 Meteor.publish('randomPosts', function (start) {

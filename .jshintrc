@@ -89,6 +89,7 @@
       "Posts":              false,
       "Votes":              false,
       "IronRouterProgress": false,
-      "PowerQueue":         false
+      "PowerQueue":         false,
+      "Hot":                false
     }
 }
