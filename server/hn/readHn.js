@@ -75,8 +75,8 @@ var readHn = function () {
   });
 };
 
-// read last 24 hours of hn
+// reread hn
 readHn();
 
-// reread hn every half hour
-Meteor.setInterval(readHn, 1000 * 60 * 30);
+// reread hn every minute
+Meteor.setInterval(readHn, 1000 * 60);
