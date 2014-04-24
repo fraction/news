@@ -30,15 +30,23 @@ var countVotes = function () {
       });
     });
 
+  var i = 0;
   _.forEach(voteTable, function (value, key) {
     Posts.update({_id: key}, { $inc: {votes: value}});
+    i++;
   });
 
-  console.log('Counting votes:', voteTable);
-};
 
+  if (i > 0) {
+    var str = 'Applying ' + i + ' vote';
+    if (i > 1) {
+      str += 's';
+    }
+    console.log(str);
+  }
+};
 
 Meteor.startup(countVotes);
 
-// run every 2 minutes
-Meteor.setInterval(countVotes, 2*1000);
+// run every 5 seconds
+Meteor.setInterval(countVotes, 5 * 1000);
