@@ -97,7 +97,7 @@ Router.map(function () {
         Meteor.subscribe('hotPosts', start);
         templateData.sortType = 'Hot';
         templateData.sortHot = true;
-        templateData.posts = Hot.find();
+        templateData.posts = Posts.find({}, {sort: {heat: -1}});
       } else if (order === 'recent') {
         Meteor.subscribe('recentPosts', start);
         templateData.sortType = 'Recent';
