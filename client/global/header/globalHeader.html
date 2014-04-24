@@ -46,6 +46,8 @@
                     <ul class="dropdown-menu" role="menu">
                       {{#unless timeDaily}}
                         <li><a href="/{{toLowerCase sortType}}/daily">Daily</a></li>
+                      {{#unless timeHour}}
+                        <li><a href="/{{toLowerCase sortType}}/hour">Hour</a></li>
                       {{/unless}}
                       {{#unless timeWeekly}}
                         <li><a href="/{{toLowerCase sortType}}/weekly">Weekly</a></li>

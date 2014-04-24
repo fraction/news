@@ -51,7 +51,12 @@ Router.map(function () {
       };
 
       switch (time) {
-      case 'daily':
+      case 'hour':
+        start = start - 60 * 60 * 1000;
+        templateData.timeHour = true;
+        templateData.timeType = 'Hour';
+        break;
+      case 'day':
         start = start.setDate(start.getDate() - 1);
         templateData.timeDaily = true;
         templateData.timeType = 'Daily';
