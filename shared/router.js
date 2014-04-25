@@ -117,14 +117,12 @@ Router.map(function () {
       if (templateData !== false) {
         templateData.sortType = 'Top';
         templateData.sortTop = true;
-        if (this.ready()) {
-          templateData.posts = Posts.find({}, {
-            reactive: false,
-            sort: {
-              oldPoints: -1
-            }
-          });
-        }
+        templateData.posts = Posts.find({}, {
+          reactive: false,
+          sort: {
+            oldPoints: -1
+          }
+        });
         return templateData;
       } else {
         Router.go('/top/week');
@@ -147,14 +145,12 @@ Router.map(function () {
 
       templateData.sortType = 'Hot';
       templateData.sortHot = true;
-      if (this.ready()) {
-        templateData.posts = Posts.find({}, {
-          reactive: false,
-          sort: {
-            heat: -1
-          }
-        });
-      }
+      templateData.posts = Posts.find({}, {
+        reactive: false,
+        sort: {
+          heat: -1
+        }
+      });
       return templateData;
     }
   });
@@ -173,14 +169,12 @@ Router.map(function () {
 
       templateData.sortType = 'Recent';
       templateData.sortRecent = true;
-      if (this.ready()) {
-        templateData.posts = Posts.find({}, {
-          reactive: false,
-          sort: {
-            createdAt: -1
-          }
-        });
-      }
+      templateData.posts = Posts.find({}, {
+        reactive: false,
+        sort: {
+          createdAt: -1
+        }
+      });
 
       return templateData;
     }
@@ -215,12 +209,10 @@ Router.map(function () {
 
       templateData.sortType = 'Random';
       templateData.sortRandom = true;
-      if (this.ready()) {
-        templateData.posts = shuffle(Posts.find({}, {
-          reactive: false
-        }).fetch());
-      }
-
+      templateData.posts = shuffle(Posts.find({}, {
+        reactive: false
+      }).fetch());
+      
       return templateData;
     }
   });

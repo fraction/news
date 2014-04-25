@@ -15,8 +15,8 @@
     "packages": {
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.7.0",
-        "commit": "05f34bc48c4cad9fdaa366c1ddcabe6980232ece"
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
       },
       "accounts-entry": {
         "git": "https://github.com/Differential/accounts-entry.git",
@@ -25,8 +25,8 @@
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
-        "tag": "v0.2.0",
-        "commit": "77584140bc2fe9fd2ae22ddeae6c0922d2c1e571"
+        "tag": "v0.2.3",
+        "commit": "d56bd4a4d222bf176241cd6e756aa349cb24c260"
       },
       "iron-router-progress": {
         "git": "https://github.com/Multiply/iron-router-progress.git",
@@ -55,13 +55,13 @@
       },
       "lodash": {
         "git": "https://github.com/alethes/meteor-lodash.git",
-        "tag": "v0.7.0",
-        "commit": "0d4d8b43728f3ad1b54268148e61de398a3a4840"
+        "tag": "v0.7.1",
+        "commit": "57bbeb3e21c31b64641f9885bb2f390b84f8b925"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
-        "tag": "v0.2.2",
-        "commit": "8bc53798fe5965669ae67c72f91829fcfdceabfd"
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
       },
       "just-i18n": {
         "git": "https://github.com/subhog/meteor-just-i18n.git",
