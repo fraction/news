@@ -7,7 +7,7 @@ Router.map(function () {
   this.route('home', {
     path: '/',
     action: function () {
-      Router.go('/hot/week');
+      Router.go('/hot');
     }
   });
 
@@ -42,41 +42,45 @@ Router.map(function () {
     path:     '/top/:time',
     template: 'feed',
     waitOn: function () {
-      var start = new Date();
       var time = this.params.time.toLowerCase();
 
-      switch (time) {
-      case 'hour':
-        start = start - 60 * 60 * 1000;
-        break;
-      case 'day':
-        start = start.setDate(start.getDate() - 1);
-        break;
-      case 'week':
-        start = start.setDate(start.getDate() - 7);
-        break;
-      case 'fortnight':
-        start = start.setDate(start.getDate() - 14);
-        break;
-      case 'month':
-        start = start.setFullYear(start.getFullYear(), start.getMonth() - 1);
-        break;
-      case 'quarter':
-        start = start.setFullYear(start.getFullYear(), start.getMonth() - 3);
-        break;
-      case 'year':
-        start = start.setFullYear(start.getFullYear() - 1);
-        break;
-      case 'ever':
-        start = 0;
-        break;
-      default:
-        Router.go('/hot/week');
-        break;
-      }
+      // what type of time to subscribe to
+      var actions = {
+        hour: function (start) {
+          return start - 60 * 60 * 1000;
+        },
+        day: function (start) {
+          return start.setDate(start.getDate() - 1);
+        },
+        week: function (start) {
+          return start.setDate(start.getDate() - 7);
+        },
+        fortnight: function (start) {
+          return start.setDate(start.getDate() - 14);
+        },
+        month: function (start) {
+          return start.setFullYear(start.getFullYear(), start.getMonth() - 1);
+        },
+        quarter: function (start) {
+          return start.setFullYear(start.getFullYear(), start.getMonth() - 3);
+        },
+        year: function (start) {
+          return start.setFullYear(start.getFullYear() - 1);
+        },
+        ever: function () {
+          return 0;
+        },
+      };
 
-      start = new Date(start);
-      return Meteor.subscribe('topPosts', new Date(start));
+      console.log('wat');
+
+      // figure out when
+      if (typeof actions[time] !== 'function') {
+        Router.go('/hot');
+      } else {
+        var start = actions[time](new Date());
+        return Meteor.subscribe('topPosts', new Date(start));
+      }
     },
     data: function () {
       var time = this.params.time.toLowerCase();
@@ -86,55 +90,45 @@ Router.map(function () {
         isFeed: true
       };
 
-      switch (time) {
-      case 'hour':
-        templateData.timeHour = true;
-        templateData.timeType = 'Hour';
-        break;
-      case 'day':
-        templateData.timeDay = true;
-        templateData.timeType = 'Day';
-        break;
-      case 'week':
-        templateData.timeWeek = true;
-        templateData.timeType = 'Week';
-        break;
-      case 'fortnight':
-        templateData.timeFortnight = true;
-        templateData.timeType = 'Fortnight';
-        break;
-      case 'month':
-        templateData.timeMonth = true;
-        templateData.timeType = 'Month';
-        break;
-      case 'quarter':
-        templateData.timeQuarter = true;
-        templateData.timeType = 'Quarter';
-        break;
-      case 'year':
-        templateData.timeYear = true;
-        templateData.timeType = 'Year';
-        break;
-      case 'ever':
-        templateData.timeEver = true;
-        templateData.timeType = 'Ever';
-        break;
-      default:
-        Router.go('/hot/week');
-        break;
-      }
+      var setTemplateData = function (time, data) {
+        var accepted = [
+          'hour',
+          'day',
+          'week',
+          'fortnight',
+          'month',
+          'quarter',
+          'year',
+          'ever'
+        ];
 
-      templateData.sortType = 'Top';
-      templateData.sortTop = true;
-      if (this.ready()) {
-        templateData.posts = Posts.find({}, {
-          reactive: false,
-          sort: {
-            oldPoints: -1
-          }
-        });
+        if (_.contains(accepted, time)) {
+          var cap = time.charAt(0).toUpperCase() + time.slice(1);
+          data.timeType = cap;
+          data['time' + cap] = true;
+          return data;
+        } else {
+          return false;
+        }
+      };
+
+      templateData = setTemplateData(time, templateData);
+
+      if (templateData !== false) {
+        templateData.sortType = 'Top';
+        templateData.sortTop = true;
+        if (this.ready()) {
+          templateData.posts = Posts.find({}, {
+            reactive: false,
+            sort: {
+              oldPoints: -1
+            }
+          });
+        }
+        return templateData;
+      } else {
+        Router.go('/top/week');
       }
-      return templateData;
     }
   });
 

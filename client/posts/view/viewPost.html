@@ -8,7 +8,7 @@
       {{/if}}
       <div class="media-body">
         <a href="{{url}}" class="title" target="_blank">{{title}}</a>
-        <p class="caption">{{totalPoints}} points by <a href="{{authorLink}}">{{author}}</a> {{timeCopy}} ago with <a href="{{commentLink}}">{{oldComments}} comments</a></p>
+        <p class="caption">{{totalPoints}} points by <a href="{{authorLink}}">{{author}}</a> <abbr title="{{createdAt}}"><time datetime="{{createdAt}}">{{timeCopy}}</time> ago</abbr> with <a href="{{commentLink}}">{{oldComments}} comments</a></p>
       </div>
     </div>
   </div>
