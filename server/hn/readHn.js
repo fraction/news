@@ -4,10 +4,10 @@ var readHn = function (before) {
   "use strict";
   console.log('Reading the past ' + before + ' seconds of Hacker News');
   var now = Math.floor(Date.now() / 1000);
-  var query = 'search?tags=story&numericFilters=created_at_i>';
-  query    += (now - before) + ',created_at_i<' + now;
+  var listQuery = 'search?tags=story&numericFilters=created_at_i>';
+  listQuery    += (now - before) + ',created_at_i<' + now;
 
-  hn.call(query, Meteor.bindEnvironment(
+  hn.call(listQuery, Meteor.bindEnvironment(
     function (error, data) {
       if (error) {
         throw error;
@@ -25,12 +25,22 @@ var readHn = function (before) {
           oldComments: parseInt(item.num_comments, 10),
         };
 
-        Posts.upsert({
-          oldId: obj.oldId
-        },{
-          $set: obj
-        });
+        var postQuery = 'items/' + parseInt(item.objectID, 10);
+        hn.call(postQuery, Meteor.bindEnvironment(
+          function (error, post) {
+            if (error) {
+              throw error;
+            }
+            // save object comments too
+            obj.oldChildren = post.children;
 
+            Posts.upsert({
+              oldId: obj.oldId
+            },{
+              $set: obj
+            });
+          })
+        );
       });
     }, function (error) {
       throw error;
@@ -38,16 +48,16 @@ var readHn = function (before) {
   );
 };
 
-Meteor.setInterval(function () {
+Meteor.setInterval(function () {         // 720 rph
   "use strict";
-  readHn(60);                    // top for the minute
-  readHn(60 * 60);               // top for the hour
-  readHn(24 * 60 * 60);          // top for the day
-  readHn(7 * 24 * 60 * 60);      // top for the week
-}, 60 * 1000);                   // every minute
+  readHn(60 * 60);                       // hour      - 21 requests
+  readHn(24 * 60 * 60);                  // day       - 21 requests
+}, 3.5 * 60 * 1000);                     // read every 3.5 minutes
 
-Meteor.setInterval(function () {
+Meteor.setInterval(function () {         // 189 rph
   "use strict";
-  readHn(Math.floor(Date.now() / 1000)); // top ever
-  readHn(7 * 24 * 60 * 60);              // top for the week
-}, 60 * 60 * 1000);                      // every hour
+  readHn(7 * 24 * 60 * 60);              // week      - 21 requests
+  readHn(31 * 24 * 60 * 60);             // month     - 21 requests
+  readHn(31 * 24 * 60 * 60);             // year      - 21 requests
+  readHn(Math.floor(Date.now() / 1000)); // ever      - 21 requests
+}, 20 * 60 * 1000);                      // read every 20 minutes

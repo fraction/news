@@ -1,0 +1,25 @@
+<template name="viewComment">
+  {{#if text}}
+  <div class="nonvoted post" data-id="{{id}}">
+    <div class="media">
+      <div href="#" class="pull-left">
+        {{>vote}}
+      </div>
+      <div class="media-body">
+
+        <p class="caption">{{points}} points by {{author}} at <abbr title="{{created_at}}"><time datetime="{{created_at}}">{{created_at}}</time></abbr></p>
+        <p class="commentText">{{{text}}}</p>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+  {{#each children}}
+    <div class="indent">
+      {{>viewComment}}
+    </div>
+  {{/each}}
+</template>
+
+<template name="upvoted">
+  nonvoted
+</template>

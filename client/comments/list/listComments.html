@@ -1,5 +1,7 @@
-<template name="comments">
-  <div class="entry col-md-6 col-md-offset-3">
-    Oops – post comments haven't been finished yet!
+<template name="listComments">
+  <div class="listComments">
+    {{#each post.oldChildren}}
+      {{>viewComment}}
+    {{/each}}
   </div>
 </template>
