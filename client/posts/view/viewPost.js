@@ -84,6 +84,6 @@ Template.post.helpers({
   },
   commentLink: function () {
     "use strict";
-    return 'https://news.ycombinator.com/item?id=' + this.oldId;
+    return '/hn/' + this.oldId;
   }
 });

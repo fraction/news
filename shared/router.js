@@ -11,6 +11,25 @@ Router.map(function () {
     }
   });
 
+  this.route('hnPost', {
+    path: '/hn/:id',
+    template: 'listComments',
+    waitOn: function () {
+      var id = this.params.id.toLowerCase();
+      return Meteor.subscribe('hnPost', id);
+    },
+    data: function () {
+      var templateData = {
+        currentView: 'Hacker News',
+        post: Posts.findOne({}, {
+          reactive: false
+        })
+      };
+
+      return templateData;
+    }
+  });
+
 /* disabled
   this.route('newPost', {
     path:     '/new-post',
@@ -61,9 +80,6 @@ Router.map(function () {
         month: function (start) {
           return start.setFullYear(start.getFullYear(), start.getMonth() - 1);
         },
-        quarter: function (start) {
-          return start.setFullYear(start.getFullYear(), start.getMonth() - 3);
-        },
         year: function (start) {
           return start.setFullYear(start.getFullYear() - 1);
         },
@@ -71,8 +87,6 @@ Router.map(function () {
           return 0;
         },
       };
-
-      console.log('wat');
 
       // figure out when
       if (typeof actions[time] !== 'function') {
@@ -97,7 +111,6 @@ Router.map(function () {
           'week',
           'fortnight',
           'month',
-          'quarter',
           'year',
           'ever'
         ];
@@ -212,7 +225,7 @@ Router.map(function () {
       templateData.posts = shuffle(Posts.find({}, {
         reactive: false
       }).fetch());
-      
+
       return templateData;
     }
   });
