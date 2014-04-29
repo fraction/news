@@ -2,6 +2,8 @@ Router.configure({
   layoutTemplate: 'wrapper'
 });
 
+Router.onBeforeAction('loading');
+
 Router.map(function () {
   "use strict";
   this.route('home', {
@@ -13,18 +15,17 @@ Router.map(function () {
 
   this.route('hnPost', {
     path: '/hn/:id',
-    template: 'listComments',
+    template: 'viewPost',
     waitOn: function () {
       var id = this.params.id.toLowerCase();
       return Meteor.subscribe('hnPost', id);
     },
     data: function () {
-      var templateData = {
-        currentView: 'Hacker News',
-        post: Posts.findOne({}, {
-          reactive: false
-        })
-      };
+      var templateData = Posts.findOne({}, {
+        reactive: false
+      });
+
+      templateData.currentView = 'Comments';
 
       return templateData;
     }

@@ -1,9 +1,12 @@
 <template name="wrapper">
   {{>header}}
   <div class="wrapper container">
-    <div class="content">
-      {{>yield}}
+    <div class="col-sm-6">
+      <div class="content">
+        {{>yield}}
+      </div>
+      {{>footer}}
     </div>
-    {{>footer}}
+
   </div>
 </template>

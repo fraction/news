@@ -42,7 +42,7 @@ var timeSince = function (date) {
   return timeString(interval, 'second');
 };
 
-Template.post.helpers({
+Template.viewPost.helpers({
   previousVote: function () {
     "use strict";
 

@@ -1,7 +1,8 @@
 <template name="header">
   <div class="header">
-    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-inverse push-both" role="navigation">
       <div class="container">
+        <div class="col-sm-6">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9">
             <span class="sr-only">Toggle navigation</span>
@@ -69,21 +70,24 @@
                   {{/if}}
                 {{/if}}
                 {{#if currentUser}}
+                <!--
                   <li class="dropdown">
                     <a href="/" class="dropdown-toggle" data-toggle="dropdown">{{currentUser.username}}<b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
-                      <!--<li><a href="/user/{{currentUser.username}}">Profile</a></li>-->
+                      <li><a href="/user/{{currentUser.username}}">Profile</a></li>
                       <li><a href="/sign-out">Sign Out</a></li>
                     </ul>
                   </li>
                   {{else}}
                   <li><a href="/sign-in">Sign In</a></li>
                   <li class="highlight"><a href="/sign-up">Sign Up</a></li>
+                -->
                 {{/if}}
               {{/unless}}
           </ul>
         </div>
       </div>
+    </div>
     </nav>
   </div>
 </template>
