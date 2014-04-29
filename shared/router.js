@@ -13,12 +13,12 @@ Router.map(function () {
     }
   });
 
-  this.route('hnPost', {
-    path: '/hn/:id',
+  this.route('comments', {
+    path: '/comments/:id',
     template: 'viewPost',
     waitOn: function () {
-      var id = this.params.id.toLowerCase();
-      return Meteor.subscribe('hnPost', id);
+      var id = this.params.id;
+      return Meteor.subscribe('post', id);
     },
     data: function () {
       var templateData = Posts.findOne({}, {
@@ -101,7 +101,7 @@ Router.map(function () {
       var time = this.params.time.toLowerCase();
 
       var templateData = {
-        currentView: 'Home',
+        currentView: 'Top News',
         isFeed: true
       };
 
@@ -152,7 +152,7 @@ Router.map(function () {
     },
     data: function () {
       var templateData = {
-        currentView: 'Home',
+        currentView: 'Hot News',
         isFeed: true
       };
 
@@ -177,7 +177,7 @@ Router.map(function () {
     },
     data: function () {
       var templateData = {
-        currentView: 'Home',
+        currentView: 'Recent News',
         isFeed: true
       };
 
@@ -202,7 +202,7 @@ Router.map(function () {
     },
     data: function () {
       var templateData = {
-        currentView: 'Home',
+        currentView: 'Random News',
         isFeed: true
       };
 

@@ -1,0 +1,49 @@
+@import "/client/global/style/variables.import.less";
+
+.sidebar {
+  background-color: hsl(210, 12%, 23%);
+  padding-left: 0;
+  padding-right: 0;
+
+  @media @sm {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .title {
+    background-color: #4E86FE;
+    display: inline-block;
+    padding: 1rem;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 100%;
+    img {
+      margin-top: -0.25rem;
+      width: 2rem;
+    }
+  }
+
+  .list-group-item {
+    border-color: transparent;
+    background-color: hsl(210, 12%, 23%);
+    color: hsl(210, 16%, 76%);
+    &:hover {
+      background-color: hsl(210, 6%, 54%);
+    }
+  }
+
+  .list-header {
+    color: hsl(210, 6%, 54%);
+    &:hover {
+      background-color: hsl(210, 12%, 23%);
+    }
+  }
+
+  .list-group {
+    color: hsl(221%, 14%, 22%) !important;
+    background-color: hsl(210, 12%, 23%);
+  }
+}

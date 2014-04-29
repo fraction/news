@@ -9,17 +9,11 @@ Meteor.publish('allPosts', function () {
   return result;
 });
 
-Meteor.publish('hnPost', function (id) {
+Meteor.publish('post', function (id) {
   "use strict";
 
-  console.log({
-    site: 'hn',
-    oldId: parseInt(id, 10)
-  });
-
   return Posts.find({
-    site: 'hn',
-    oldId: parseInt(id, 10)
+    _id: id
   });
 });
 

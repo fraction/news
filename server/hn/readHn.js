@@ -21,6 +21,7 @@ var readHn = function (before) {
           site: 'hn',
           author: item.author,
           title: item.title,
+          hnText: item.text,
           url: item.url,
           oldComments: parseInt(item.num_comments, 10),
         };

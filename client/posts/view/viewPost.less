@@ -2,10 +2,8 @@
 
 .post {
   padding: 0.5rem;
-  padding-left: 1rem;
   background-color: white;
   border-bottom: 1px solid #F9FAFB;
-  border-left: 3px solid #F9FAFB;
 
   &.upvoted {
     border-color: @upvote-color;
@@ -21,12 +19,15 @@
     }
   }
 
-  .title {
+  a.title {
     display: inline-block;
     font-size: 1.1rem;
     color: #303540;
     font-weight: 500;
     margin-top: 0.2rem;
+    &:visited {
+      color: hsl(210, 16%, 76%);
+    }
   }
 
   .caption {
@@ -34,15 +35,17 @@
     &.author a {
       color: hsl(221, 14%, 22%);
       font-weight: 500;
+      border-bottom: none;
     }
 
     font-size: 1rem;
     font-weight: 300;
     color: @gray-color;
     margin-bottom: 1px;
+
     a {
       color: hsl(210, 16%, 76%);
-      font-weight: 500;
+      border-bottom: 1px solid hsl(210, 16%, 76%);
     }
   }
 

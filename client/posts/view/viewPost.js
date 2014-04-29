@@ -84,6 +84,10 @@ Template.viewPost.helpers({
   },
   commentLink: function () {
     "use strict";
-    return '/hn/' + this.oldId;
+    return '/comments/' + this._id;
+  },
+  text: function () {
+    "use strict";
+    return this.hnText;
   }
 });

@@ -8,9 +8,10 @@
       {{/if}}
       <div class="media-body">
         <a href="{{url}}" class="title" target="_blank">{{title}}</a>
-        <p class="caption">{{totalPoints}} points and <a href="{{commentLink}}">{{oldComments}} comments</a> from <abbr title="{{createdAt}}"><time datetime="{{createdAt}}">{{timeCopy}}</time> ago</abbr> by <a href="{{authorLink}}">{{author}}</a></p>
+        <p class="caption">{{totalPoints}} points and <a href="{{commentLink}}">{{oldComments}} comments </a> from <abbr title="{{createdAt}}"><time datetime="{{createdAt}}">{{timeCopy}}</time> ago</abbr> by <a href="{{authorLink}}">{{author}}</a></p>
       </div>
     </div>
+    {{{text}}}
   </div>
   <div class="listComments">
     {{#each oldChildren}}
