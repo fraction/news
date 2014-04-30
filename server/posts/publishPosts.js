@@ -20,7 +20,6 @@ Meteor.publish('comments', function (id) {
 Meteor.publish('user', function (username) {
   "use strict";
 
-  console.log(Posts.find().fetch())
   return Posts.find({
     author: username
   },{
