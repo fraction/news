@@ -57,4 +57,4 @@ Meteor.setInterval(function () {         // 3780rph
   readHn(31 * 24 * 60 * 60);             // month     - 21 requests
   readHn(31 * 24 * 60 * 60);             // year      - 21 requests
   readHn(Math.floor(Date.now() / 1000)); // ever      - 21 requests
-}, 3.5 * 60 * 1000);                     // read every 2 minutes
+}, 2 * 60 * 1000);                     // read every 2 minutes
