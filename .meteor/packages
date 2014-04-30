@@ -14,10 +14,10 @@ insecure
 fast-render
 iron-router-progress
 bootstrap3-less
-appcache
 power-queue
 reactive-list
 http
 feedparser
 npm
 lodash
+appcache

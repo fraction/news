@@ -1,14 +1,15 @@
 <template name="viewComment">
   {{#if text}}
-  <div class="nonvoted post" data-id="{{id}}">
+  <div class="nonvoted post comment" data-id="{{id}}">
     <div class="media">
-      <div href="#" class="pull-left">
-        {{>vote}}
-      </div>
+      {{#if currentUser}}
+        <div href="#" class="pull-left">
+          {{>vote}}
+        </div>
+      {{/if}}
       <div class="media-body">
-
-        <p class="caption">{{points}} points by {{author}} at <abbr title="{{created_at}}"><time datetime="{{created_at}}">{{created_at}}</time></abbr></p>
-        <p class="commentText">{{{text}}}</p>
+        <p class="author caption"><a href="/user/{{author}}"><i class="fa fa-user"></i> {{author}}</a></p>
+        <p class="commentText">{{{cleanText}}}</p>
       </div>
     </div>
   </div>
@@ -18,8 +19,4 @@
       {{>viewComment}}
     </div>
   {{/each}}
-</template>
-
-<template name="upvoted">
-  nonvoted
 </template>

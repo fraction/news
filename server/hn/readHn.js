@@ -21,6 +21,7 @@ var readHn = function (before) {
           site: 'hn',
           author: item.author,
           title: item.title,
+          hnText: item.text,
           url: item.url,
           oldComments: parseInt(item.num_comments, 10),
         };
@@ -48,16 +49,12 @@ var readHn = function (before) {
   );
 };
 
-Meteor.setInterval(function () {         // 720 rph
+Meteor.setInterval(function () {         // 3780rph
   "use strict";
   readHn(60 * 60);                       // hour      - 21 requests
   readHn(24 * 60 * 60);                  // day       - 21 requests
-}, 3.5 * 60 * 1000);                     // read every 3.5 minutes
-
-Meteor.setInterval(function () {         // 189 rph
-  "use strict";
   readHn(7 * 24 * 60 * 60);              // week      - 21 requests
   readHn(31 * 24 * 60 * 60);             // month     - 21 requests
   readHn(31 * 24 * 60 * 60);             // year      - 21 requests
   readHn(Math.floor(Date.now() / 1000)); // ever      - 21 requests
-}, 20 * 60 * 1000);                      // read every 20 minutes
+}, 2 * 60 * 1000);                     // read every 2 minutes
