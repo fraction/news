@@ -40,6 +40,6 @@ if (Meteor.settings.environment === 'production') {
     });
   };
 
-  //post a new link every 10 minutes
-  Meteor.setInterval(postHot, 10 * 60 * 1000);
+  //post a new link every 20 minutes
+  Meteor.setInterval(postHot, 20 * 60 * 1000);
 }
