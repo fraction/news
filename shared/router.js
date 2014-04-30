@@ -15,17 +15,36 @@ Router.map(function () {
 
   this.route('comments', {
     path: '/comments/:id',
-    template: 'viewPost',
+    template: 'feed',
     waitOn: function () {
       var id = this.params.id;
-      return Meteor.subscribe('post', id);
+      return Meteor.subscribe('comments', id);
+    },
+    data: function () {
+      var templateData = {
+        posts: Posts.find({}, {
+        reactive: false
+      }).fetch()
+      };
+
+      templateData.currentView =  'Comments for "' + templateData.title + '"';
+
+      return templateData;
+    }
+  });
+
+  this.route('user', {
+    path: '/user/:username',
+    template: 'viewPost',
+    waitOn: function () {
+      return Meteor.subscribe('user', this.params.username);
     },
     data: function () {
       var templateData = Posts.findOne({}, {
         reactive: false
       });
 
-      templateData.currentView = 'Comments';
+      templateData.currentView = 'Profile for "' + this.params.username + '"';
 
       return templateData;
     }

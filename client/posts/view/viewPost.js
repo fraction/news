@@ -76,7 +76,7 @@ Template.viewPost.helpers({
   },
   authorLink: function() {
     "use strict";
-    return 'https://news.ycombinator.com/user?id=' + this.author;
+    return '/user/' + this.author;
   },
   commentLink: function () {
     "use strict";

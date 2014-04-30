@@ -9,11 +9,25 @@ Meteor.publish('allPosts', function () {
   return result;
 });
 
-Meteor.publish('post', function (id) {
+Meteor.publish('comments', function (id) {
   "use strict";
 
   return Posts.find({
     _id: id
+  });
+});
+
+Meteor.publish('user', function (username) {
+  "use strict";
+
+  console.log(Posts.find().fetch())
+  return Posts.find({
+    author: username
+  },{
+    limit: 50,
+    fields: {
+      oldChildren: false
+    }
   });
 });
 
