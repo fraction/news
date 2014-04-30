@@ -1,6 +1,6 @@
 <template name="feed">
   <div class="feed">
-    {{#each posts}}
+    {{#each session 'posts'}}
       {{> viewPost}}
     {{/each}}
   </div>

@@ -17,66 +17,34 @@ Router.map(function () {
     path: '/comments/:id',
     template: 'feed',
     waitOn: function () {
-      var id = this.params.id;
-      return Meteor.subscribe('comments', id);
+      return Meteor.subscribe('comments', this.params.id);
     },
-    data: function () {
-      var templateData = {
-        posts: Posts.find({}, {
+    onAfterAction: function () {
+      Session.set('posts', Posts.find({
+        _id: this.params.id
+      }, {
         reactive: false
-      }).fetch()
-      };
-
-      templateData.currentView =  'Comments for "' + templateData.title + '"';
-
-      return templateData;
+      }).fetch());
+      Session.set('currentView', 'Comments');
     }
   });
 
   this.route('user', {
     path: '/user/:username',
-    template: 'viewPost',
+    template: 'feed',
     waitOn: function () {
       return Meteor.subscribe('user', this.params.username);
     },
     data: function () {
-      var templateData = Posts.findOne({}, {
+      Session.set('currentView', 'Profile');
+      Session.set('posts', Posts.find({
+        author: this.params.username
+      }, {
         reactive: false
-      });
-
-      templateData.currentView = 'Profile for "' + this.params.username + '"';
-
-      return templateData;
+      }).fetch());
     }
   });
 
-/* disabled
-  this.route('newPost', {
-    path:     '/new-post',
-    template: 'newPost',
-    data: function () {
-      var templateData = {
-        currentView: 'New Post',
-        posts: Posts.find({username : this.params.username})
-      };
-      return templateData;
-    }
-  });
-*/
-/*
-  this.route('user', {
-    path:     'user/:username',
-    template: 'user',
-    data: function () {
-      var templateData = {
-        currentView: 'User',
-        username: this.params.username,
-        posts: Posts.find({username : this.params.username})
-      };
-      return templateData;
-    }
-  });
-*/
   this.route('top', {
     path:     '/top/:time',
     template: 'feed',
@@ -116,48 +84,29 @@ Router.map(function () {
         return Meteor.subscribe('topPosts', new Date(start));
       }
     },
-    data: function () {
+    onAfterAction: function () {
       var time = this.params.time.toLowerCase();
-
-      var templateData = {
-        currentView: 'Top News',
-        isFeed: true
-      };
-
-      var setTemplateData = function (time, data) {
-        var accepted = [
-          'hour',
-          'day',
-          'week',
-          'fortnight',
-          'month',
-          'year',
-          'ever'
-        ];
-
-        if (_.contains(accepted, time)) {
-          var cap = time.charAt(0).toUpperCase() + time.slice(1);
-          data.timeType = cap;
-          data['time' + cap] = true;
-          return data;
-        } else {
-          return false;
+      Session.set('topTime', time);
+      Session.set('sortType', 'top');
+      Session.set('posts', Posts.find({}, {
+        reactive: false,
+        sort: {
+          oldPoints: -1
         }
-      };
+      }).fetch());
+      Session.set('currentView', 'Top News');
 
-      templateData = setTemplateData(time, templateData);
+      var accepted = [
+        'hour',
+        'day',
+        'week',
+        'fortnight',
+        'month',
+        'year',
+        'ever'
+      ];
 
-      if (templateData !== false) {
-        templateData.sortType = 'Top';
-        templateData.sortTop = true;
-        templateData.posts = Posts.find({}, {
-          reactive: false,
-          sort: {
-            oldPoints: -1
-          }
-        });
-        return templateData;
-      } else {
+      if (!_.contains(accepted, time)) {
         Router.go('/top/week');
       }
     }
@@ -169,22 +118,15 @@ Router.map(function () {
     waitOn: function () {
       return Meteor.subscribe('hotPosts');
     },
-    data: function () {
-      var templateData = {
-        currentView: 'Hot News',
-        isFeed: true
-      };
-
-
-      templateData.sortType = 'Hot';
-      templateData.sortHot = true;
-      templateData.posts = Posts.find({}, {
+    onAfterAction: function () {
+      Session.set('sortType', 'hot');
+      Session.set('currentView', 'Hot News');
+      Session.set('posts', Posts.find({}, {
         reactive: false,
         sort: {
           heat: -1
         }
-      });
-      return templateData;
+      }).fetch());
     }
   });
 
@@ -194,22 +136,15 @@ Router.map(function () {
     waitOn: function () {
       return Meteor.subscribe('recentPosts');
     },
-    data: function () {
-      var templateData = {
-        currentView: 'Recent News',
-        isFeed: true
-      };
-
-      templateData.sortType = 'Recent';
-      templateData.sortRecent = true;
-      templateData.posts = Posts.find({}, {
+    onAfterAction: function () {
+      Session.set('sortType', 'recent');
+      Session.set('currentView', 'Recent News');
+      Session.set('posts', Posts.find({}, {
         reactive: false,
         sort: {
           createdAt: -1
         }
-      });
-
-      return templateData;
+      }).fetch());
     }
   });
 
@@ -219,12 +154,7 @@ Router.map(function () {
     waitOn: function () {
       return Meteor.subscribe('recentPosts');
     },
-    data: function () {
-      var templateData = {
-        currentView: 'Random News',
-        isFeed: true
-      };
-
+    onAfterAction: function () {
       // todo: make a lib and move this
       var shuffle = function (array) {
         var currentIndex = array.length, temporaryValue, randomIndex;
@@ -240,13 +170,11 @@ Router.map(function () {
         return array;
       };
 
-      templateData.sortType = 'Random';
-      templateData.sortRandom = true;
-      templateData.posts = shuffle(Posts.find({}, {
+      Session.set('sortType', 'random');
+      Session.set('currentView', 'Random News');
+      Session.set('posts', shuffle(Posts.find({}, {
         reactive: false
-      }).fetch());
-
-      return templateData;
+      }).fetch()));
     }
   });
 
