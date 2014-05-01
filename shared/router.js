@@ -26,6 +26,7 @@ Router.map(function () {
         reactive: false
       }).fetch());
       Session.set('currentView', 'Comments');
+      Session.set('sortType', null);
     }
   });
 
@@ -37,6 +38,8 @@ Router.map(function () {
     },
     data: function () {
       Session.set('currentView', 'Profile');
+      Session.set('back', Session.get('sortType'));
+      Session.set('sortType', null);
       Session.set('posts', Posts.find({
         author: this.params.username
       }, {

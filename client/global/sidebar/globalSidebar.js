@@ -8,7 +8,6 @@ Handlebars.registerHelper('activeTime', function(time) {
   }
 });
 
-
 Handlebars.registerHelper('activeSort', function(sort) {
   "use strict";
 
@@ -31,7 +30,20 @@ Template.sidebar.helpers({
   },
   'sortType' : function () {
     "use strict";
-    
-    return Session.get('sortType').toLowerCase();
+    return Session.get('sortType');
+  },
+  'showBack' : function () {
+    "use strict";
+
+    // only show a back button on comment/user pages, where sortType is unset
+    if (Session.equals('sortType', null)) {
+      return true;
+    } else {
+      return false;
+    }
+  },
+  'backLink' : function () {
+    "use strict";
+    return '/';
   }
 });

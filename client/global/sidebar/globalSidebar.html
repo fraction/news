@@ -1,6 +1,10 @@
 <template name="sidebar">
   <div class="sidebar col-sm-2">
-    <a class="title" href="/"><img src="/img/logo.svg"> Fraction</a>
+    <a class="title" href="{{backLink}}"><img src="/img/logo.svg"> Fraction
+      {{#if showBack}}
+        <i class="back fa fa-chevron-left"></i>
+      {{/if}}
+    </a>
     <ul class="list-group">
       <li class="list-header list-group-item">
         <i class="fa fa-sort"></i>
