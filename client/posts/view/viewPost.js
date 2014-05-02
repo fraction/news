@@ -1,10 +1,3 @@
-/*
-var getDomain = function (uri) {
-  "use strict";
-  return uri.replace('http://','').replace('https://','').split(/[/?#]/)[0];
-};
-*/
-
 // adapted from http://stackoverflow.com/a/3177838
 var timeSince = function (date) {
   "use strict";
@@ -85,5 +78,28 @@ Template.viewPost.helpers({
   text: function () {
     "use strict";
     return this.hnText;
+  },
+  domain: function () {
+    "use strict";
+    var d = this.url.replace('http://','');
+    d = d.replace('https://','').split(/[/?#]/)[0];
+
+    // if it starts with "www.", remove it
+    if (d.indexOf('www.') === 0) {
+      d = d.substring(4, d.length);
+    }
+    return d;
+  },
+  community: function () {
+    "use strict";
+    if (this.site === 'hn') {
+      return 'Hacker News';
+    }
+  },
+  communityLink: function () {
+    "use strict";
+    if (this.site === 'hn') {
+      return 'http://news.ycombinator.com/';
+    }
   }
 });

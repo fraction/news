@@ -1,5 +1,5 @@
 Router.configure({
-  layoutTemplate: 'wrapper'
+  layoutTemplate: 'layout'
 });
 
 Router.onBeforeAction('loading');
@@ -15,7 +15,7 @@ Router.map(function () {
 
   this.route('comments', {
     path: '/comments/:id',
-    template: 'feed',
+    template: 'listPosts',
     waitOn: function () {
       return Meteor.subscribe('comments', this.params.id);
     },
@@ -26,17 +26,20 @@ Router.map(function () {
         reactive: false
       }).fetch());
       Session.set('currentView', 'Comments');
+      Session.set('sortType', null);
     }
   });
 
   this.route('user', {
     path: '/user/:username',
-    template: 'feed',
+    template: 'listPosts',
     waitOn: function () {
       return Meteor.subscribe('user', this.params.username);
     },
     data: function () {
       Session.set('currentView', 'Profile');
+      Session.set('back', Session.get('sortType'));
+      Session.set('sortType', null);
       Session.set('posts', Posts.find({
         author: this.params.username
       }, {
@@ -47,7 +50,7 @@ Router.map(function () {
 
   this.route('top', {
     path:     '/top/:time',
-    template: 'feed',
+    template: 'listPosts',
     waitOn: function () {
       var time = this.params.time.toLowerCase();
 
@@ -114,7 +117,7 @@ Router.map(function () {
 
   this.route('hot', {
     path:     '/hot',
-    template: 'feed',
+    template: 'listPosts',
     waitOn: function () {
       return Meteor.subscribe('hotPosts');
     },
@@ -132,7 +135,7 @@ Router.map(function () {
 
   this.route('recent', {
     path:     '/recent',
-    template: 'feed',
+    template: 'listPosts',
     waitOn: function () {
       return Meteor.subscribe('recentPosts');
     },
@@ -150,7 +153,7 @@ Router.map(function () {
 
   this.route('random', {
     path:     '/random',
-    template: 'feed',
+    template: 'listPosts',
     waitOn: function () {
       return Meteor.subscribe('recentPosts');
     },
