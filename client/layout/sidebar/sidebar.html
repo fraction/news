@@ -1,5 +1,5 @@
 <template name="sidebar">
-  <div class="sidebar col-sm-2">
+  <sidebar class="col-sm-2">
     <a class="title" href="{{backLink}}"><img src="/img/logo.svg"> Fraction
       {{#if showBack}}
         <i class="back fa fa-chevron-left"></i>
@@ -25,5 +25,5 @@
           <a href="/recent" class="{{activeSort 'recent'}} list-group-item"><i class="fa fa-clock-o"></i> Recent</a>
         <a href="/random" class="{{activeSort 'random'}} list-group-item"><i class="fa fa-random"></i> Random</a>
     </ul>
-  </div>
+  </sidebar>
 </template>

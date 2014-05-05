@@ -10,7 +10,7 @@
     }
   ],
   "scripts": {
-    "start": "meteor",
+    "start": "meteor --production --settings settings/development.json",
     "test": "jshint ."
   },
   "repository": {

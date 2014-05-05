@@ -9,12 +9,6 @@
 <template name="layout">
   <div class="layout">
     {{>sidebar}}
-    <div class="col-sm-10 col-sm-offset-2">
-      <h3 class="currentView">{{currentView}}</h3>
-      <div class="content">
-        {{>yield}}
-      </div>
-      {{>footer}}
-    </div>
+    {{>main}}
   </div>
 </template>
