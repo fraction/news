@@ -23,7 +23,5 @@ var setHeat = function () {
   });
 };
 
-Meteor.startup(setHeat);
-
 // run every 6 seconds
 Meteor.setInterval(setHeat, 6 * 1000);
