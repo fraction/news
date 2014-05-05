@@ -6,7 +6,7 @@ var setHeat = function () {
     }
   }).fetch();
 
-  console.log('Setting post heat');
+  console.log('Setting post heat for ' + allArr.length + ' posts');
 
   _(allArr).forEach(function (post) {
     var secondsAgo = Math.abs((new Date()) - (new Date(post.createdAt))) / 1000;
