@@ -1,4 +1,4 @@
-#GitHub Flow
+# GitHub Flow
 
 GitHub Flow is a lightweight, branch-based workflow that supports teams and projects where deployments are made regularly. [This guide](http://guides.github.com/overviews/flow/) explains how and why GitHub Flow works.
 
@@ -33,7 +33,7 @@ You can open a Pull Request at any point during the development process: when yo
 
 ### ProTip
 
-Pull Requests are useful for contributing to open source projects and for managing changes to shared repositories. If you're using a Fork & Pull Model, Pull Requests provide a way to notify project maintainers about the changes you'd like them to consider. If you're using a Shared Repository Model, Pull Requests help start code review and conversation about proposed changes before they're merged into the master branch.
+Pull Requests are useful for contributing to open source projects and for managing changes to shared repositories. If you're using a Fork & Pull Model, Pull Requests provide a way to notify project maintainers about the changes you'd like them to consider. If you're using a Shared Repository Model, Pull Requests help start code review and conversation about proposed changes before they're merged into the `master` branch.
 
 ## Discuss and review your code
 
@@ -47,7 +47,7 @@ Pull Request comments are written in Markdown, so you can embed images and emoji
 
 ## Merge and deploy
 
-Once your Pull Request has been reviewed and the branch passes your tests, it's time to merge your code to the master branch for deployment. If you want to test things before merging in the repository on GitHub, you can perform the merge locally first. This is also handy if you don't have push access to the repository.
+Once your Pull Request has been reviewed and the branch passes your tests, it's time to merge your code to the `master` branch for deployment. If you want to test things before merging in the repository on GitHub, you can perform the merge locally first. This is also handy if you don't have push access to the repository.
 
 Once merged, Pull Requests preserve a record of the historical changes to your code. Because they're searchable, they let anyone go back in time to understand why and how a decision was made.
 
