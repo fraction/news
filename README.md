@@ -19,7 +19,7 @@ npm install -g meteorite
 git clone https://github.com/fraction/fraction.github.io.git
 ```
 
-If something breaks, your first step should be to read the installation instructions for [Meteor](https://github.com/meteor/meteor#quick-start) and/or  [Meteorite](https://github.com/oortcloud/meteorite/#installing-meteorite) to troubleshoot your error.
+If something breaks, your first step should be to read the installation instructions for [Meteor](https://github.com/meteor/meteor#quick-start) and/or  [Meteorite](https://github.com/oortcloud/meteorite/#installing-meteorite).
 
 
 ## Usage
