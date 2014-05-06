@@ -56,23 +56,20 @@ Router.map(function () {
 
       // what type of time to subscribe to
       var actions = {
-        hour: function (start) {
-          return start - 60 * 60 * 1000;
+        hour: function (now) {
+          return now - 60 * 60 * 1000;
         },
-        day: function (start) {
-          return start.setDate(start.getDate() - 1);
+        day: function (now) {
+          return now.setDate(now.getDate() - 1);
         },
-        week: function (start) {
-          return start.setDate(start.getDate() - 7);
+        week: function (now) {
+          return now.setDate(now.getDate() - 7);
         },
-        fortnight: function (start) {
-          return start.setDate(start.getDate() - 14);
+        month: function (now) {
+          return now.setFullYear(now.getFullYear(), now.getMonth() - 1);
         },
-        month: function (start) {
-          return start.setFullYear(start.getFullYear(), start.getMonth() - 1);
-        },
-        year: function (start) {
-          return start.setFullYear(start.getFullYear() - 1);
+        year: function (now) {
+          return now.setFullYear(now.getFullYear() - 1);
         },
         ever: function () {
           return 0;
@@ -81,20 +78,20 @@ Router.map(function () {
 
       // figure out when
       if (typeof actions[time] !== 'function') {
-        Router.go('/hot');
+        Router.go('/top/week');
       } else {
-        var start = actions[time](new Date());
-        return Meteor.subscribe('topPosts', new Date(start));
+        var since = actions[time](new Date());
+        return Meteor.subscribe('topPosts', new Date(since));
       }
     },
     onAfterAction: function () {
       var time = this.params.time.toLowerCase();
-      Session.set('topTime', time);
+      Session.set('sortTime', time);
       Session.set('sortType', 'top');
       Session.set('posts', Posts.find({}, {
         reactive: false,
         sort: {
-          oldPoints: -1
+          heat: -1
         }
       }).fetch());
       Session.set('currentView', 'Top News');
