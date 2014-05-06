@@ -1,4 +1,6 @@
-Router.route('user', {
+/* global userRoute:true */
+
+userRoute = {
   path: '/user/:username',
   template: 'listPosts',
   waitOn: function () {
@@ -17,4 +19,4 @@ Router.route('user', {
       reactive: false
     }).fetch());
   }
-});
+};

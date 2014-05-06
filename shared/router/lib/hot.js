@@ -1,4 +1,6 @@
-Router.route('hot', {
+/* global hotRoute:true */
+
+hotRoute = {
   path:     '/hot',
   template: 'listPosts',
   waitOn: function () {
@@ -7,7 +9,7 @@ Router.route('hot', {
   },
   onAfterAction: function () {
     "use strict";
-    
+
     Session.set('sortType', 'hot');
     Session.set('currentView', 'Hot News');
     Session.set('posts', Posts.find({}, {
@@ -17,4 +19,4 @@ Router.route('hot', {
       }
     }).fetch());
   }
-});
+};

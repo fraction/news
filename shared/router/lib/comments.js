@@ -1,4 +1,6 @@
-Router.route('comments', {
+/* global commentsRoute:true */
+
+commentsRoute = {
   path: '/comments/:id',
   template: 'listPosts',
   waitOn: function () {
@@ -13,8 +15,8 @@ Router.route('comments', {
     }, {
       reactive: false
     }).fetch());
-    
+
     Session.set('currentView', 'Comments');
     Session.set('sortType', null);
   }
-});
+};

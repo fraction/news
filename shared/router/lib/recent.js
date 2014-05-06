@@ -1,4 +1,6 @@
-Router.route('recent', {
+/* global recentRoute:true */
+
+recentRoute = {
   path:     '/recent',
   template: 'listPosts',
   waitOn: function () {
@@ -7,7 +9,7 @@ Router.route('recent', {
   },
   onAfterAction: function () {
     "use strict";
-    
+
     Session.set('sortType', 'recent');
     Session.set('currentView', 'Recent News');
     Session.set('posts', Posts.find({}, {
@@ -17,4 +19,4 @@ Router.route('recent', {
       }
     }).fetch());
   }
-});
+};

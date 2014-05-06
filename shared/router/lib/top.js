@@ -1,4 +1,6 @@
-Router.route('top', {
+/* global topRoute:true */
+
+topRoute = {
   path:     '/top/:time',
   template: 'listPosts',
   waitOn: function () {
@@ -38,7 +40,7 @@ Router.route('top', {
   },
   onAfterAction: function () {
     "use strict";
-    
+
     var time = this.params.time.toLowerCase();
     Session.set('sortTime', time);
     Session.set('sortType', 'top');
@@ -64,4 +66,4 @@ Router.route('top', {
       Router.go('/top/week');
     }
   }
-});
+};
