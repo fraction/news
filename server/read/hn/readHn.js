@@ -52,7 +52,7 @@ var readHn = function (before) {
 Meteor.setInterval(function () {         // 4410rph (21 * 7 * (60/2))
   "use strict";
 
-  console.log("Reading 147 posts from Hacker News");
+  console.log("Reading 140 posts from Hacker News");
   readHn(2 * 60);                        // 2 minutes - 21 requests
   readHn(60 * 60);                       // hour      - 21 requests
   readHn(24 * 60 * 60);                  // day       - 21 requests

@@ -1,9 +1,9 @@
 Meteor.methods({
   // obj.id = content _id
   // obj.vote = score from -1 to 1
-  // TODO: protect against inserting vote for non-existent content
   vote : function (obj) {
     "use strict";
+
     if (typeof obj !== 'undefined') {
       new Meteor.Error(500, 'Must include object with content ID and vote');
     }
@@ -19,6 +19,11 @@ Meteor.methods({
     if (obj.vote === -1 || obj.vote === 1) {
       // todo: remove this limit when third-party extensions are allowed
       new Meteor.Error(500, 'Vote value must be either -1 or 1');
+    }
+
+    // TODO: test this
+    if (Posts.find({_id: obj.id}).fetch().length === 0) {
+      new Meteor.Error(500, 'Vote must be on content that exists');
     }
 
     console.log(

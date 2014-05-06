@@ -43,14 +43,14 @@ Meteor.publish('recentPosts', function () {
   });
 });
 
-Meteor.publish('topPosts', function (start) {
+Meteor.publish('topPosts', function (since) {
   "use strict";
   return Posts.find({
     oldPoints: {
       $gt: 1
     },
     createdAt: {
-      $gte: start
+      $gte: since
     }
   }, {
     sort: {

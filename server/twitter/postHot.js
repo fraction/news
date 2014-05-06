@@ -18,23 +18,23 @@ if (Meteor.settings.environment === 'production') {
     _(hot).forEach(function (item) {
       // it hasn't been tweeted yet
       if (finished === false && (typeof item.tweeted === 'undefined')) {
-          twitter.post('statuses/update',
-          {
-            status: item.title + "\n" +
-            'http://beta.fraction.io/comments/' + item._id
-          }, function(err /*, response */) {
-            if (err) {
-              throw err;
-            }
-          });
-          Posts.update({
-            _id: item._id
-          }, {
-            $set: {
-              tweeted: true
-            }
-          });
-          console.log('Tweeting "' + item.title + '"');
+        twitter.post('statuses/update',
+        {
+          status: item.title + "\n" +
+          'http://beta.fraction.io/comments/' + item._id
+        }, function(err /*, response */) {
+          if (err) {
+            throw err;
+          }
+        });
+        Posts.update({
+          _id: item._id
+        }, {
+          $set: {
+            tweeted: true
+          }
+        });
+        console.log('Tweeting "' + item.title + '"');
         finished = true;
       }
     });

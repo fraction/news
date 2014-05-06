@@ -1,7 +1,7 @@
 Handlebars.registerHelper('activeTime', function(time) {
   "use strict";
 
-  if (Session.equals('topTime', time)) {
+  if (Session.equals('sortTime', time)) {
     return 'active';
   } else {
     return null;
