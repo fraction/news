@@ -10,17 +10,19 @@
         -->
       {{/if}}
       <div class="media-body">
-        <p class="author caption">
+        <p class="caption">
           <a href="/user/{{author}}">
             <i class="fa fa-user"></i> {{author}}
           </a>
-           &nbsp; 
+           &nbsp;
           <abbr title="{{created_at}}"><i class="fa fa-clock-o"></i> <time datetime="{{createdAt}}">{{timeCopy}}</time></abbr>
         </p>
         <p class="commentText">{{{cleanText}}}</p>
       </div>
     </div>
   </div>
+  {{else}}
+    <!-- todo: handle deleted comments -->
   {{/if}}
   {{#each children}}
     <div class="indent">
