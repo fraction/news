@@ -2,6 +2,8 @@
 
 // todo: make a lib and move this
 var shuffle = function (array) {
+  "use strict";
+
   var currentIndex = array.length, temporaryValue, randomIndex;
 
   while (0 !== currentIndex) {
@@ -12,6 +14,7 @@ var shuffle = function (array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
+
   return array;
 };
 
