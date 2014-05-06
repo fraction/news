@@ -1,6 +1,6 @@
 [![Fraction](http://i.imgur.com/sCu2Klt.png)](http://fraction.io)
 
-** Want to know more about Fraction? Read our [project overview](http://fraction.io/)!**
+**Want to know more about Fraction? Read our [project overview](http://fraction.io/)!**
 
 [![Build Status](http://img.shields.io/travis/fraction/fraction.svg)](https://travis-ci.org/fraction/fraction) [![Code Climate](http://img.shields.io/codeclimate/github/fraction/fraction.svg)](https://codeclimate.com/github/fraction/fraction) [![](http://img.shields.io/badge/license-apache v2-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
