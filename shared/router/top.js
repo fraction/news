@@ -2,6 +2,8 @@ Router.route('top', {
   path:     '/top/:time',
   template: 'listPosts',
   waitOn: function () {
+    "use strict";
+
     var time = this.params.time.toLowerCase();
 
     // what type of time to subscribe to
@@ -35,6 +37,8 @@ Router.route('top', {
     }
   },
   onAfterAction: function () {
+    "use strict";
+    
     var time = this.params.time.toLowerCase();
     Session.set('sortTime', time);
     Session.set('sortType', 'top');

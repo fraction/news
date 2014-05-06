@@ -2,9 +2,12 @@ Router.route('random', {
   path:     '/random',
   template: 'listPosts',
   waitOn: function () {
+    "use strict";
     return Meteor.subscribe('recentPosts');
   },
   onAfterAction: function () {
+    "use strict";
+    
     // todo: make a lib and move this
     var shuffle = function (array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
