@@ -1,4 +1,4 @@
-var setHeat = function () {
+var setPostHeat = function () {
   "use strict";
   var allArr = Posts.find({
     oldPoints: {
@@ -24,4 +24,4 @@ var setHeat = function () {
 };
 
 // run every 6 seconds
-Meteor.setInterval(setHeat, 6 * 1000);
+Meteor.setInterval(setPostHeat, 6 * 1000);

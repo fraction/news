@@ -2,7 +2,7 @@ if (Meteor.settings.environment === 'production') {
   var Twit =    Meteor.require('twit');
   var twitter = new Twit(Meteor.settings.twitter);
 
-  var postHot = function () {
+  var tweetHot = function () {
     "use strict";
     var hot = Posts.find({}, {
       limit: 50,
@@ -41,5 +41,5 @@ if (Meteor.settings.environment === 'production') {
   };
 
   //post a new link every 20 minutes
-  Meteor.setInterval(postHot, 20 * 60 * 1000);
+  Meteor.setInterval(tweetHot, 20 * 60 * 1000);
 }
