@@ -28,7 +28,7 @@ var timeSince = function (date) {
   if (interval > 0) {
     return timeString(interval, 'min');
   }
-  return timeString(interval, 'second');
+  return timeString(interval, 's');
 };
 
 Template.viewComment.helpers({
