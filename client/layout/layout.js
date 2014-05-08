@@ -4,12 +4,12 @@ Handlebars.registerHelper('session', function(input) {
 });
 
 var createAlert = function (level) {
-  UI.registerHelper(level, function(title, msg) {
-    "use strict";
-    var str = '<strong>' + title + '</strong> ' + msg;
+	"use strict";
+	Handlebars.registerHelper(level, function(title, msg) {
+		var str = '<strong>' + title + '</strong> ' + msg;
     return '<div class="alert alert-' + level + '">' + str + '</div>';
   });
-}
+};
 
 createAlert('success');
 createAlert('info');
