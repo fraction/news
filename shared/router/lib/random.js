@@ -29,6 +29,7 @@ randomRoute = {
   onAfterAction: function () {
     "use strict";
 
+    Session.set('showComments', false);
     Session.set('sortType', 'random');
     Session.set('currentView', 'Random News');
     Session.set('posts', shuffle(Posts.find({}, {

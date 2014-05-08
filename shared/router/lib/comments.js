@@ -16,6 +16,7 @@ commentsRoute = {
       reactive: false
     }).fetch());
 
+    Session.set('showComments', true);
     Session.set('currentView', 'Comments');
     Session.set('sortType', null);
   }
