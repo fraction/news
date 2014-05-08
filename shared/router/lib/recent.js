@@ -10,6 +10,7 @@ recentRoute = {
   onAfterAction: function () {
     "use strict";
 
+    Session.set('showComments', false);
     Session.set('sortType', 'recent');
     Session.set('currentView', 'Recent News');
     Session.set('posts', Posts.find({}, {

@@ -42,6 +42,7 @@ topRoute = {
     "use strict";
 
     var time = this.params.time.toLowerCase();
+    Session.set('showComments', false);
     Session.set('sortTime', time);
     Session.set('sortType', 'top');
     Session.set('posts', Posts.find({}, {

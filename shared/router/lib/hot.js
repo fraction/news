@@ -10,6 +10,7 @@ hotRoute = {
   onAfterAction: function () {
     "use strict";
 
+    Session.set('showComments', false);
     Session.set('sortType', 'hot');
     Session.set('currentView', 'Hot News');
     Session.set('posts', Posts.find({}, {
