@@ -10,8 +10,8 @@ require('posts', function (Posts) {
 
     console.log('Setting post heat for ' + allArr.length + ' posts');
     _(allArr).forEach(function (post) {
-      var now = Math.abs((new Date()));
-      var secondsAgo = now - (new Date(post.createdAt)) / 1000;
+      var now = new Date();
+      var secondsAgo = Math.abs(now - (new Date(post.createdAt))) / 1000
       var hoursAgo = secondsAgo / 60 / 60;
       var points = (post.oldPoints - 1);
       var decay = Math.pow(hoursAgo + 2, 1.5);
@@ -24,7 +24,6 @@ require('posts', function (Posts) {
       });
     });
   };
-
 
   // run every 6 seconds
   Meteor.setInterval(setPostHeat, 6 * 1000);

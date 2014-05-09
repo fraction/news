@@ -49,7 +49,7 @@ define('routeTop', depend, function (Posts, setNews, Controllers) {
       Session.set('posts', Posts.find({}, {
         reactive: false,
         sort: {
-          points: -1
+          oldPoints: -1
         }
       }).fetch());
 
