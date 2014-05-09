@@ -46,7 +46,7 @@ topRoute = {
     Session.set('posts', Posts.find({}, {
       reactive: false,
       sort: {
-        heat: -1
+        points: -1
       }
     }).fetch());
     Session.set('currentView', 'Top News');
