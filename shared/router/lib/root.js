@@ -1,5 +1,3 @@
-/* global rootRoute:true */
-
 rootRoute = {
   path: '/',
   action: function () {

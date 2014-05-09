@@ -1,6 +1,5 @@
-/* global userRoute:true */
-
 userRoute = {
+  controller: 'PageController',
   path: '/user/:username',
   template: 'listPosts',
   waitOn: function () {

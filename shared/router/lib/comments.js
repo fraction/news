@@ -1,6 +1,5 @@
-/* global commentsRoute:true */
-
 commentsRoute = {
+  controller: 'PageController',
   path: '/comments/:id',
   template: 'listPosts',
   waitOn: function () {

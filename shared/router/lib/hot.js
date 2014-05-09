@@ -1,6 +1,5 @@
-/* global hotRoute:true */
-
 hotRoute = {
+  controller: 'PageController',
   path:     '/hot',
   template: 'listPosts',
   waitOn: function () {

@@ -1,6 +1,5 @@
-/* global recentRoute:true */
-
 recentRoute = {
+  controller: 'PageController',
   path:     '/recent',
   template: 'listPosts',
   waitOn: function () {
