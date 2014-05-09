@@ -1,9 +1,10 @@
+'use strict';
+
 if (Meteor.settings.environment === 'production') {
   var Twit =    Meteor.require('twit');
   var twitter = new Twit(Meteor.settings.twitter);
 
   var tweetHot = function () {
-    "use strict";
     var hot = Posts.find({}, {
       limit: 50,
       sort: {

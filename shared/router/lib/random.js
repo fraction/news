@@ -1,4 +1,4 @@
-randomRoute = {
+Route.random = {
   controller: 'NewsController',
   path:     '/random',
   template: 'listPosts',

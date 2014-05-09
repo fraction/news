@@ -1,4 +1,4 @@
-recentRoute = {
+Route.recent = {
   controller: 'NewsController',
   path:     '/recent',
   template: 'listPosts',
@@ -8,7 +8,7 @@ recentRoute = {
   },
   onAfterAction: function () {
     "use strict";
-    
+
     setNewsSession('recent');
     Session.set('posts', Posts.find({}, {
       reactive: false,

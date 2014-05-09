@@ -1,0 +1,2 @@
+/*global Route:true*/
+Route = {};

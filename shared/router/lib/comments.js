@@ -1,4 +1,4 @@
-commentsRoute = {
+Route.comments = {
   controller: 'PageController',
   path: '/comments/:id',
   template: 'listPosts',

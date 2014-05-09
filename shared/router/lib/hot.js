@@ -1,4 +1,4 @@
-hotRoute = {
+Route.hot = {
   controller: 'NewsController',
   path:     '/hot',
   template: 'listPosts',

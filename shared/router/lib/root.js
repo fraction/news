@@ -1,7 +1,9 @@
-rootRoute = {
+'use strict';
+
+
+Route.root = {
   path: '/',
   action: function () {
-    "use strict";
     Router.go('/hot');
   }
 };

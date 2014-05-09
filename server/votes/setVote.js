@@ -1,9 +1,9 @@
+'use strict';
+
 Meteor.methods({
   // obj.id = content _id
   // obj.vote = score from -1 to 1
   vote : function (obj) {
-    "use strict";
-
     if (typeof obj !== 'undefined') {
       new Meteor.Error(500, 'Must include object with content ID and vote');
     }

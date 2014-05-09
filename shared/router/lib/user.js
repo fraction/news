@@ -1,4 +1,4 @@
-userRoute = {
+Route.user = {
   controller: 'NewsController',
   path: '/user/:username',
   template: 'listPosts',
