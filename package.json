@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "start": "mrt --settings settings/development.json",
-    "test": "jshint ."
+    "test": "jshint .",
+    "install": "./install.sh"
   },
   "repository": {
     "type": "git",
