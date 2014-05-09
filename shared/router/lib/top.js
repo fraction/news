@@ -41,8 +41,7 @@ topRoute = {
     "use strict";
 
     var time = this.params.time.toLowerCase();
-    Session.set('sortTime', time);
-    Session.set('sortType', 'top');
+    setNewsSession('top');
     Session.set('posts', Posts.find({}, {
       reactive: false,
       sort: {

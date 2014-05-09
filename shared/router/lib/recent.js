@@ -8,9 +8,8 @@ recentRoute = {
   },
   onAfterAction: function () {
     "use strict";
-
-    Session.set('sortType', 'recent');
-    Session.set('currentView', 'Recent News');
+    
+    setNewsSession('recent');
     Session.set('posts', Posts.find({}, {
       reactive: false,
       sort: {

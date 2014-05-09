@@ -9,8 +9,7 @@ hotRoute = {
   onAfterAction: function () {
     "use strict";
 
-    Session.set('sortType', 'hot');
-    Session.set('currentView', 'Hot News');
+    setNewsSession('hot');
     Session.set('posts', Posts.find({}, {
       reactive: false,
       sort: {

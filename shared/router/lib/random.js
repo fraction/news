@@ -28,8 +28,7 @@ randomRoute = {
   onAfterAction: function () {
     "use strict";
 
-    Session.set('sortType', 'random');
-    Session.set('currentView', 'Random News');
+    setNewsSession('random');
     Session.set('posts', shuffle(Posts.find({}, {
       reactive: false
     }).fetch()));
