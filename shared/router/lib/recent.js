@@ -1,4 +1,5 @@
 recentRoute = {
+  controller: 'PageController',
   path:     '/recent',
   template: 'listPosts',
   waitOn: function () {

@@ -18,6 +18,7 @@ var shuffle = function (array) {
 
 
 randomRoute = {
+  controller: 'PageController',
   path:     '/random',
   template: 'listPosts',
   waitOn: function () {

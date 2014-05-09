@@ -1,4 +1,5 @@
 topRoute = {
+  controller: 'PageController',
   path:     '/top/:time',
   template: 'listPosts',
   waitOn: function () {
