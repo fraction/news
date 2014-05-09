@@ -28,4 +28,4 @@ Meteor.methods({
       comments: 0
     });
   }
-*/
+  */

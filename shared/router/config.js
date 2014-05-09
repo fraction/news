@@ -1,22 +1,22 @@
 'use strict';
 
-Router.configure({
-  layoutTemplate: 'layout'
-});
+require('routes', function (Routes) {
+  Router.configure({
+    layoutTemplate: 'layout'
+  });
 
-Router.onBeforeAction('loading');
+  Router.onBeforeAction('loading');
 
-Router.map(function () {
+  Router.map(function () {
+    this.route('comments', Routes.comments);
+    this.route('hot', Routes.hot);
+    this.route('random', Routes.random);
+    this.route('recent', Routes.recent);
+    this.route('root', Routes.root);
+    this.route('top', Routes.top);
+    this.route('user', Routes.user);
 
-
-  this.route('comments', Route.comments);
-  this.route('hot', Route.hot);
-  this.route('random', Route.random);
-  this.route('recent', Route.recent);
-  this.route('root', Route.root);
-  this.route('top', Route.top);
-  this.route('user', Route.user);
-
-  // needs to go last so that it doesn't catch all requests
-  this.route('default', Route.default);
+    // needs to go last so that it doesn't catch all requests
+    this.route('default', Routes.default);
+  });
 });

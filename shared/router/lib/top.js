@@ -1,67 +1,71 @@
-Route.top = {
-  controller: 'NewsController',
-  path:     '/top/:time',
-  template: 'listPosts',
-  waitOn: function () {
-    "use strict";
+'use strict';
 
-    var time = this.params.time.toLowerCase();
+var depend = ['posts', 'setNews', 'controllers'];
 
-    // what type of time to subscribe to
-    var actions = {
-      hour: function (now) {
-        return now - 60 * 60 * 1000;
-      },
-      day: function (now) {
-        return now.setDate(now.getDate() - 1);
-      },
-      week: function (now) {
-        return now.setDate(now.getDate() - 7);
-      },
-      month: function (now) {
-        return now.setFullYear(now.getFullYear(), now.getMonth() - 1);
-      },
-      year: function (now) {
-        return now.setFullYear(now.getFullYear() - 1);
-      },
-      ever: function () {
-        return 0;
-      },
-    };
+define('routeTop', depend, function (Posts, setNews, Controllers) {
+  return {
+    name: 'top',
+    controller: Controllers.news,
+    path:     '/top/:time',
+    template: 'listPosts',
+    waitOn: function () {
+      var time = this.params.time.toLowerCase();
 
-    // figure out when
-    if (typeof actions[time] !== 'function') {
-      Router.go('/top/week');
-    } else {
-      var since = actions[time](new Date());
-      return Meteor.subscribe('topPosts', new Date(since));
-    }
-  },
-  onAfterAction: function () {
-    "use strict";
+      // what type of time to subscribe to
+      var actions = {
+        hour: function (now) {
+          return now - 60 * 60 * 1000;
+        },
+        day: function (now) {
+          return now.setDate(now.getDate() - 1);
+        },
+        week: function (now) {
+          return now.setDate(now.getDate() - 7);
+        },
+        month: function (now) {
+          return now.setFullYear(now.getFullYear(), now.getMonth() - 1);
+        },
+        year: function (now) {
+          return now.setFullYear(now.getFullYear() - 1);
+        },
+        ever: function () {
+          return 0;
+        },
+      };
 
-    var time = this.params.time.toLowerCase();
-    setNewsSession('top');
-    Session.set('posts', Posts.find({}, {
-      reactive: false,
-      sort: {
-        points: -1
+      // figure out when
+      if (typeof actions[time] !== 'function') {
+        Router.go('/top/week');
+      } else {
+        var since = actions[time](new Date());
+        return Meteor.subscribe('topPosts', new Date(since));
       }
-    }).fetch());
-    Session.set('currentView', 'Top News');
+    },
+    onAfterAction: function () {
+      var time = this.params.time.toLowerCase();
 
-    var accepted = [
-      'hour',
-      'day',
-      'week',
-      'fortnight',
-      'month',
-      'year',
-      'ever'
-    ];
+      setNews('top');
+      Session.set('sortTime', time);
+      Session.set('posts', Posts.find({}, {
+        reactive: false,
+        sort: {
+          oldPoints: -1
+        }
+      }).fetch());
 
-    if (!_.contains(accepted, time)) {
-      Router.go('/top/week');
+      var accepted = [
+        'hour',
+        'day',
+        'week',
+        'fortnight',
+        'month',
+        'year',
+        'ever'
+      ];
+
+      if (!_.contains(accepted, time)) {
+        Router.go('/top/week');
+      }
     }
-  }
-};
+  };
+});

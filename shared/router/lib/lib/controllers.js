@@ -1,13 +1,18 @@
-PageController = RouteController.extend({
-  onAfterAction: function () {
-    "use strict";
-    $("html, body").animate({scrollTop:0}, 500, 'swing');
-  }
-});
+'use strict';
 
-NewsController = PageController.extend({
-  onAfterAction: function () {
-    "use strict";
-    Session.set('showComments', false);
-  }
+define('controllers', [], function () {
+  var Controllers = {};
+  Controllers.page = RouteController.extend({
+    onAfterAction: function () {
+      $("html, body").animate({scrollTop:0}, 500, 'swing');
+    }
+  });
+
+  Controllers.news = Controllers.page.extend({
+    onAfterAction: function () {
+      Session.set('showComments', false);
+    }
+  });
+
+  return Controllers;
 });

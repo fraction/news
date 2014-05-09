@@ -1,5 +1,9 @@
 'use strict';
-/*global Posts:true*/
-Posts = new Meteor.Collection('posts');
-/*global Votes:true*/
-Votes = new Meteor.Collection('votes');
+
+define('votes', [], function () {
+  return new Meteor.Collection('votes');
+});
+
+define('posts', [], function () {
+  return new Meteor.Collection('posts');
+});
