@@ -1,5 +1,6 @@
+'use strict';
+
 var setPostHeat = function () {
-  "use strict";
   var allArr = Posts.find({
     oldPoints: {
       $gt: 1

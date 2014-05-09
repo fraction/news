@@ -1,4 +1,4 @@
-topRoute = {
+Route.top = {
   controller: 'NewsController',
   path:     '/top/:time',
   template: 'listPosts',

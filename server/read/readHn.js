@@ -1,8 +1,8 @@
+'use strict';
+
 var hn = Meteor.require('hacker-news-api');
 
 var readHn = function (before) {
-  "use strict";
-
   var now = Math.floor(Date.now() / 1000);
   var listQuery = 'search?tags=story&numericFilters=created_at_i>';
   listQuery    += (now - before) + ',created_at_i<' + now;
@@ -50,8 +50,6 @@ var readHn = function (before) {
 };
 
 Meteor.setInterval(function () {         // 4410rph (21 * 7 * (60/2))
-  "use strict";
-
   console.log("Reading 140 posts from Hacker News");
   readHn(2 * 60);                        // 2 minutes - 21 requests
   readHn(60 * 60);                       // hour      - 21 requests

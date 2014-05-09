@@ -1,7 +1,7 @@
+'use strict';
+
 // adapted from http://stackoverflow.com/a/3177838
 var timeSince = function (date) {
-  "use strict";
-
   var timeString = function (int, str) {
     return int + str;
   };
@@ -33,8 +33,6 @@ var timeSince = function (date) {
 
 Template.viewPost.helpers({
   previousVote: function () {
-    "use strict";
-
     var post = this._id;
     var voteQuery = {
       'user' : Meteor.userId(),
@@ -60,27 +58,21 @@ Template.viewPost.helpers({
     }
   },
   timeCopy: function () {
-    "use strict";
     return timeSince(this.createdAt);
   },
   totalPoints: function () {
-    "use strict";
     return this.oldPoints + Session.get('vote.' + this._id);
   },
   authorLink: function() {
-    "use strict";
     return '/user/' + this.author;
   },
   commentLink: function () {
-    "use strict";
     return '/comments/' + this._id;
   },
   text: function () {
-    "use strict";
     return this.hnText;
   },
   domain: function () {
-    "use strict";
     var d = this.url.replace('http://','');
     d = d.replace('https://','').split(/[/?#]/)[0];
 
@@ -91,13 +83,11 @@ Template.viewPost.helpers({
     return d;
   },
   community: function () {
-    "use strict";
     if (this.site === 'hn') {
       return 'Hacker News';
     }
   },
   communityLink: function () {
-    "use strict";
     if (this.site === 'hn') {
       return 'http://news.ycombinator.com/';
     }

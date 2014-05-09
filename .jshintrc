@@ -33,7 +33,7 @@
     "evil"          : false,
     "expr"          : false,
     "funcscope"     : false,
-    "globalstrict"  : false,
+    "globalstrict"  : true,
     "iterator"      : false,
     "lastsemic"     : false,
     "laxbreak"      : false,
@@ -63,5 +63,19 @@
     "nomen"         : false,
     "onevar"        : false,
     "passfail"      : false,
-    "white"         : false
+    "white"         : false,
+    "globals"       : {
+      "Meteor" : false,
+      "AccountsEntry" : false,
+      "Session" : false,
+      "Handlebars" : false,
+      "Template" : false,
+      "$" : false,
+      "Votes" : false,
+      "Router" : false,
+      "Route" : false,
+      "Posts" : false,
+      "_" : false
+      
+    }
 }

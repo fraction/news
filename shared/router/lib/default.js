@@ -1,4 +1,4 @@
-defaultRoute = {
+Route.default = {
   path: '*',
   action: function () {
     "use strict";

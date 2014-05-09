@@ -1,5 +1,6 @@
+'use strict';
+
 var countVotes = function () {
-  "use strict";
   // find votes for object
   var deltaVotesQuery = {
     delta: {

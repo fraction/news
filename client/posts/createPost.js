@@ -1,6 +1,7 @@
+'use strict';
+
 Template.createPost.events({
-  'submit': function (event) {
-    "use strict";
+  'submit': function (event) {    
     event.preventDefault();
     var title = $('form .title').val();
     var url =   $('form .url').val();

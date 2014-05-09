@@ -1,5 +1,6 @@
+'use strict';
+
 Meteor.publish('allPosts', function () {
-  "use strict";
   var result = Posts.find({}, {
     limit: 50,
     fields: {
@@ -10,16 +11,12 @@ Meteor.publish('allPosts', function () {
 });
 
 Meteor.publish('comments', function (id) {
-  "use strict";
-
   return Posts.find({
     _id: id
   });
 });
 
 Meteor.publish('user', function (username) {
-  "use strict";
-
   return Posts.find({
     author: username
   },{
@@ -31,7 +28,6 @@ Meteor.publish('user', function (username) {
 });
 
 Meteor.publish('recentPosts', function () {
-  "use strict";
   return Posts.find({}, {
     sort: {
       createdAt: -1
@@ -44,7 +40,6 @@ Meteor.publish('recentPosts', function () {
 });
 
 Meteor.publish('topPosts', function (since) {
-  "use strict";
   return Posts.find({
     oldPoints: {
       $gt: 1
@@ -64,7 +59,6 @@ Meteor.publish('topPosts', function (since) {
 });
 
 Meteor.publish('hotPosts', function () {
-  "use strict";
   return Posts.find({}, {
     limit: 50,
     sort: {
