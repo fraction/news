@@ -1,5 +1,5 @@
 hotRoute = {
-  controller: 'PageController',
+  controller: 'NewsController',
   path:     '/hot',
   template: 'listPosts',
   waitOn: function () {
@@ -9,7 +9,6 @@ hotRoute = {
   onAfterAction: function () {
     "use strict";
 
-    Session.set('showComments', false);
     Session.set('sortType', 'hot');
     Session.set('currentView', 'Hot News');
     Session.set('posts', Posts.find({}, {
