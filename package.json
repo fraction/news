@@ -10,7 +10,7 @@
     }
   ],
   "scripts": {
-    "start": "mrt --production --settings settings/development.json",
+    "start": "mrt --settings settings/development.json",
     "test": "jshint ."
   },
   "repository": {
