@@ -37,7 +37,7 @@
     "iterator"      : false,
     "lastsemic"     : false,
     "laxbreak"      : false,
-    "laxcomma"      : false,
+    "laxcomma"      : true,
     "loopfunc"      : false,
     "multistr"      : false,
     "proto"         : false,
@@ -65,17 +65,18 @@
     "passfail"      : false,
     "white"         : false,
     "globals"       : {
-      "Meteor" : false,
-      "AccountsEntry" : false,
-      "Session" : false,
-      "Handlebars" : false,
-      "Template" : false,
-      "$" : false,
-      "Votes" : false,
-      "Router" : false,
-      "Route" : false,
-      "Posts" : false,
-      "_" : false
-      
+      "Meteor" : false,          // Meteor
+      "AccountsEntry" : false,   // accounts-entry
+      "Session" : false,         // Meteor
+      "Handlebars" : false,      // Meteor
+      "Template" : false,        // Meteor
+      "$" : false,               // jQuery
+      "Router" : false,          // iron-router
+      "RouteController" : false, // iron-router
+      "_" : false,               // underscore
+      "require" : false,         // define
+      "define" : false           // define
+
+
     }
 }

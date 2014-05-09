@@ -1,22 +1,26 @@
-Route.comments = {
-  controller: 'PageController',
-  path: '/comments/:id',
-  template: 'listPosts',
-  waitOn: function () {
-    "use strict";
-    return Meteor.subscribe('comments', this.params.id);
-  },
-  onAfterAction: function () {
-    "use strict";
+'use strict';
 
-    Session.set('posts', Posts.find({
-      _id: this.params.id
-    }, {
-      reactive: false
-    }).fetch());
+var depend = ['posts', 'controllers'];
 
-    Session.set('showComments', true);
-    Session.set('currentView', 'Comments');
-    Session.set('sortType', null);
-  }
-};
+define('routeComments', depend, function (Posts, Controllers) {
+  return {
+    name: 'comments',
+    controller: Controllers.page,
+    path: '/comments/:id',
+    template: 'listPosts',
+    waitOn: function () {
+      return Meteor.subscribe('comments', this.params.id);
+    },
+    onAfterAction: function () {
+      Session.set('posts', Posts.find({
+        _id: this.params.id
+      }, {
+        reactive: false
+      }).fetch());
+
+      Session.set('showComments', true);
+      Session.set('currentView', 'Comments');
+      Session.set('sortType', null);
+    }
+  };
+});

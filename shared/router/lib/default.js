@@ -1,7 +1,11 @@
-Route.default = {
-  path: '*',
-  action: function () {
-    "use strict";
-    Router.go('/hot');
-  }
-};
+'use strict';
+
+define('routeDefault', 'posts', function () {
+  return {
+    name: 'default',
+    path: '*',
+    action: function () {
+      Router.go('/hot');
+    }
+  };
+});

@@ -1,20 +1,24 @@
-Route.hot = {
-  controller: 'NewsController',
-  path:     '/hot',
-  template: 'listPosts',
-  waitOn: function () {
-    "use strict";
-    return Meteor.subscribe('hotPosts');
-  },
-  onAfterAction: function () {
-    "use strict";
+'use strict';
 
-    setNewsSession('hot');
-    Session.set('posts', Posts.find({}, {
-      reactive: false,
-      sort: {
-        heat: -1
-      }
-    }).fetch());
-  }
-};
+var depend = ['posts', 'setNews', 'controllers'];
+
+define('routeHot', depend, function (Posts, setNews, Controllers) {
+  return {
+    name: 'hot',
+    controller: Controllers.news,
+    path:     '/hot',
+    template: 'listPosts',
+    waitOn: function () {
+      return Meteor.subscribe('hotPosts');
+    },
+    onAfterAction: function () {
+      setNews('hot');
+      Session.set('posts', Posts.find({}, {
+        reactive: false,
+        sort: {
+          heat: -1
+        }
+      }).fetch());
+    }
+  };
+});
