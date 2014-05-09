@@ -1,8 +1,8 @@
 {
-  "name": "fraction",
-  "version": "0.21.1",
+  "name": "fraction.io",
+  "version": "0.21.2",
   "author": "Christian Bundy",
-  "description": "A machine learning content aggregator in Meteor.",
+  "description": "Your personalized community aggregator.",
   "contributors": [
     {
       "name": "Christian Bundy",
@@ -20,8 +20,13 @@
   },
   "keywords": [
     "machine learning",
-    "content aggregator",
-    "server"
+    "aggregator",
+    "reader",
+    "community",
+    "hacker news",
+    "designer news",
+    "reddit",
+    "meteor"
   ],
   "analyze": false,
   "engines": {
