@@ -2,7 +2,7 @@
 
 **Want to learn more? Read the [Fraction overview](http://fraction.io/)!**
 
-[![NPM Version](http://img.shields.io/npm/v/fraction.io.svg)]() [![Build]) Status](http://img.shields.io/travis/fraction/fraction.svg)](https://travis-ci.org/fraction/fraction) [![Code Climate](http://img.shields.io/codeclimate/github/fraction/fraction.svg)](https://codeclimate.com/github/fraction/fraction) [![](http://img.shields.io/badge/license-apache v2-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+[![NPM Version](http://img.shields.io/npm/v/fraction.io.svg)](https://www.npmjs.org/package/fraction.io) [![Build]) Status](http://img.shields.io/travis/fraction/fraction.svg)](https://travis-ci.org/fraction/fraction) [![Code Climate](http://img.shields.io/codeclimate/github/fraction/fraction.svg)](https://codeclimate.com/github/fraction/fraction) [![](http://img.shields.io/badge/license-apache v2-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 ## Getting Started
 
