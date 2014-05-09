@@ -1,5 +1,3 @@
-/* global topRoute:true */
-
 topRoute = {
   path:     '/top/:time',
   template: 'listPosts',

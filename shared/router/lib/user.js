@@ -1,5 +1,3 @@
-/* global userRoute:true */
-
 userRoute = {
   path: '/user/:username',
   template: 'listPosts',

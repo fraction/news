@@ -1,5 +1,3 @@
-/* global recentRoute:true */
-
 recentRoute = {
   path:     '/recent',
   template: 'listPosts',

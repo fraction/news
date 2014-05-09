@@ -1,5 +1,3 @@
-/* global defaultRoute:true */
-
 defaultRoute = {
   path: '*',
   action: function () {

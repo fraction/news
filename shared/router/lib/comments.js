@@ -1,5 +1,3 @@
-/* global commentsRoute:true */
-
 commentsRoute = {
   path: '/comments/:id',
   template: 'listPosts',

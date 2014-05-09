@@ -1,5 +1,3 @@
-/* global randomRoute:true */
-
 // todo: make a lib and move this
 var shuffle = function (array) {
   "use strict";

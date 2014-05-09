@@ -1,5 +1,3 @@
-/* global hotRoute:true */
-
 hotRoute = {
   path:     '/hot',
   template: 'listPosts',
