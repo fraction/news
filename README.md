@@ -20,7 +20,6 @@ npm install
 
 # Start Fraction
 npm start
-
 ```
 
 If you can't access fraction at [http://localhost:3000](http://localhost:3000), please [open an issue](https://github.com/fraction/fraction/issues?state=open).
