@@ -1,5 +1,5 @@
 topRoute = {
-  controller: 'PageController',
+  controller: 'NewsController',
   path:     '/top/:time',
   template: 'listPosts',
   waitOn: function () {
@@ -41,13 +41,12 @@ topRoute = {
     "use strict";
 
     var time = this.params.time.toLowerCase();
-    Session.set('showComments', false);
     Session.set('sortTime', time);
     Session.set('sortType', 'top');
     Session.set('posts', Posts.find({}, {
       reactive: false,
       sort: {
-        heat: -1
+        points: -1
       }
     }).fetch());
     Session.set('currentView', 'Top News');

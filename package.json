@@ -1,6 +1,6 @@
 {
   "name": "fraction",
-  "version": "0.1.0",
+  "version": "0.21.0",
   "author": "Christian Bundy",
   "description": "A machine learning content aggregator in Meteor.",
   "contributors": [
@@ -10,8 +10,9 @@
     }
   ],
   "scripts": {
-    "start": "mrt --production --settings settings/development.json",
-    "test": "jshint ."
+    "start": "mrt --settings settings/development.json",
+    "test": "jshint .",
+    "install": "./install.sh"
   },
   "repository": {
     "type": "git",

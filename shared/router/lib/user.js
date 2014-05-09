@@ -1,5 +1,5 @@
 userRoute = {
-  controller: 'PageController',
+  controller: 'NewsController',
   path: '/user/:username',
   template: 'listPosts',
   waitOn: function () {
