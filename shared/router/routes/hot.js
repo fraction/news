@@ -13,12 +13,17 @@ define('routeHot', depend, function (Posts, setNews, Controllers) {
     },
     onAfterAction: function () {
       setNews('hot');
-      Session.set('posts', Posts.find({}, {
+      Session.set('findSelector', {});
+      Session.set('findOptions', {
         reactive: false,
         sort: {
           heat: -1
         }
-      }).fetch());
+      });
+      Session.set('posts', Posts.find(
+        Session.get('findSelector'),
+        Session.get('findOptions')
+      ).fetch());
     }
   };
 });

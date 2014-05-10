@@ -10,20 +10,20 @@
         <i class="fa fa-sort"></i>
         <strong>NEWS </strong>
       </li>
-        <a href="/hot" class="{{activeSort 'hot'}} list-group-item"><i class="fa fa-fire"></i> Hot</a>
-        <a href="/top/week" class="{{activeSort 'top'}} list-group-item"><i class="fa fa-star"></i> Top</a>
+        <a href="/hot" class="{{activeSort 'hot'}} sort list-group-item"><i class="fa fa-fire"></i> Hot</a>
+        <a href="/top/week" class="{{activeSort 'top'}} sort list-group-item"><i class="fa fa-star"></i> Top</a>
         {{#if isSortTop}}
         <div class="indent">
-          <a class="{{activeTime 'hour'}} list-group-item" href="/{{sortType}}/hour">Hour</a>
-          <a class="{{activeTime 'day'}} list-group-item" href="/{{sortType}}/day">Day</a>
-          <a class="{{activeTime 'week'}} list-group-item" href="/{{sortType}}/week">Week</a>
-          <a class="{{activeTime 'month'}} list-group-item" href="/{{sortType}}/month">Month</a>
-          <a class="{{activeTime 'year'}} list-group-item" href="/{{sortType}}/year">Year</a>
-          <a class="{{activeTime 'ever'}} list-group-item" href="/{{sortType}}/ever">Ever</a>
+          <a class="{{activeTime 'hour'}} time list-group-item" href="/{{sortType}}/hour">Hour</a>
+          <a class="{{activeTime 'day'}} time list-group-item" href="/{{sortType}}/day">Day</a>
+          <a class="{{activeTime 'week'}} time list-group-item" href="/{{sortType}}/week">Week</a>
+          <a class="{{activeTime 'month'}} time list-group-item" href="/{{sortType}}/month">Month</a>
+          <a class="{{activeTime 'year'}} time list-group-item" href="/{{sortType}}/year">Year</a>
+          <a class="{{activeTime 'ever'}} time list-group-item" href="/{{sortType}}/ever">Ever</a>
         </div>
         {{/if}}
-          <a href="/recent" class="{{activeSort 'recent'}} list-group-item"><i class="fa fa-clock-o"></i> Recent</a>
-        <a href="/random" class="{{activeSort 'random'}} list-group-item"><i class="fa fa-random"></i> Random</a>
+          <a href="/recent" class="{{activeSort 'recent'}} sort list-group-item"><i class="fa fa-clock-o"></i> Recent</a>
+        <a href="/random" class="{{activeSort 'random'}} sort list-group-item"><i class="fa fa-random"></i> Random</a>
     </ul>
   </sidebar>
 </template>
