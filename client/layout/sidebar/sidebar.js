@@ -39,3 +39,14 @@ Template.sidebar.helpers({
     return '/';
   }
 });
+
+Template.sidebar.events({
+  'click .sort.active' : function (event) {
+    // don't try changing pages
+    event.preventDefault();
+    require('routes', function (Routes) {
+      // run the onAfterAction for the sort type
+      Routes[Session.get('sortType')].onAfterAction();
+    });
+  }
+});
