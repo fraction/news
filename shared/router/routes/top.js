@@ -46,12 +46,19 @@ define('routeTop', depend, function (Posts, setNews, Controllers) {
 
       setNews('top');
       Session.set('sortTime', time);
-      Session.set('posts', Posts.find({}, {
+
+      Session.set('findSelector', {});
+      Session.set('findOptions', {
         reactive: false,
         sort: {
           oldPoints: -1
         }
-      }).fetch());
+      });
+      Session.set('posts', Posts.find(
+        Session.get('findSelector'),
+        Session.get('findOptions')
+      ).fetch());
+
 
       var accepted = [
         'hour',

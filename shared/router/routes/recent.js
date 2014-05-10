@@ -12,13 +12,19 @@ define('routeRecent', depend, function (Posts, setNews, Controllers) {
       return Meteor.subscribe('recentPosts');
     },
     onAfterAction: function () {
+
       setNews('recent');
-      Session.set('posts', Posts.find({}, {
+      Session.set('findSelector', {});
+      Session.set('findOptions', {
         reactive: false,
         sort: {
           createdAt: -1
         }
-      }).fetch());
+      });
+      Session.set('posts', Posts.find(
+        Session.get('findSelector'),
+        Session.get('findOptions')
+      ).fetch());
     }
   };
 });

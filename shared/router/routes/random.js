@@ -13,9 +13,15 @@ define('routeRandom', depend, function (Posts, setNews, shuffle, Controllers) {
     },
     onAfterAction: function () {
       setNews('random');
-      Session.set('posts', shuffle(Posts.find({}, {
+
+      Session.set('findSelector', {});
+      Session.set('findOptions', {
         reactive: false
-      }).fetch()));
+      });
+      Session.set('posts', shuffle(Posts.find(
+        Session.get('findSelector'),
+        Session.get('findOptions')
+      ).fetch()));
     }
   };
 });
