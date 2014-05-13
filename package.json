@@ -12,7 +12,8 @@
   "scripts": {
     "start": "mrt --settings settings/development.json",
     "test": "jshint .",
-    "install": "./install.sh"
+    "install": "./install.sh",
+    "stop": "kill `ps ax | grep '[m]eteor' | awk '{print $1}'`"
   },
   "repository": {
     "type": "git",
