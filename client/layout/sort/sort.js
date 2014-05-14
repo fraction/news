@@ -1,3 +1,5 @@
+'use strict';
+
 Handlebars.registerHelper('activeTime', function(time) {
   if (Session.equals('sortTime', time)) {
     return 'active';
@@ -8,7 +10,6 @@ Handlebars.registerHelper('activeTime', function(time) {
 
 Handlebars.registerHelper('activeSort', function(sort) {
   if (Session.equals('sortType', sort)) {
-    console.log(sort);
     return 'active';
   } else {
     return 'inactive';
@@ -16,8 +17,9 @@ Handlebars.registerHelper('activeSort', function(sort) {
 });
 
 Handlebars.registerHelper('toCapital', function(str) {
-  if (typeof str === 'string' && str.length > 0)
+  if (typeof str === 'string' && str.length > 0) {
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 });
 
 Template.sort.helpers({
