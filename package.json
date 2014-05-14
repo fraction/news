@@ -10,9 +10,10 @@
     }
   ],
   "scripts": {
-    "start": "mrt --settings settings/development.json",
-    "test": "jshint .",
-    "install": "./install.sh"
+    "start": "bin/start.sh",
+    "test": "bin/test.sh",
+    "install": "bin/install.sh",
+    "stop": "bin/stop.sh"
   },
   "repository": {
     "type": "git",
