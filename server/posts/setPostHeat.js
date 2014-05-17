@@ -25,6 +25,6 @@ require('posts', function (Posts) {
     });
   };
 
-  // run every 6 seconds
-  Meteor.setInterval(setPostHeat, 6 * 1000);
+  // run every 60 seconds
+  Meteor.setInterval(setPostHeat, 60 * 1000);
 });

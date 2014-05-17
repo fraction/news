@@ -1,7 +1,7 @@
 {
     "maxerr"        : 50,
     "bitwise"       : true,
-    "camelcase"     : true,
+    "camelcase"     : false,
     "curly"         : true,
     "eqeqeq"        : true,
     "forin"         : true,
@@ -16,7 +16,7 @@
     "quotmark"      : false,
     "undef"         : false,
     "unused"        : true,
-    "strict"        : true,
+    "strict"        : false,
     "trailing"      : true,
     "maxparams"     : false,
     "maxdepth"      : false,
@@ -53,7 +53,7 @@
     "dojo"          : false,
     "jquery"        : false,
     "mootools"      : false,
-    "node"          : false,
+    "node"          : true,
     "nonstandard"   : false,
     "prototypejs"   : false,
     "rhino"         : false,
@@ -76,7 +76,5 @@
       "_" : false,               // underscore
       "require" : false,         // define
       "define" : false           // define
-
-
     }
 }

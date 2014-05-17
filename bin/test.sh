@@ -1,5 +1,5 @@
 #!/bin/sh
 
 # Test with JSHint
-printf "> jshint .\n"
-jshint .
+printf "> jshint --exclude-path packages/.gitignore .\n"
+jshint --exclude-path packages/.gitignore .
