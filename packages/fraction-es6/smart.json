@@ -1,0 +1,8 @@
+{
+  "name": "ES6",
+  "description": "Javascript harmony (ES6)",
+  "author": "Christian Bundy <me@christianbundy.com>",
+  "version": "0.0.0",
+  "git": "https://github.com/christianbundy/meteor-es6.git",
+  "homepage": "https://github.com/christianbundy/meteor-es6"
+}
