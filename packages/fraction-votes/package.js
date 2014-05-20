@@ -1,7 +1,7 @@
 'use strict';
 
 Package.describe({
-  summary: "Define Fraction collections"
+  summary: "Votes"
 });
 
 Package.on_use(function (api) {
@@ -9,5 +9,5 @@ Package.on_use(function (api) {
 
   api.add_files('namespace.js', both);
 
-  api.export(['Posts', 'Votes'], both);
+  api.export('Votes', both);
 });

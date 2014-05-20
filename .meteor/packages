@@ -10,7 +10,8 @@ fast-render
 iron-router
 iron-router-progress
 bootstrap3-less
-fraction-collections
+fraction-posts
+fraction-votes
 fraction-es6
 fraction-utilities
 fraction-routes
