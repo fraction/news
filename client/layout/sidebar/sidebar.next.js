@@ -1,7 +1,7 @@
 'use strict';
 
 Template.sidebar.helpers({
-  'showBack' : function () {
+  showBack : () => {
     // only show a back button on comment/user pages, where sortType is unset
     if (Session.equals('sortType', null)) {
       return true;
@@ -9,16 +9,16 @@ Template.sidebar.helpers({
       return false;
     }
   },
-  'backLink' : function () {
+  backLink : () => {
     return '/';
   }
 });
 
 Template.sidebar.events({
-  'click .sort.active' : function (event) {
+  'click .sort.active' : (event) => {
     // don't try changing pages
     event.preventDefault();
-    require('routes', function (Routes) {
+    require('routes', (Routes) => {
       // run the onAfterAction for the sort type
       Routes[Session.get('sortType')].onAfterAction();
     });

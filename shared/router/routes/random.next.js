@@ -2,16 +2,16 @@
 
 var depend = ['posts', 'setNews', 'shuffle', 'controllers'];
 
-define('routeRandom', depend, function (Posts, setNews, shuffle, Controllers) {
+define('routeRandom', depend, (Posts, setNews, shuffle, Controllers) => {
   return {
     name: 'random',
     controller: Controllers.news,
     path:     '/random',
     template: 'listPosts',
-    waitOn: function () {
+    waitOn: () => {
       return Meteor.subscribe('recentPosts');
     },
-    onAfterAction: function () {
+    onAfterAction: () => {
       setNews('random');
 
       Session.set('findSelector', {});

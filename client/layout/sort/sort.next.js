@@ -1,6 +1,6 @@
 'use strict';
 
-Handlebars.registerHelper('activeTime', function(time) {
+Handlebars.registerHelper('activeTime', (time) => {
   if (Session.equals('sortTime', time)) {
     return 'active';
   } else {
@@ -8,7 +8,7 @@ Handlebars.registerHelper('activeTime', function(time) {
   }
 });
 
-Handlebars.registerHelper('activeSort', function(sort) {
+Handlebars.registerHelper('activeSort', (sort) => {
   if (Session.equals('sortType', sort)) {
     return 'active';
   } else {
@@ -16,24 +16,24 @@ Handlebars.registerHelper('activeSort', function(sort) {
   }
 });
 
-Handlebars.registerHelper('toCapital', function(str) {
+Handlebars.registerHelper('toCapital', (str) => {
   if (typeof str === 'string' && str.length > 0) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 });
 
 Template.sort.helpers({
-  'isSortTop' : function () {
+  isSortTop : () => {
     if (Session.equals('sortType', 'top')) {
       return true;
     } else {
       return false;
     }
   },
-  'sortType' : function () {
+  sortType : () => {
     return Session.get('sortType');
   },
-  sortTime : function () {
+  sortTime : () => {
     return Session.get('sortTime');
   }
 });

@@ -1,6 +1,6 @@
 'use strict';
-require('posts', 'votes', function (Posts, Votes) {
-  var countVotes = function () {
+require('posts', 'votes', (Posts, Votes) => {
+  var countVotes = () => {
     // find votes for object
     var deltaVotesQuery = {
       delta: {
@@ -32,7 +32,7 @@ require('posts', 'votes', function (Posts, Votes) {
       });
 
     var i = 0;
-    _.forEach(voteTable, function (value, key) {
+    _.forEach(voteTable, (value, key) => {
       Posts.update({_id: key}, { $inc: {votes: value}});
       i++;
     });

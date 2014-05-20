@@ -1,15 +1,15 @@
 'use strict';
 
-define('controllers', [], function () {
+define('controllers', [], () => {
   var Controllers = {};
   Controllers.page = RouteController.extend({
-    onAfterAction: function () {
+    onAfterAction: () => {
       $("html, body").animate({scrollTop:0}, 500, 'swing');
     }
   });
 
   Controllers.news = Controllers.page.extend({
-    onAfterAction: function () {
+    onAfterAction: () => {
       Session.set('showComments', false);
     }
   });

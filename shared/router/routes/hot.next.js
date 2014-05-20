@@ -2,23 +2,22 @@
 
 var depend = ['posts', 'setNews', 'controllers'];
 
-define('routeRecent', depend, function (Posts, setNews, Controllers) {
+define('routeHot', depend, (Posts, setNews, Controllers) => {
   return {
-    name: 'recent',
+    name: 'hot',
     controller: Controllers.news,
-    path:     '/recent',
+    path:     '/hot',
     template: 'listPosts',
-    waitOn: function () {
-      return Meteor.subscribe('recentPosts');
+    waitOn: () => {
+      return Meteor.subscribe('hotPosts');
     },
-    onAfterAction: function () {
-
-      setNews('recent');
+    onAfterAction: () => {
+      setNews('hot');
       Session.set('findSelector', {});
       Session.set('findOptions', {
         reactive: false,
         sort: {
-          createdAt: -1
+          heat: -1
         }
       });
       Session.set('posts', Posts.find(

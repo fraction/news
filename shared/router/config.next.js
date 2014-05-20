@@ -1,13 +1,13 @@
 'use strict';
 
-require('routes', function (Routes) {
+require('routes', (Routes) => {
   Router.configure({
     layoutTemplate: 'layout'
   });
 
   Router.onBeforeAction('loading');
 
-  Router.map(function () {
+  Router.map(() => {
     this.route('comments', Routes.comments);
     this.route('hot', Routes.hot);
     this.route('random', Routes.random);

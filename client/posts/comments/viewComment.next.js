@@ -1,7 +1,7 @@
 'use strict';
 
 // adapted from http://stackoverflow.com/a/3177838
-var timeSince = function (date) {
+var timeSince = (date) => {
   var timeString = function (int, str) {
     return int + str;
   };
@@ -32,11 +32,11 @@ var timeSince = function (date) {
 };
 
 Template.viewComment.helpers({
-  'cleanText' : function () {
+  cleanText : () => {
     // replace '\n' with a newline character
     return this.text.replace(/\\n/g, "\n");
   },
-  'timeCopy' : function () {
+  timeCopy : () => {
     /*jshint camelcase: false */
     return timeSince(new Date(this.created_at));
   }

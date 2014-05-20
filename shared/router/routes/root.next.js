@@ -1,10 +1,10 @@
 'use strict';
 
-define('routeRoot', [], function () {
+define('routeRoot', [], () => {
   return {
     name: 'root',
     path: '/',
-    action: function () {
+    action: () => {
       Router.go('/hot');
     }
   };

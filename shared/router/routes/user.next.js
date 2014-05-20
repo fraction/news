@@ -2,16 +2,16 @@
 
 var depend = ['posts', 'controllers'];
 
-define('routeUser', depend, function (Posts, Controllers) {
+define('routeUser', depend, (Posts, Controllers) => {
   return {
     name: 'user',
     controller: Controllers.page,
     path: '/user/:username',
     template: 'listPosts',
-    waitOn: function () {
+    waitOn: () => {
       return Meteor.subscribe('user', this.params.username);
     },
-    data: function () {
+    data: () => {
       Session.set('sortType', null);
       Session.set('currentView', 'Profile');
       Session.set('showComments', false);

@@ -1,7 +1,7 @@
 'use strict';
 
-define('shuffle', [], function() {
-  return function (array) {
+define('shuffle', [], () => {
+  return (array) => {
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     while (0 !== currentIndex) {

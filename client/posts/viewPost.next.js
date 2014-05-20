@@ -1,9 +1,9 @@
 'use strict';
-require('votes', function (Votes) {
+require('votes', (Votes) => {
   // adapted from http://stackoverflow.com/a/3177838
   // todo: move to an actual lib... again
-  var timeSince = function (date) {
-    var timeString = function (int, str) {
+  var timeSince = (date) => {
+    var timeString = (int, str) => {
       return int + str;
     };
 
@@ -33,7 +33,7 @@ require('votes', function (Votes) {
   };
 
   Template.viewPost.helpers({
-    previousVote: function () {
+    previousVote: () => {
       var post = this._id;
       var voteQuery = {
         'user' : Meteor.userId(),
@@ -58,22 +58,22 @@ require('votes', function (Votes) {
         return 'nonvoted';
       }
     },
-    timeCopy: function () {
+    timeCopy: () => {
       return timeSince(this.createdAt);
     },
-    totalPoints: function () {
+    totalPoints: () => {
       return this.oldPoints + Session.get('vote.' + this._id);
     },
-    authorLink: function() {
+    authorLink: () => {
       return '/user/' + this.author;
     },
-    commentLink: function () {
+    commentLink: () => {
       return '/comments/' + this._id;
     },
-    text: function () {
+    text: () => {
       return this.hnText;
     },
-    domain: function () {
+    domain: () => {
       var d = this.url.replace('http://','');
       d = d.replace('https://','').split(/[/?#]/)[0];
 
@@ -83,12 +83,12 @@ require('votes', function (Votes) {
       }
       return d;
     },
-    community: function () {
+    community: () => {
       if (this.site === 'hn') {
         return 'Hacker News';
       }
     },
-    communityLink: function () {
+    communityLink: () => {
       if (this.site === 'hn') {
         return 'http://news.ycombinator.com/';
       }

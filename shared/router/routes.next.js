@@ -11,10 +11,10 @@ var depend = [
   'routeUser'
 ];
 
-define('routes', depend, function () {
+define('routes', depend, () => {
   var Routes = {};
 
-  _(arguments).forEach(function (route) {
+  _(arguments).forEach((route) => {
     Routes[route.name] = route;
   });
 

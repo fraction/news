@@ -2,16 +2,16 @@
 
 var depend = ['posts', 'controllers'];
 
-define('routeComments', depend, function (Posts, Controllers) {
+define('routeComments', depend, (Posts, Controllers) => {
   return {
     name: 'comments',
     controller: Controllers.page,
     path: '/comments/:id',
     template: 'listPosts',
-    waitOn: function () {
+    waitOn: () => {
       return Meteor.subscribe('comments', this.params.id);
     },
-    onAfterAction: function () {
+    onAfterAction: () => {
       Session.set('posts', Posts.find({
         _id: this.params.id
       }, {

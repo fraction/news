@@ -1,10 +1,10 @@
 'use strict';
 
-define('routeDefault', 'posts', function () {
+define('routeDefault', 'posts', () => {
   return {
     name: 'default',
     path: '*',
-    action: function () {
+    action: () => {
       Router.go('/hot');
     }
   };

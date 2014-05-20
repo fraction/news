@@ -2,33 +2,33 @@
 
 var depend = ['posts', 'setNews', 'controllers'];
 
-define('routeTop', depend, function (Posts, setNews, Controllers) {
+define('routeTop', depend, (Posts, setNews, Controllers) => {
   return {
     name: 'top',
     controller: Controllers.news,
     path:     '/top/:time',
     template: 'listPosts',
-    waitOn: function () {
+    waitOn: () => {
       var time = this.params.time.toLowerCase();
 
       // what type of time to subscribe to
       var actions = {
-        hour: function (now) {
+        hour: (now) => {
           return now - 60 * 60 * 1000;
         },
-        day: function (now) {
+        day: (now) => {
           return now.setDate(now.getDate() - 1);
         },
-        week: function (now) {
+        week: (now) => {
           return now.setDate(now.getDate() - 7);
         },
-        month: function (now) {
+        month: (now) => {
           return now.setFullYear(now.getFullYear(), now.getMonth() - 1);
         },
-        year: function (now) {
+        year: (now) => {
           return now.setFullYear(now.getFullYear() - 1);
         },
-        ever: function () {
+        ever: () => {
           return 0;
         },
       };
@@ -41,7 +41,7 @@ define('routeTop', depend, function (Posts, setNews, Controllers) {
         return Meteor.subscribe('topPosts', new Date(since));
       }
     },
-    onAfterAction: function () {
+    onAfterAction: () => {
       var time = this.params.time.toLowerCase();
 
       setNews('top');
@@ -58,7 +58,6 @@ define('routeTop', depend, function (Posts, setNews, Controllers) {
         Session.get('findSelector'),
         Session.get('findOptions')
       ).fetch());
-
 
       var accepted = [
         'hour',
