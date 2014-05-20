@@ -1,11 +1,11 @@
 'use strict';
 
-require('posts', function (Posts) {
+require('posts', (Posts) => {
   if (Meteor.settings.environment === 'production') {
     var Twit =    Meteor.require('twit');
     var twitter = new Twit(Meteor.settings.twitter);
 
-    var tweetHot = function () {
+    var tweetHot = () => {
       var hot = Posts.find({}, {
         limit: 50,
         sort: {
@@ -17,14 +17,14 @@ require('posts', function (Posts) {
       }).fetch();
 
       var finished = false;
-      _(hot).forEach(function (item) {
+      _(hot).forEach((item) => {
         // it hasn't been tweeted yet
         if (finished === false && (typeof item.tweeted === 'undefined')) {
           twitter.post('statuses/update',
           {
             status: item.title + "\n" +
             'http://beta.fraction.io/comments/' + item._id
-          }, function(err /*, response */) {
+          }, (err /*, response */) => {
             if (err) {
               throw err;
             }

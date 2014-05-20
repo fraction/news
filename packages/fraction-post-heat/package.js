@@ -9,9 +9,8 @@ Npm.depends({
 });
 
 Package.on_use(function (api) {
+  api.use('harmony', 'server');
   api.use('fraction-collections', 'server');
 
-  api.add_files('namespace.js', 'server');
-  api.add_files('readHn.js', 'server');
-  api.export('ReadHn', ['server', 'client']);
+  api.add_files('lib/set.next.js', 'server');
 });

@@ -9,6 +9,7 @@
     "feedparser": {},
     "npm": {},
     "lodash": {},
-    "define": {}
+    "define": {},
+    "harmony": {}
   }
 }

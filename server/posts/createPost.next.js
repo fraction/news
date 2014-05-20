@@ -1,11 +1,12 @@
 'use strict';
 
 Meteor.methods({
-  createPost : function (obj) {
+  createPost : (obj) => {
     // disabled
     return obj;
   }
 });
+
 /*
     var isWebAddress = function (value) {
       return (/^https?:\/\//i).test(value);

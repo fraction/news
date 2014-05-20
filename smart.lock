@@ -11,7 +11,8 @@
       "feedparser": {},
       "npm": {},
       "lodash": {},
-      "define": {}
+      "define": {},
+      "harmony": {}
     },
     "packages": {
       "iron-router": {
@@ -63,6 +64,11 @@
         "git": "https://github.com/apendua/require.git",
         "tag": "v0.9.0.2",
         "commit": "5c3bdfdf7c747dc7297e7697d5f1a28ef86772f2"
+      },
+      "harmony": {
+        "git": "https://github.com/mquandalle/meteor-harmony.git",
+        "tag": "v0.0.41",
+        "commit": "67c307db2eaa502c5e2a9e391293725cb32aa27a"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",

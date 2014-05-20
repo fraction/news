@@ -1,14 +1,14 @@
 'use strict';
 
 var depend = [
-  'routeComments'
-, 'routeDefault'
-, 'routeHot'
-, 'routeRandom'
-, 'routeRecent'
-, 'routeRoot'
-, 'routeTop'
-, 'routeUser'
+  'routeComments',
+  'routeDefault',
+  'routeHot',
+  'routeRandom',
+  'routeRecent',
+  'routeRoot',
+  'routeTop',
+  'routeUser'
 ];
 
 define('routes', depend, function () {

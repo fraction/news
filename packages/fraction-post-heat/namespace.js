@@ -1,1 +1,2 @@
-ReadHn = {};
+/*global PostHeat:true*/
+PostHeat = {};

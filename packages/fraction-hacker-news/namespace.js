@@ -1,0 +1,2 @@
+/*global HackerNews:true*/
+HackerNews = {};
