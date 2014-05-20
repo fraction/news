@@ -23,6 +23,7 @@
     "HackerNews" : false,      // fraction-hacker-news
     "PostHeat": false,         // fraction-post-heat
     "Routes" : false,          // fraction-routes
-    "Utilities" : false        // fraction-utilities
+    "Utilities" : false,       // fraction-utilities
+    "Plugin" : false           // Meteor
   }
 }
