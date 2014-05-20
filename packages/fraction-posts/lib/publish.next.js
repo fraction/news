@@ -1,6 +1,6 @@
 'use strict';
 
-Meteor.publish('allPosts', () => {
+Meteor.publish('allPosts', function () {
   var result = Posts.find({}, {
     limit: 50,
     fields: {
@@ -10,13 +10,13 @@ Meteor.publish('allPosts', () => {
   return result;
 });
 
-Meteor.publish('comments', (id) => {
+Meteor.publish('comments', function (id) {
   return Posts.find({
     _id: id
   });
 });
 
-Meteor.publish('user', (username) => {
+Meteor.publish('user', function (username) {
   return Posts.find({
     author: username
   },{
@@ -27,7 +27,7 @@ Meteor.publish('user', (username) => {
   });
 });
 
-Meteor.publish('recentPosts', () => {
+Meteor.publish('recentPosts', function () {
   return Posts.find({}, {
     sort: {
       createdAt: -1
@@ -39,7 +39,7 @@ Meteor.publish('recentPosts', () => {
   });
 });
 
-Meteor.publish('topPosts', (since) => {
+Meteor.publish('topPosts', function (since){
   return Posts.find({
     oldPoints: {
       $gt: 1
@@ -58,7 +58,7 @@ Meteor.publish('topPosts', (since) => {
   });
 });
 
-Meteor.publish('hotPosts', () => {
+Meteor.publish('hotPosts', function () {
   return Posts.find({}, {
     limit: 50,
     sort: {

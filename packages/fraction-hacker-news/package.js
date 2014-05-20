@@ -16,5 +16,4 @@ Package.on_use(function (api) {
 
   api.add_files('namespace.js');
   api.add_files('lib/read.next.js', 'server');
-  api.export('HackerNews', ['server', 'client']);
 });

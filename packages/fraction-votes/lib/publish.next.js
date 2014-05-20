@@ -1,5 +1,5 @@
 'use strict';
 
-Meteor.publish('votes', () => {
+Meteor.publish('votes', function () {
   return Votes.find({user: this.userId});
 });

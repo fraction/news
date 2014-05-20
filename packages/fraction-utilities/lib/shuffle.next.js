@@ -1,4 +1,3 @@
-/*global Shuffle:true*/
 'use strict';
 
 Utilities.shuffle = (array) => {

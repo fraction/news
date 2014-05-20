@@ -1,9 +1,5 @@
 'use strict';
 
-Handlebars.registerHelper('session', (input) => {
-  return Session.get(input);
-});
-
 var levels = ['success', 'info', 'warning', 'danger'];
 
 var createAlert = (level) => {

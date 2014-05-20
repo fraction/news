@@ -1,11 +1,7 @@
 'use strict';
 
 Package.describe({
-  summary: "Read Hacker News"
-});
-
-Npm.depends({
-  "hacker-news-api" : "1.1.4"
+  summary: "Post Heat"
 });
 
 Package.on_use(function (api) {

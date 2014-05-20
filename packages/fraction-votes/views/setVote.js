@@ -2,7 +2,7 @@
 
 Meteor.subscribe('votes');
 
-var vote = (event) => {
+var vote = function (event) {
   var target = $(event.target);
   var post = target.parent().parent().parent().parent().parent();
 
