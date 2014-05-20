@@ -3,25 +3,15 @@
   "dependencies": {
     "basePackages": {
       "iron-router": {},
-      "accounts-entry": {},
       "fast-render": {},
       "iron-router-progress": {},
-      "bootstrap3-less": {},
-      "power-queue": {},
-      "feedparser": {},
-      "npm": {},
-      "lodash": {}
+      "bootstrap3-less": {}
     },
     "packages": {
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.7.1",
         "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
-      },
-      "accounts-entry": {
-        "git": "https://github.com/Differential/accounts-entry.git",
-        "tag": "v0.7.3",
-        "commit": "7facaa045d3720eeeba3420c28e48d5709188fe3"
       },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
@@ -38,50 +28,10 @@
         "tag": "v0.1.9",
         "commit": "5c812c4d7ce72917a065f0424c3cf54e5ff2d16a"
       },
-      "power-queue": {
-        "git": "https://github.com/CollectionFS/Meteor-power-queue.git",
-        "tag": "v0.9.9",
-        "commit": "567d3905784a8be6aacfbb69d477003ba9b5c4b5"
-      },
-      "feedparser": {
-        "git": "https://github.com/DBeath/meteor-feedparser.git",
-        "tag": "v0.16.6",
-        "commit": "53c121f56949b6fe022dc8640087e1ad739db7d9"
-      },
-      "npm": {
-        "git": "https://github.com/arunoda/meteor-npm.git",
-        "tag": "v0.2.6",
-        "commit": "177ab6118de5bf8cffb19481343d5762ff7a2aaf"
-      },
-      "lodash": {
-        "git": "https://github.com/alethes/meteor-lodash.git",
-        "tag": "v0.7.1",
-        "commit": "57bbeb3e21c31b64641f9885bb2f390b84f8b925"
-      },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
         "tag": "v0.2.4",
         "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
-      },
-      "accounts-t9n": {
-        "git": "https://github.com/softwarerero/meteor-accounts-t9n.git",
-        "tag": "v0.0.5",
-        "commit": "ad9539a8818049d5d9fa050d8b2a1f62706483b1"
-      },
-      "reactive-property": {
-        "git": "https://github.com/CollectionFS/Meteor-reactive-property.git",
-        "tag": "v0.0.1",
-        "commit": "f742b8656bb88fafff2a9c3a32ff1f97b3ebf2f7"
-      },
-      "micro-queue": {
-        "git": "https://github.com/CollectionFS/Meteor-micro-queue.git",
-        "tag": "v0.0.3",
-        "commit": "70266ce2c273a12c5af17b5c056253936caabb01"
-      },
-      "reactive-list": {
-        "git": "https://github.com/CollectionFS/Meteor-reactive-list.git",
-        "tag": "v0.0.7",
-        "commit": "5855e3795947145b20a331250113ce927060445b"
       }
     }
   }

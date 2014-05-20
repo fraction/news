@@ -9,7 +9,6 @@ iron-router
 less
 accounts-password
 coffeescript
-accounts-entry
 insecure
 fast-render
 iron-router-progress
@@ -17,11 +16,10 @@ bootstrap3-less
 power-queue
 reactive-list
 http
-feedparser
 lodash
-npm
 fraction-collections
 fraction-es6
 fraction-utilities
 fraction-routes
 fraction-hacker-news
+fraction-twitter
