@@ -2,21 +2,21 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
-      "iron-router": {},
       "fast-render": {},
+      "iron-router": {},
       "iron-router-progress": {},
       "bootstrap3-less": {}
     },
     "packages": {
-      "iron-router": {
-        "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.7.1",
-        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
-      },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
         "tag": "v0.2.5",
         "commit": "93e2fb334e55fbe9b5ebb2a2e65964018658f43e"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
       },
       "iron-router-progress": {
         "git": "https://github.com/Multiply/iron-router-progress.git",
