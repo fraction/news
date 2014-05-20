@@ -5,15 +5,16 @@ Package.describe({
 });
 
 Npm.depends({
-  "hacker-news-api" : "1.1.5"
+  "hacker-news-api" : "1.1.6"
 });
 
 Package.on_use(function (api) {
   var both = ['client', 'server'];
 
-  api.use('harmony', both);
+  api.use('fraction-es6', both);
   api.use('fraction-collections', 'server');
 
+  api.add_files('namespace.js');
   api.add_files('lib/read.next.js', 'server');
   api.export('HackerNews', ['server', 'client']);
 });

@@ -32,11 +32,11 @@ var timeSince = (date) => {
 };
 
 Template.viewComment.helpers({
-  cleanText : () => {
+  cleanText : function () {
     // replace '\n' with a newline character
     return this.text.replace(/\\n/g, "\n");
   },
-  timeCopy : () => {
+  timeCopy : function () {
     /*jshint camelcase: false */
     return timeSince(new Date(this.created_at));
   }

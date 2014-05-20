@@ -1,0 +1,8 @@
+{
+  "name": "fraction-routes",
+  "description": "Routes",
+  "homepage": "https://github.com/fraction/fraction",
+  "author": "Christian Bundy <me@christianbundy.com>",
+  "version": "0.0.1",
+  "git": "https://github.com/fraction/fraction.git"
+}

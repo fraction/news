@@ -20,6 +20,8 @@ http
 feedparser
 lodash
 npm
-define
 fraction-collections
-harmony
+fraction-es6
+fraction-utilities
+fraction-routes
+fraction-hacker-news

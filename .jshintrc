@@ -21,6 +21,8 @@
     "Posts" : false,           // fraction-collections
     "Votes" : false,           // fraction-collections
     "HackerNews" : false,      // fraction-hacker-news
-    "PostHeat": false          // fraction-post-heat
+    "PostHeat": false,         // fraction-post-heat
+    "Routes" : false,          // fraction-routes
+    "Utilities" : false        // fraction-utilities
   }
 }

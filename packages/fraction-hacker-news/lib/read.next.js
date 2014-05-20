@@ -41,26 +41,25 @@ HackerNews.read = {
             });
           }));
         };
-        
+
         _(data.hits).forEach(saveItem);
       }, (error) => {
         throw error;
       })
     );
   },
-  every: (interval) => {
-    var that = this;
+  every: function (interval) {
     Meteor.setInterval(() => {               // 4410rph (21 * 7 * (60/2))
       console.log("Reading 140 posts from Hacker News");
-      that.since(2 * 60);                        // 2 minutes - 21 requests
-      that.since(60 * 60);                       // hour      - 21 requests
-      that.since(24 * 60 * 60);                  // day       - 21 requests
-      that.since(7 * 24 * 60 * 60);              // week      - 21 requests
-      that.since(31 * 24 * 60 * 60);             // month     - 21 requests
-      that.since(31 * 24 * 60 * 60);             // year      - 21 requests
-      that.since(Math.floor(Date.now() / 1000)); // ever      - 21 requests
+      this.since(2 * 60);                        // 2 minutes - 21 requests
+      this.since(60 * 60);                       // hour      - 21 requests
+      this.since(24 * 60 * 60);                  // day       - 21 requests
+      this.since(7 * 24 * 60 * 60);              // week      - 21 requests
+      this.since(31 * 24 * 60 * 60);             // month     - 21 requests
+      this.since(31 * 24 * 60 * 60);             // year      - 21 requests
+      this.since(Math.floor(Date.now() / 1000)); // ever      - 21 requests
     }, interval);
   }
 };
 
-HackerNews.read(2 * 60 * 1000);
+HackerNews.read.every(2 * 60 * 1000);

@@ -8,8 +8,6 @@
     "power-queue": {},
     "feedparser": {},
     "npm": {},
-    "lodash": {},
-    "define": {},
-    "harmony": {}
+    "lodash": {}
   }
 }
