@@ -1,0 +1,2 @@
+/*global Utilities:true*/
+Utilities = {};

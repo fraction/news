@@ -1,0 +1,53 @@
+<template name="sort">
+  <div class="sort">
+    <h3 class="currentView">
+      <div class="dropdown">
+        <span class="dropdown-toggle" data-toggle="dropdown">
+          {{toCapital sortType}} News<span class="caret"></span>
+        </span>
+        <ul class="dropdown-menu" role="menu">
+          <li class="{{activeSort 'hot'}}">
+            <a href="/hot" class="sort"><i class="fa fa-fire"> Hot</i></a>
+          </li>
+          <li class="{{activeSort 'top'}}">
+            <a href="/top/week" class="sort"><i class="fa fa-star"></i> Top</a>
+          </li>
+          <li class="{{activeSort 'recent'}}">
+            <a href="/recent" class="sort">
+              <i class="fa fa-clock-o"></i> Recent</a>
+            </li>
+          <li class="{{activeSort 'random'}}">
+            <a href="/random" class="sort"><i class="fa fa-random"></i> Random</a>
+          </li>
+        </ul>
+      </div>
+      {{#if isSortTop}}
+          <div class="dropdown pull-right">
+            <span class="dropdown-toggle" data-toggle="dropdown">
+              {{toCapital sortTime}}<span class="caret"></span>
+            </span>
+            <ul class="dropdown-menu" role="menu">
+              <li class="{{activeTime 'hour'}}">
+                <a class="time" href="/{{sortType}}/hour">Hour</a>
+              </li>
+              <li class="{{activeTime 'day'}}">
+                <a class="time" href="/{{sortType}}/day">Day</a>
+              </li>
+              <li class="{{activeTime 'week'}}">
+                <a class="time" href="/{{sortType}}/week">Week</a>
+              </li>
+              <li class="{{activeTime 'month'}}">
+                <a class="time" href="/{{sortType}}/month">Month</a>
+              </li>
+              <li class="{{activeTime 'year'}}">
+                <a class="time" href="/{{sortType}}/year">Year</a>
+              </li>
+              <li class="{{activeTime 'ever'}}">
+                <a class="time" href="/{{sortType}}/ever">Ever</a>
+              </li>
+            </ul>
+          </div>
+      {{/if}}
+    </h3>
+  </div>
+</template>

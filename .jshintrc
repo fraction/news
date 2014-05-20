@@ -1,82 +1,29 @@
 {
-    "maxerr"        : 50,
-    "bitwise"       : true,
-    "camelcase"     : true,
-    "curly"         : true,
-    "eqeqeq"        : true,
-    "forin"         : true,
-    "immed"         : false,
-    "indent"        : 2,
-    "latedef"       : false,
-    "newcap"        : false,
-    "noarg"         : true,
-    "noempty"       : true,
-    "nonew"         : false,
-    "plusplus"      : false,
-    "quotmark"      : false,
-    "undef"         : false,
-    "unused"        : true,
-    "strict"        : true,
-    "trailing"      : true,
-    "maxparams"     : false,
-    "maxdepth"      : false,
-    "maxstatements" : false,
-    "maxcomplexity" : false,
-    "maxlen"        : 80,
-    "asi"           : false,
-    "boss"          : false,
-    "debug"         : false,
-    "eqnull"        : false,
-    "es5"           : false,
-    "esnext"        : false,
-    "moz"           : false,
-    "evil"          : false,
-    "expr"          : false,
-    "funcscope"     : false,
-    "globalstrict"  : true,
-    "iterator"      : false,
-    "lastsemic"     : false,
-    "laxbreak"      : false,
-    "laxcomma"      : true,
-    "loopfunc"      : false,
-    "multistr"      : false,
-    "proto"         : false,
-    "scripturl"     : false,
-    "smarttabs"     : false,
-    "shadow"        : false,
-    "sub"           : false,
-    "supernew"      : false,
-    "validthis"     : false,
-    "browser"       : true,
-    "couch"         : false,
-    "devel"         : true,
-    "dojo"          : false,
-    "jquery"        : false,
-    "mootools"      : false,
-    "node"          : false,
-    "nonstandard"   : false,
-    "prototypejs"   : false,
-    "rhino"         : false,
-    "worker"        : false,
-    "wsh"           : false,
-    "yui"           : false,
-    "nomen"         : false,
-    "onevar"        : false,
-    "passfail"      : false,
-    "white"         : false,
-    "globals"       : {
-      "Meteor" : false,          // Meteor
-      "AccountsEntry" : false,   // accounts-entry
-      "Session" : false,         // Meteor
-      "Handlebars" : false,      // Meteor
-      "Template" : false,        // Meteor
-      "$" : false,               // jQuery
-      "Router" : false,          // iron-router
-      "RouteController" : false, // iron-router
-      "_" : false,               // underscore
-      "require" : false,         // define
-      "define" : false           // define
-
-
-    }
+  "maxlen"        : 80,
+  "esnext"        : true,
+  "browser"       : true,
+  "node"          : true,
+  "strict"        : true,
+  "jquery"        : true,
+  "globals"       : {
+    "Meteor" : false,          // Meteor
+    "AccountsEntry" : false,   // accounts-entry
+    "Session" : false,         // Meteor
+    "Handlebars" : false,      // Meteor
+    "Template" : false,        // Meteor
+    "Router" : false,          // iron-router
+    "RouteController" : false, // iron-router
+    "_" : false,               // underscore
+    "require" : false,         // define
+    "define" : false,          // define
+    "Npm" : false,             // Meteor
+    "Package" : false,         // Meteor
+    "Posts" : false,           // fraction-collections
+    "Votes" : false,           // fraction-collections
+    "HackerNews" : false,      // fraction-hacker-news
+    "PostHeat": false,         // fraction-post-heat
+    "Routes" : false,          // fraction-routes
+    "Utilities" : false,       // fraction-utilities
+    "Plugin" : false           // Meteor
+  }
 }

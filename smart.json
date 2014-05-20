@@ -1,14 +1,8 @@
 {
   "packages": {
-    "iron-router": {},
-    "accounts-entry": {},
     "fast-render": {},
+    "iron-router": {},
     "iron-router-progress": {},
-    "bootstrap3-less": {},
-    "power-queue": {},
-    "feedparser": {},
-    "npm": {},
-    "lodash": {},
-    "define": {}
+    "bootstrap3-less": {}
   }
 }
