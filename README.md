@@ -10,10 +10,7 @@ After you install [Node.js](http://nodejs.org/download/), run these commands:
 
 ```sh
 # Download Fraction
-git clone https://github.com/fraction/fraction.git
-
-# Change directories
-cd fraction
+git clone https://github.com/fraction/fraction.git && cd fraction
 
 # Install dependencies
 npm install
