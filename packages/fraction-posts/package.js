@@ -10,6 +10,7 @@ Package.on_use(function (api) {
   api.use('fraction-es6', both);
   api.use('standard-app-packages', both);
   api.use('less', 'client');
+  api.use('fraction-utilities', 'client');
 
   api.add_files('namespace.js', both);
 

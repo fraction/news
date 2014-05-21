@@ -14,6 +14,7 @@ Package.on_use(function (api) {
   api.add_files('lib/shuffle.next.js', both);
   api.add_files('lib/alerts.next.js', 'client');
   api.add_files('lib/session.next.js', 'client');
+  api.add_files('lib/timeSince.next.js', 'client');
 
   api.export('Utilities', both);
 });
