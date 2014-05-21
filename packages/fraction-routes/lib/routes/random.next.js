@@ -4,7 +4,6 @@ Routes.random = {
   name: 'random',
   controller: Routes.Controllers.news,
   path:     '/random',
-  template: 'listPosts',
   waitOn: () => {
     return Meteor.subscribe('recentPosts');
   },

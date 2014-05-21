@@ -4,7 +4,6 @@ Routes.user = {
   name: 'user',
   controller: Routes.Controllers.page,
   path: '/user/:username',
-  template: 'listPosts',
   waitOn: function () {
     return Meteor.subscribe('user', this.params.username);
   },

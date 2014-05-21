@@ -1,9 +1,14 @@
 @import "/packages/fraction-layout/variables.import.less";
 
 .post {
-  padding: 0.5rem;
   background-color: white;
   border-bottom: 1px solid #F9FAFB;
+
+  .media-body {
+    padding: 0.5rem;
+    border-left: 1px solid #EBEFF0;
+    border-right: 1px solid #EBEFF0;
+  }
 
   &.upvoted {
     border-color: @upvote-color;
@@ -30,12 +35,36 @@
     }
   }
 
-  .caption {
+  .postPoints, .postComments {
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    margin-top: 0.2rem;
+    text-align: center;
+    width: 3rem;
+    color: hsl(212, 9%, 59%);
+    font-weight: 200;
+    i {
+      // no idea why this centers the icons
+      width: 0.8rem;
+    }
+  }
 
+  .media {
+    &>.postPoints {
+      margin-right: 0;
+    }
+
+    &>.postComments {
+      margin-left: 0;
+    }
+  }
+
+  .caption {
     .caption-icon {
       display: inline-block;
       margin-right: 0.5rem;
     }
+
     &.author a {
       color: hsl(212, 9%, 59%);
       font-weight: 500;

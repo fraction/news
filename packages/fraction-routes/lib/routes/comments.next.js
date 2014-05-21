@@ -4,12 +4,16 @@ Routes.comments = {
   name: 'comments',
   controller: Routes.Controllers.page,
   path: '/comments/:id',
-  template: 'listPosts',
+  template: 'listComments',
   waitOn: function () {
+    if (Session.equals('sortType', undefined)) {
+      Routes.hot.waitOn();
+      Routes.hot.onAfterAction();
+    }
     return Meteor.subscribe('comments', this.params.id);
   },
   onAfterAction: function () {
-    Session.set('posts', Posts.find({
+    Session.set('comments', Posts.find({
       _id: this.params.id
     }, {
       reactive: false
@@ -17,6 +21,5 @@ Routes.comments = {
 
     Session.set('showComments', true);
     Session.set('currentView', 'Comments');
-    Session.set('sortType', null);
   }
 };

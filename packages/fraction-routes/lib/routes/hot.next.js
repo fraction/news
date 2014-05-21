@@ -4,7 +4,6 @@ Routes.hot = {
   name: 'hot',
   controller: Routes.Controllers.news,
   path:     '/hot',
-  template: 'listPosts',
   waitOn: () => {
     return Meteor.subscribe('hotPosts');
   },

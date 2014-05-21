@@ -3,7 +3,7 @@
     <h3 class="currentView">
       <div class="dropdown">
         <span class="dropdown-toggle" data-toggle="dropdown">
-          {{toCapital sortType}} News<span class="caret"></span>
+          {{toCapital sortType}} <i class="fa fa-angle-down"></i>
         </span>
         <ul class="dropdown-menu" role="menu">
           <li class="{{activeSort 'hot'}}">
@@ -24,7 +24,7 @@
       {{#if isSortTop}}
           <div class="dropdown pull-right">
             <span class="dropdown-toggle" data-toggle="dropdown">
-              {{toCapital sortTime}}<span class="caret"></span>
+              {{toCapital sortTime}} <i class="fa fa-angle-down"></i>
             </span>
             <ul class="dropdown-menu" role="menu">
               <li class="{{activeTime 'hour'}}">

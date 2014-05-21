@@ -1,9 +1,14 @@
 <template name="listPosts">
-  <div class="listPosts">
+  <section class="listPosts col-sm-4 ">
+    {{>sort}}
+
     {{#each session 'posts'}}
       {{> viewPost}}
     {{else}}
-      {{{info 'No posts yet.' 'Just wait a few minutes, surely <em>someone</em> has something to say.'}}}
+      {{{info
+        'No posts yet.'
+        'Just wait a few minutes, surely <em>someone</em> has something to say.'
+      }}}
     {{/each}}
-  </div>
+  </section>
 </template>

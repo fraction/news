@@ -15,19 +15,18 @@ Package.on_use(function (api) {
 
   api.add_files('namespace.js', both);
 
-  api.add_files('lib/methods.next.js', 'server');
   api.add_files('lib/publish.next.js', 'server');
   api.add_files('lib/setHeat.next.js', 'server');
 
   var views = [
-    'createPost.html',
-    'createPost.next.js',
     'listPosts.html',
     'listPosts.less',
     'viewPost.html',
     'viewPost.less',
     'viewPost.next.js',
-    'viewUser.html'
+    'sort.html',
+    'sort.less',
+    'sort.next.js'
   ];
 
   views.forEach(function (view) {

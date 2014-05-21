@@ -4,7 +4,6 @@ Routes.recent = {
   name: 'recent',
   controller: Routes.Controllers.news,
   path:     '/recent',
-  template: 'listPosts',
   waitOn: () => {
     return Meteor.subscribe('recentPosts');
   },

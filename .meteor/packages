@@ -9,7 +9,6 @@ less
 fast-render
 iron-router
 iron-router-progress
-bootstrap3-less
 fraction-posts
 fraction-votes
 fraction-es6
@@ -20,3 +19,4 @@ fraction-twitter
 fraction-comments
 fraction-mediator
 fraction-layout
+bootstrap3-less

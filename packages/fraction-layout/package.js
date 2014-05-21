@@ -15,17 +15,14 @@ Package.on_use(function(api) {
   api.add_files('vendor/font-awesome.css', 'client');
 
   var views = [
-    'footer.html',
-    'footer.less',
     'main.html',
+    'main.less',
     'sidebar.html',
     'sidebar.less',
     'sidebar.next.js',
-    'sort.html',
-    'sort.less',
-    'sort.next.js',
     'layout.html',
-    'layout.less'
+    'layout.less',
+    'empty.html'
   ];
 
   views.forEach(function (view) {

@@ -4,7 +4,6 @@ Routes.top = {
   name: 'top',
   controller: Routes.Controllers.news,
   path:     '/top/:time',
-  template: 'listPosts',
   waitOn: function () {
     var time = this.params.time.toLowerCase();
 
