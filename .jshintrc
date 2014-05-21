@@ -7,23 +7,19 @@
   "jquery"        : true,
   "globals"       : {
     "Meteor" : false,          // Meteor
-    "AccountsEntry" : false,   // accounts-entry
+    "Npm" : false,             // Meteor
+    "Package" : false,         // Meteor
     "Session" : false,         // Meteor
     "Handlebars" : false,      // Meteor
     "Template" : false,        // Meteor
+    "Plugin" : false,          // Meteor
+    "_" : false,               // Meteor
     "Router" : false,          // iron-router
     "RouteController" : false, // iron-router
-    "_" : false,               // underscore
-    "require" : false,         // define
-    "define" : false,          // define
-    "Npm" : false,             // Meteor
-    "Package" : false,         // Meteor
     "Posts" : false,           // fraction-collections
     "Votes" : false,           // fraction-collections
     "HackerNews" : false,      // fraction-hacker-news
-    "PostHeat": false,         // fraction-post-heat
     "Routes" : false,          // fraction-routes
-    "Utilities" : false,       // fraction-utilities
-    "Plugin" : false           // Meteor
+    "Utilities" : false        // fraction-utilities
   }
 }

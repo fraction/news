@@ -8,14 +8,16 @@ Package.on_use(function (api) {
   var both = ['client', 'server'];
 
   api.use('fraction-es6', both);
+  api.use('fraction-utilities', 'client');
+
   api.use('standard-app-packages', both);
   api.use('less', 'client');
-  api.use('fraction-utilities', 'client');
 
   api.add_files('namespace.js', both);
 
   api.add_files('lib/methods.next.js', 'server');
   api.add_files('lib/publish.next.js', 'server');
+  api.add_files('lib/setHeat.next.js', 'server');
 
   var views = [
     'createPost.html',

@@ -1,2 +1,0 @@
-/*global PostHeat:true*/
-PostHeat = {};
