@@ -17,14 +17,14 @@ Package.on_use(function (api) {
   api.add_files('lib/publish.next.js', 'server');
 
   var views = [
-    'users/viewUser.html',
     'createPost.html',
     'createPost.next.js',
     'listPosts.html',
     'listPosts.less',
     'viewPost.html',
     'viewPost.less',
-    'viewPost.next.js'
+    'viewPost.next.js',
+    'viewUser.html'
   ];
 
   views.forEach(function (view) {

@@ -11,23 +11,24 @@ Package.on_use(function(api) {
   api.use('less', 'client');
   api.use('standard-app-packages', both);
 
+  api.add_files('vendor/bootstrap.less', 'client');
+  api.add_files('vendor/font-awesome.css', 'client');
+
   var views = [
-    'vendor/bootstrap.less',
-    'vendor/font-awesome.css',
-    'footer/footer.html',
-    'footer/footer.less',
-    'main/main.html',
-    'sidebar/sidebar.html',
-    'sidebar/sidebar.less',
-    'sidebar/sidebar.next.js',
-    'sort/sort.html',
-    'sort/sort.less',
-    'sort/sort.next.js',
+    'footer.html',
+    'footer.less',
+    'main.html',
+    'sidebar.html',
+    'sidebar.less',
+    'sidebar.next.js',
+    'sort.html',
+    'sort.less',
+    'sort.next.js',
     'layout.html',
     'layout.less'
   ];
 
   views.forEach(function (view) {
-    api.add_files(view, 'client');
+    api.add_files('views/' + view, 'client');
   });
 });
