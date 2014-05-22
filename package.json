@@ -10,10 +10,10 @@
     }
   ],
   "scripts": {
-    "start": "bin/start.sh",
-    "test": "bin/test.sh",
-    "install": "bin/install.sh",
-    "stop": "bin/stop.sh"
+    "preinstall": "curl https://install.meteor.com | /bin/sh",
+    "start": "cd app && mrt --settings settings.json",
+    "stop": "kill `ps ax | grep '[m]eteor' | awk '{print $1}'`",
+    "test": "jshint --exclude-path app/packages/.gitignore app"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,12 @@
     "reddit",
     "meteor"
   ],
+  "dependencies": {
+    "meteorite" : "0.7.x"
+  },
+  "devDependencies" : {
+    "jshint" : "2.5.x"
+  },
   "analyze": false,
   "engines": {
     "node": ">=0.10"

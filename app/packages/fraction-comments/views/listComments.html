@@ -1,10 +1,12 @@
 <template name="listComments">
   <div class="listComments">
 	   {{#if session 'showComments'}}
-	    {{#each oldChildren}}
-	      {{>viewComment}}
+       {{#each session 'comments'}}
+  	    {{#each oldChildren}}
+	       {{>viewComment}}
 	      {{else}}
 	      	{{{info 'No comments yet.' 'Just wait a few minutes, surely <em>someone</em> has something to say.'}}}
+        {{/each}}
 	    {{/each}}
 	   {{/if}}
   </div>
