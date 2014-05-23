@@ -7,8 +7,7 @@ Routes.comments = {
   template: 'listComments',
   waitOn: function () {
     if (Session.equals('sortType', undefined)) {
-      Routes.hot.waitOn();
-      Routes.hot.onAfterAction();
+        Routes.hot.waitOn();
     }
     return Meteor.subscribe('comments', this.params.id);
   },
@@ -21,5 +20,9 @@ Routes.comments = {
 
     Session.set('showComments', true);
     Session.set('currentView', 'Comments');
+
+    if (Session.equals('sortType', undefined)) {
+      Routes.hot.onAfterAction();
+    }
   }
 };
