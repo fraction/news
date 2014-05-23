@@ -24,8 +24,24 @@ If you can't access fraction at [http://localhost:3000](http://localhost:3000), 
 
 ## Contributing
 
-Please use [GitHub Flow](https://guides.github.com/introduction/flow/index.html) to contribute. New to GitHub or git? Check out [GitHub Bootcamp](https://help.github.com/articles/fork-a-repo).
+Please use [GitHub Flow](https://guides.github.com/introduction/flow/index.html) to contribute. [Travis](https://travis-ci.org/fraction/fraction) will test your code for errors when you open a pull request, but you can also test locally with `npm test`. Looking for something to work on? Sometimes [CodeClimate](https://codeclimate.com/github/fraction/fraction/issues) comes up with some great suggestions.
 
-[Travis](https://travis-ci.org/fraction/fraction) will test your code for errors when you open a pull request, but you can also test locally with `npm test`. Looking for something to work on? Sometimes [CodeClimate](https://codeclimate.com/github/fraction/fraction/issues) comes up with some great suggestions.
+Please feel free [open an issue](https://github.com/fraction/fraction/issues/new) if you have any questions or concerns!
 
-Please feel free [open an issue](https://github.com/fraction/fraction/issues/new) if you have any questions!
+## License
+
+```
+Copyright 2014 Christian Bundy
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```

@@ -1,0 +1,15 @@
+<template name="listComments">
+  <section class="listComments">
+    <div class="col-sm-7 col-sm-offset-5">
+	   {{#if session 'showComments'}}
+       {{#each session 'comments'}}
+  	    {{#each oldChildren}}
+	       {{>viewComment}}
+	      {{else}}
+	      	{{{info 'No comments yet.' 'Just wait a few minutes, surely <em>someone</em> has something to say.'}}}
+        {{/each}}
+	    {{/each}}
+	   {{/if}}
+   </div>
+ </section>
+</template>
