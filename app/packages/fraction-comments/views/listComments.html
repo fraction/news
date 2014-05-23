@@ -1,5 +1,6 @@
 <template name="listComments">
-  <div class="listComments">
+  <section class="listComments">
+    <div class="col-sm-7 col-sm-offset-5">
 	   {{#if session 'showComments'}}
        {{#each session 'comments'}}
   	    {{#each oldChildren}}
@@ -9,5 +10,6 @@
         {{/each}}
 	    {{/each}}
 	   {{/if}}
-  </div>
+   </div>
+ </section>
 </template>
