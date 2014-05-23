@@ -24,9 +24,8 @@ If you can't access fraction at [http://localhost:3000](http://localhost:3000), 
 
 ## Contributing
 
-Please use [GitHub Flow](https://guides.github.com/introduction/flow/index.html) to contribute. [Travis](https://travis-ci.org/fraction/fraction) will test your code for errors when you open a pull request, but you can also test locally with `npm test`. Looking for something to work on? Sometimes [CodeClimate](https://codeclimate.com/github/fraction/fraction/issues) comes up with some great suggestions.
+Please use [GitHub Flow](https://guides.github.com/introduction/flow/index.html) to contribute. [Travis](https://travis-ci.org/fraction/fraction) will test your code for errors when you open a pull request, but you can also test locally with `npm test`. Looking for something to work on? Sometimes [CodeClimate](https://codeclimate.com/github/fraction/fraction/issues) has some suggestions. Please feel free [open an issue](https://github.com/fraction/fraction/issues/new) if you have any questions!
 
-Please feel free [open an issue](https://github.com/fraction/fraction/issues/new) if you have any questions or concerns!
 
 ## License
 
