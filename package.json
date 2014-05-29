@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "preinstall": "curl https://install.meteor.com | /bin/sh",
-    "start": "cd app && mrt --settings settings.json",
+    "start": "cd app && mrt",
     "stop": "kill `ps ax | grep '[m]eteor' | awk '{print $1}'`",
     "test": "jshint --exclude-path app/packages/.gitignore app"
   },
