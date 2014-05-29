@@ -20,6 +20,7 @@ Routes.comments = {
 
     Session.set('showComments', true);
     Session.set('currentView', 'Comments');
+    Session.set('currentPost', this.params.id);
 
     if (Session.equals('sortType', undefined)) {
       Routes.hot.onAfterAction();

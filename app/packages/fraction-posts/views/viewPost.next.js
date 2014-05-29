@@ -60,5 +60,12 @@ Template.viewPost.helpers({
     if (this.site === 'hn') {
       return 'http://news.ycombinator.com/';
     }
+  },
+  highlight: function () {
+    if (Session.get('currentPost') === this._id) {
+      return 'highlight';
+    } else {
+      return '';
+    }
   }
 });
