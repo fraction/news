@@ -1,7 +1,7 @@
 <template name="listPosts">
-  <section class="listPosts col-sm-5">
+  <section class="listPosts col-sm-5 col-xs-offset-12 col-sm-offset-0">
     {{>sort}}
-
+    <div class="posts">
     {{#each session 'posts'}}
       {{> viewPost}}
     {{else}}
@@ -10,5 +10,6 @@
         'Just wait a few minutes, surely <em>someone</em> has something to say.'
       }}}
     {{/each}}
+    </div>
   </section>
 </template>

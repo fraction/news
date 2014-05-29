@@ -1,7 +1,18 @@
+@import "/packages/fraction-layout/variables.import.less";
+
 .listComments {
   // weird margin offset with listPosts
-  padding-left: 45px;
-  padding-top: 15px;
+
+  @media @sm {
+    padding-left: 3rem;
+  }
+
+  background-color: #EBEFF0;
+
+  &>div {
+    padding-top: 1rem;
+    background-color: #EBEFF0;
+  }
 
   .indent {
     padding-left: 2rem;

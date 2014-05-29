@@ -4,11 +4,12 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-jquery
-less
+
+bootstrap3-less
 fast-render
 iron-router
 iron-router-progress
+
 fraction-posts
 fraction-votes
 fraction-es6
@@ -19,4 +20,3 @@ fraction-twitter
 fraction-comments
 fraction-mediator
 fraction-layout
-bootstrap3-less
