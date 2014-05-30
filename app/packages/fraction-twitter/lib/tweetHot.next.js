@@ -26,8 +26,7 @@ if (process.env.NODE_ENV === 'production') {
       if (finished === false && (typeof item.tweeted === 'undefined')) {
         twitter.post('statuses/update',
         {
-          status: item.title + "\n" +
-          'http://beta.fraction.io/comments/' + item._id
+          status: item.title + 'http://beta.fraction.io/comments/' + item._id
         }, (err /*, response */) => {
           if (err) {
             throw err;
