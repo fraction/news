@@ -4,9 +4,11 @@ Package.describe({
   summary: "Twitter"
 });
 
-Package.on_use(function (api) {
-  var both = ['client', 'server'];
+Npm.depends({
+  "twit" : "1.1.15"
+});
 
+Package.on_use(function (api) {
   api.use('fraction-es6', 'server');
   api.use('fraction-posts', 'server');
 
