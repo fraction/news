@@ -11,7 +11,7 @@ Npm.depends({
 Package.on_use(function (api) {
   var both = ['client', 'server'];
 
-  api.use('fraction-es6', both);
+  api.use('harmony');
   api.use('fraction-posts', 'server');
 
   api.add_files('namespace.js');

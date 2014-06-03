@@ -6,13 +6,12 @@
 standard-app-packages
 
 bootstrap3-less
-fast-render
 iron-router
 iron-router-progress
+fast-render
 
 fraction-posts
 fraction-votes
-fraction-es6
 fraction-utilities
 fraction-routes
 fraction-hacker-news

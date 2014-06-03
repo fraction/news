@@ -7,7 +7,7 @@ Package.describe({
 Package.on_use(function(api) {
   var both = ['client', 'server'];
 
-  api.use('fraction-es6', both);
+  api.use('harmony');
   api.use('less', 'client');
   api.use('standard-app-packages', both);
 

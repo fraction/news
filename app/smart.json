@@ -1,5 +1,6 @@
 {
   "packages": {
+    "harmony" : {},
     "fast-render": {},
     "iron-router": {},
     "iron-router-progress": {},

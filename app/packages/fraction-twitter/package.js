@@ -9,7 +9,7 @@ Npm.depends({
 });
 
 Package.on_use(function (api) {
-  api.use('fraction-es6', 'server');
+  api.use('harmony');
   api.use('fraction-posts', 'server');
 
   api.add_files('lib/tweetHot.next.js', 'server');

@@ -2,12 +2,18 @@
   "meteor": {},
   "dependencies": {
     "basePackages": {
+      "harmony": {},
       "fast-render": {},
       "iron-router": {},
       "iron-router-progress": {},
       "bootstrap3-less": {}
     },
     "packages": {
+      "harmony": {
+        "git": "https://github.com/mquandalle/meteor-harmony.git",
+        "tag": "v1.0.1+0.0.42",
+        "commit": "cf5b3ee2579dcbc1db3bfb46bc1deb01bb118b30"
+      },
       "fast-render": {
         "git": "https://github.com/arunoda/meteor-fast-render.git",
         "tag": "v0.2.5",

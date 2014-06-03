@@ -7,8 +7,8 @@ Package.describe({
 Package.on_use(function (api) {
   var both = ['client', 'server'];
 
+  api.use('harmony');
   api.use('fraction-posts', both);
-  api.use('fraction-es6', both);
   api.use('standard-app-packages', both);
 
   api.add_files('namespace.js', both);
