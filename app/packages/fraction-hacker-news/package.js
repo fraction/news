@@ -5,7 +5,7 @@ Package.describe({
 });
 
 Npm.depends({
-  "hacker-news-api" : "1.1.6"
+  "hacker-news-api" : "1.3.1"
 });
 
 Package.on_use(function (api) {
