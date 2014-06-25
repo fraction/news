@@ -12,7 +12,7 @@
   "scripts": {
     "preinstall": "curl https://install.meteor.com | /bin/sh",
     "start": "cd app && mrt",
-    "stop": "kill `ps ax | grep '[m]eteor' | awk '{print $1}'`",
+    "stop": "kill-meteor",
     "test": "jshint --exclude-path app/packages/.gitignore app"
   },
   "repository": {
@@ -30,7 +30,8 @@
     "meteor"
   ],
   "dependencies": {
-    "meteorite" : "0.7.x"
+    "meteorite" : "0.7.x",
+    "kill-meteor" : "1.0.x"
   },
   "devDependencies" : {
     "jshint" : "2.5.x"
