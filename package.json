@@ -1,13 +1,10 @@
 {
   "name": "fraction.io",
   "version": "0.22.0",
-  "author": "Christian Bundy",
+  "author": "Fraction <us@fraction.io> (http://fraction.io/)",
   "description": "Your personalized community aggregator.",
   "contributors": [
-    {
-      "name": "Christian Bundy",
-      "email": "me@christianbundy.com"
-    }
+    "Christian Bundy <me@christianbundy.com> (http://christianbundy.com/)"
   ],
   "scripts": {
     "preinstall": "curl https://install.meteor.com | /bin/sh",
