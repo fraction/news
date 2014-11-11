@@ -1,4 +1,4 @@
-# Fraction News [![Build Status](http://img.shields.io/travis/fraction/fraction.svg)](https://travis-ci.org/fraction/fraction) [![Code Climate](http://img.shields.io/codeclimate/github/fraction/fraction.svg)](https://codeclimate.com/github/fraction/fraction)
+# Fraction News [![Build Status](http://img.shields.io/travis/fraction/news.svg)](https://travis-ci.org/fraction/news) [![Code Climate](http://img.shields.io/codeclimate/github/fraction/fraction.svg)](https://codeclimate.com/github/fraction/news)
 
 Your personalized community aggregator.
 
